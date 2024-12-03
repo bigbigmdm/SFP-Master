@@ -11,4 +11,4 @@ SFP-module data programmer for CH341a devices
 
 - See more details [here](https://github.com/bigbigmdm/Tools_for_CH341A_programmer?tab=readme-ov-file#Homemade-Chip-adapters).
 
-Jumpers J1 to J3 must be installed initially. They are used to supply power to the SFP module. If you want to programme a module with hardware write protection, remove one of the jumpers and try to programme the module. If it fails, remove the other jumper and repeat the operation.
+Jumpers J1 to J3 must be installed initially. They are used to supply power to the SFP module. If you want to programm a module with hardware write protection, remove one of the jumpers and try to programm the module. If it fails, remove the other jumper and repeat the operation.
