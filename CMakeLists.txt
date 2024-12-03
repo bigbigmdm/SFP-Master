@@ -1,0 +1,100 @@
+cmake_minimum_required(VERSION 3.10.0)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+project(SFP-Master LANGUAGES C CXX)
+
+# Set the CMAKE_INSTALL_PREFIX to /usr if not specified
+if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+      set(CMAKE_INSTALL_PREFIX "/usr/local" CACHE PATH "The default install prefix on macOS" FORCE)
+  # Set Qt5 path for macOS
+  	set(CMAKE_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}/opt/qt@5" CACHE PATH "Path to Qt5 on macOS" FORCE)
+  else()
+      set(CMAKE_INSTALL_PREFIX "/usr" CACHE PATH "The default install prefix" FORCE)
+  endif()
+endif()
+
+# Set the CMAKE_INSTALL_BINDIR to /bin if not specified
+if(NOT DEFINED CMAKE_INSTALL_BINDIR)
+  set(CMAKE_INSTALL_BINDIR "bin" CACHE PATH "user executables (bin)")
+endif()
+
+# Set the CMAKE_INSTALL_DATAROOTDIR to /share if not specified
+if(NOT DEFINED CMAKE_INSTALL_DATAROOTDIR)
+  set(CMAKE_INSTALL_DATAROOTDIR "share" CACHE PATH "read-only architecture-independent data root (share)")
+endif()
+
+# Set the CMAKE_INSTALL_LIBDIR to /lib if not specified
+if(NOT DEFINED CMAKE_INSTALL_LIBDIR)
+  set(CMAKE_INSTALL_LIBDIR "/lib" CACHE PATH "read-only single-machine data (lib)")
+endif()
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt5Widgets REQUIRED)
+find_package(LibUSB REQUIRED)
+
+if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+set(UDEVDIR "/usr/lib/udev")
+if (CMAKE_INSTALL_PREFIX STREQUAL "/usr" OR CMAKE_INSTALL_PREFIX STREQUAL "/" )
+# /usr and / install prefixes at treated by cmake GNUInstallDirs as
+# synonym for "system location". In this case we can look up the correct udevdir
+# using pkg-config.
+# See: https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html#special-cases
+find_package(PkgConfig)
+  if (PKG_CONFIG_FOUND)
+    pkg_check_modules( PKGCONFIG_UDEV udev)
+    if (PKGCONFIG_UDEV_FOUND)
+      execute_process(
+        COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=udevdir udev
+          OUTPUT_VARIABLE PKGCONFIG_UDEVDIR
+          OUTPUT_STRIP_TRAILING_WHITESPACE
+      )
+      if(PKGCONFIG_UDEVDIR)
+        file(TO_CMAKE_PATH "${PKGCONFIG_UDEVDIR}" UDEVDIR)
+      endif()
+    endif()
+  endif()
+endif()
+endif()
+# Qt5LinguistTools
+find_package(Qt5 REQUIRED COMPONENTS LinguistTools)
+
+add_executable(${PROJECT_NAME}
+main.cpp
+mainwindow.cpp
+qhexedit.cpp
+chunks.cpp
+commands.cpp
+dialogabout.cpp
+dialogpass.cpp
+ch341funcs.c
+mainwindow.h
+qhexedit.h
+chunks.h
+commands.h
+dialogpass.h
+ch341eeprom.h
+dialogabout.h
+mainwindow.ui
+resource.qrc
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(${PROJECT_NAME} Qt5::Core)
+target_link_libraries(${PROJECT_NAME} Qt5::Widgets ${LibUSB_LIBRARIES})
+
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/SFP-Master.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps")
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
+if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/71-CH341.rules" DESTINATION "${UDEVDIR}/rules.d")
+endif()
+

@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=SFP-Master
+Icon=/usr/share/pixmaps/SFP-Master.png
+Exec=/usr/bin/SFP-Master
+Path=/usr/bin/
+NoDisplay=false
+Categories=Electronics;Development;
+StartupNotify=true
+Terminal=false
+Comment=SFP-module programmer for CH341a devices
+Comment[en]=SFP-module programmer for CH341a devices
+Comment[ru]=Программатор SFP-модулей для CH341a
+GenericName=SFP-module programmer for CH341a devices
+GenericName[en]=SFP-module programmer for CH341a devices
+GenericName[ru]=Программатор SFP-модулей для CH341a
+Keywords=SFP;Programmer;CH341A;
+Keywords[en]=SFP;Programmer;CH341A;
+Keywords[ru]=SFP;Программатор;CH341A;
