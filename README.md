@@ -36,10 +36,10 @@ On older:
 
 `sudo apt-get install udev`
 
-For compilling and installing the SFP-Master type:
+To build and install the SFP-Master enter:
 
-`sudo ./builb_all.sh`
+`sudo ./build_all.sh`
 
-For uninstalling type:
+To uninstall, enter:
 
 `sudo ./uninstall.sh`
