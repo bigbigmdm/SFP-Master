@@ -21,7 +21,6 @@
 #include <QFile>
 #include <QFileDialog>
 #include "qhexedit.h"
-#include "searchdialog.h"
 #include <QCryptographicHash>
 #include "dialogpass.h"
 extern "C" {
