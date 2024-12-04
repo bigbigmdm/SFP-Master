@@ -13,7 +13,7 @@ SFP-module data programmer for CH341a devices
 
 Jumpers J1 to J3 must be installed initially. They are used to supply power to the SFP module. If you want to programm a module with hardware write protection, remove one of the jumpers and try to programm the module. If it fails, remove the other jumper and repeat the operation.
 
-### Linux
+# Installing in Linux
 
 For build are needed:
 - g++ or clang
@@ -43,3 +43,11 @@ To build and install the SFP-Master enter:
 To uninstall, enter:
 
 `sudo ./uninstall.sh`
+
+## Connection
+
+To work with the programmer, connect the SFP module to the connector in the SFP adapter, connect the SFP adapter to the CH341A programmer device to the slot marked `24xx`. Connect the CH341A Programmer Unit to the USB connector of the computer and start the `SFP-Master' programm.
+
+## How to use
+
+
