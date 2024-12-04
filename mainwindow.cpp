@@ -48,6 +48,8 @@ MainWindow::MainWindow(QWidget *parent) :
     hexEdit->setAddressFontColor(defaultTextColor);
     hexEdit->setHexFontColor(defaultTextColor);
     hexEdit->setFont(heFont);
+    ui->statusBar->addPermanentWidget(ui->lStatus,0);
+    ui->statusBar->addPermanentWidget(ui->eStatus,0);
     ui->statusBar->addPermanentWidget(ui->cLabel,0);
     ui->statusBar->addPermanentWidget(ui->crcEdit,0);
     ui->comboBox_wavelength->addItem(" ", 0);
@@ -107,6 +109,13 @@ MainWindow::MainWindow(QWidget *parent) :
     pass[3] = {3, "SNR-2"  , 0x17b, 0x44554455};
     pass[4] = {4, "User"   , 0x17b,      0    };
     currentPass  = pass[0];
+    // connect and status check
+    statusCh341a = ch341aConnect();
+    ch341StatusFlashing();
+    ch341aShutdown();
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
+    timer->start(2000);
 }
 
 MainWindow::~MainWindow()
@@ -611,6 +620,7 @@ int MainWindow::calcSize()
 
 void MainWindow::on_actionRead_SFP_triggered()
 {
+    doNotDisturb();
     int size = calcSize();
     int res = 0;
     int i = 0;
@@ -618,10 +628,12 @@ void MainWindow::on_actionRead_SFP_triggered()
     buf = (uint8_t *)malloc(static_cast<unsigned long>(0x200));
     for (i=0; i < 0x200; i++) buf[i] = 0xff;
     statusCh341a = ch341aConnect();
+    ch341StatusFlashing();
     if (statusCh341a != 0)
       {
           QMessageBox::about(this, tr("Error"), tr("Programmer CH341a is not connected!"));
           ch341aShutdown();
+          doNotDisturbCancel();
           return;
       }
     else
@@ -640,12 +652,14 @@ void MainWindow::on_actionRead_SFP_triggered()
             on_pushButton_parsing_clicked();
 
         ch341aShutdown();
+        doNotDisturbCancel();
     }
 
 }
 
 void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
 {
+    doNotDisturb();
     int size = calcSize();
     int res = 0;
     int i = 0;
@@ -654,10 +668,12 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
     for (i=0; i < 0x200; i++) buf[i] = 0xff;
     if (currentPass.id > 0) writePassword();
     statusCh341a = ch341aConnect();
+    ch341StatusFlashing();
     if (statusCh341a != 0)
       {
           QMessageBox::about(this, tr("Error"), tr("Programmer CH341a is not connected!"));
           ch341aShutdown();
+          doNotDisturbCancel();
           return;
       }
     else
@@ -674,6 +690,7 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
             return;
         }
         ch341aShutdown();
+        doNotDisturbCancel();
     }
 }
 
@@ -696,6 +713,7 @@ void MainWindow::writePassword()
         buf[3] = static_cast<uint8_t>(currentPass.password & 0xff);
 
            statusCh341a = ch341aConnect();
+           ch341StatusFlashing();
            if (statusCh341a != 0)
              {
                  QMessageBox::about(this, tr("Error"), tr("Programmer CH341a is not connected!"));
@@ -766,6 +784,74 @@ void MainWindow::on_actionAbout_triggered()
  {
      hexEdit->redo();
  }
+
+ void MainWindow::resizeEvent(QResizeEvent* event)
+ {
+    QMainWindow::resizeEvent(event);
+    hexEdit->setGeometry(0,0,ui->frame->width(),ui->frame->height());
+ }
+
+ void MainWindow::ch341StatusFlashing()
+ {
+     if (statusCh341a == 0)
+     {
+         ui->eStatus->setText(tr("Connected"));
+         ui->eStatus -> setStyleSheet("QLineEdit {border: 2px solid gray;border-radius: 5px;color:#000;background:#9f0;font-weight:600;border-style:inset;}");
+     }
+     else
+     {
+         ui->eStatus->setText(tr("Not connected"));
+         ui->eStatus -> setStyleSheet("QLineEdit {border: 2px solid gray;border-radius: 5px;color:#fff;background:#f00;font-weight:600;border-style:inset;}");
+     }
+ }
+
+ void MainWindow::slotTimerAlarm()
+ {
+         statusCh341a = ch341aConnect();
+         ch341StatusFlashing();
+         ch341aShutdown();
+ }
+
+ void MainWindow::doNotDisturb()
+ {
+    ui->actionLoad->setDisabled(true);
+
+    ui->actionSave->setDisabled(true);
+    ui->actionRead_SFP->setDisabled(true);
+    ui->actionWrite_to_SFP->setDisabled(true);
+    ui->actionSet_module_password->setDisabled(true);
+    ui->actionAbout->setDisabled(true);
+    ui->actionUndo->setDisabled(true);
+    ui->actionRedo->setDisabled(true);
+
+    ui->pushButton_magic->blockSignals(true);
+    ui->pushButton_parsing->blockSignals(true);
+    ui->pushButton_checksum->blockSignals(true);
+
+    hexEdit->blockSignals(true);
+    timer->stop();
+ }
+
+ void MainWindow::doNotDisturbCancel()
+ {
+     ui->actionLoad->setDisabled(false);
+
+     ui->actionSave->setDisabled(false);
+     ui->actionRead_SFP->setDisabled(false);
+     ui->actionWrite_to_SFP->setDisabled(false);
+     ui->actionSet_module_password->setDisabled(false);
+     ui->actionAbout->setDisabled(false);
+     ui->actionUndo->setDisabled(false);
+     ui->actionRedo->setDisabled(false);
+
+     ui->pushButton_magic->blockSignals(false);
+     ui->pushButton_parsing->blockSignals(false);
+     ui->pushButton_checksum->blockSignals(false);
+
+     hexEdit->blockSignals(false);
+     timer->start();
+ }
+
 //*****************************************************
 //       HEX ULTLITY by Mikhail Medvedev
 //*****************************************************

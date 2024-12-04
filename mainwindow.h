@@ -20,6 +20,8 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QFileDialog>
+#include <QTime>
+#include <QTimer>
 #include "qhexedit.h"
 #include <QCryptographicHash>
 #include "dialogpass.h"
@@ -76,6 +78,11 @@ private slots:
     void on_actionAbout_triggered();
     void on_actionUndo_triggered();
     void on_actionRedo_triggered();
+    void resizeEvent(QResizeEvent* event);
+    void ch341StatusFlashing();
+    void slotTimerAlarm();
+    void doNotDisturb();
+    void doNotDisturbCancel();
 
 private:
     int statusCh341a;
@@ -96,6 +103,7 @@ private:
     void writePassword();
     uint_least32_t Crc32(QByteArray &buf, size_t len);
     int calcSize();
+    QTimer *timer;
 
 public:
     struct libusb_device_handle *devHandle;
