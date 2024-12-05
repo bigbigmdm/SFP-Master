@@ -59,7 +59,7 @@ Programmer Unit to the USB connector of the computer and start the `SFP-Master` 
 The hexadecimal chip editor (right side of the screen) is used to display and 
 modify buffer data.
 
-It contains the following controls: `Hex-Editor / Undo` or ![Undo](img/undo.png) or `<Ctrl+Z>` undo and 
+It contains the following controls: `Hex-Editor / Undo` or ![Undo](img/undo64.png) or `<Ctrl+Z>` undo and 
 `Hex-Editor / Redo` or ![Redo](img/redo64.png) or `<Ctrl+Y>` redo.
 
 - Pressing `SFP-module / Read from SFP` or ![Read](img/read64.png) or `<Ctrl+R>` to read data from 
