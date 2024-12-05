@@ -56,6 +56,12 @@ the SFP adapter to the CH341A programmer device to the slot marked `24xx`. Conne
 Programmer Unit to the USB connector of the computer and start the `SFP-Master` programm.
 
 ## How to use
+The hexadecimal chip editor (right side of the screen) is used to display and 
+modify buffer data.
+
+It contains the following controls: `Hex-Editor / Undo` or ![Undo](img/undo.png) or `<Ctrl+Z>` undo and 
+`Hex-Editor / Redo` or ![Redo](img/redo64.png) or `<Ctrl+Y>` redo.
+
 - Pressing `SFP-module / Read from SFP` or ![Read](img/read64.png) or `<Ctrl+R>` to read data from 
 the SFP-module into the computer buffer.
 - Pressing `SFP-module / Write to SFP` or ![Write](img/write64.png) or `<Ctrl+W>` to write data from the 
@@ -66,8 +72,16 @@ the password setting menu for modules that are password protected.
 checkbox is used for addresses 0x180 - 0x1FF, red for 0x100 - 0x17F, blue for 0x080 - 0x0FF, and
 green for 0x000 - 0x07F (always checked).
 
+The `Parse` button is used to re-parse hexadecimal data in the hex editor, if they have been changed manually.
+
+The `Checksum` button is used to calculate two checksums (addresses 0x03F and 0x05F according to SFF-8472 Rev 12.3), 
+if the module data have been changed manually in the hex editor.
+
+Changing the data on the left side of the screen automatically causes the data to be changed in the hex editor.
+
 - The `File / Save` or ![Save](img/save64.png) or `<Ctrl+S>` button is used to save the 
 computer buffer to a file.
 - The `File / Open`  or ![Open](img/open64.png) or `<Ctrl+O>` button is used to save the file in 
 the computer buffer.
 - The `File / Exit`  or ![Open](img/exit64.png) or `<Ctrl+X>` button is used to close the program. 
+
