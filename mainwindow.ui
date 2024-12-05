@@ -855,7 +855,7 @@
      <normaloff>:/res/img/open64.png</normaloff>:/res/img/open64.png</iconset>
    </property>
    <property name="text">
-    <string>Open</string>
+    <string>Open the file on a computer</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -869,6 +869,9 @@
    <property name="text">
     <string>Save</string>
    </property>
+   <property name="toolTip">
+    <string>Save the image of the SFP module on your computer</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
    </property>
@@ -881,6 +884,9 @@
    <property name="text">
     <string>Read from SFP</string>
    </property>
+   <property name="toolTip">
+    <string>Reading data from the SFP module</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
    </property>
@@ -892,6 +898,9 @@
    </property>
    <property name="text">
     <string>Write to SFP</string>
+   </property>
+   <property name="toolTip">
+    <string>Writing data to the SFP module</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+W</string>
@@ -912,6 +921,9 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+   <property name="toolTip">
+    <string>About SFP-Master</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+A</string>
@@ -948,6 +960,9 @@
    </property>
    <property name="text">
     <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exiting the programm</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
