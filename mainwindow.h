@@ -83,6 +83,7 @@ private slots:
     void slotTimerAlarm();
     void doNotDisturb();
     void doNotDisturbCancel();
+    void on_actionExit_triggered();
 
 private:
     int statusCh341a;

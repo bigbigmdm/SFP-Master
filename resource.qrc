@@ -9,5 +9,6 @@
         <file>img/adapter.png</file>
         <file>img/redo64.png</file>
         <file>img/undo64.png</file>
+        <file>img/exit64.png</file>
     </qresource>
 </RCC>

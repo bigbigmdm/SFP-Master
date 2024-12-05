@@ -852,6 +852,12 @@ void MainWindow::on_actionAbout_triggered()
      timer->start();
  }
 
+ void MainWindow::on_actionExit_triggered()
+ {
+      ch341aShutdown();
+      MainWindow::close();
+ }
+
 //*****************************************************
 //       HEX ULTLITY by Mikhail Medvedev
 //*****************************************************
@@ -1005,3 +1011,4 @@ QString MainWindow::hexiAddr(uint32_t add)
    rez = bytePrint(A) + bytePrint(B) + bytePrint(C) + bytePrint(D);
    return rez;
 }
+
