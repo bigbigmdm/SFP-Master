@@ -49,5 +49,7 @@ To uninstall, enter:
 To work with the programmer, connect the SFP module to the connector in the SFP adapter, connect the SFP adapter to the CH341A programmer device to the slot marked `24xx`. Connect the CH341A Programmer Unit to the USB connector of the computer and start the `SFP-Master` programm.
 
 ## How to use
+- Pressing `File / Read` or ![Read](img/read64.png) or `<Ctrl+R>` to read data from 
+the SFP-module into the computer buffer.
 
 
