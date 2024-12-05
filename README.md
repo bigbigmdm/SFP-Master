@@ -70,4 +70,4 @@ green for 0x000 - 0x07F (always checked).
 computer buffer to a file.
 - The `File / Open`  or ![Open](img/open64.png) or `<Ctrl+O>` button is used to save the file in 
 the computer buffer.
-- The `File / Exit`  or ![Open](img/exit64.png) or `<Ctrl+O>` button is used to close the program. 
+- The `File / Exit`  or ![Open](img/exit64.png) or `<Ctrl+X>` button is used to close the program. 
