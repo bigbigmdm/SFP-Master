@@ -60,8 +60,14 @@ Programmer Unit to the USB connector of the computer and start the `SFP-Master` 
 the SFP-module into the computer buffer.
 - Pressing `SFP-module / Write to SFP` or ![Write](img/write64.png) or `<Ctrl+W>` to write data from the 
 computer buffer into the SFP-module.
+- Press `SFP Module / Set Module Password` or ![Password](img/password64.png) or `<Ctrl+P>` to bring up
+the password setting menu for modules that are password protected.
+- The checkboxes are used to select the address area for read, write or save procedures. The yellow
+checkbox is used for addresses 0x180 - 0x1FF, red for 0x100 - 0x17F, blue for 0x080 - 0x0FF, and
+green for 0x000 - 0x07F (always checked).
+
 - The `File / Save` or ![Save](img/save64.png) or `<Ctrl+S>` button is used to save the 
 computer buffer to a file.
 - The `File / Open`  or ![Open](img/open64.png) or `<Ctrl+O>` button is used to save the file in 
 the computer buffer.
-- 
+- The `File / Exit`  or ![Open](img/exit64.png) or `<Ctrl+O>` button is used to close the program. 
