@@ -49,6 +49,9 @@ FORMS += \
     dialogabout.ui \
     dialogpass.ui
 
+TRANSLATIONS += language/SFP-Master_ru_RU.ts \
+         language/SFP-Master_it_IT.ts
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

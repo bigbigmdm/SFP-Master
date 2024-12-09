@@ -855,7 +855,7 @@
      <normaloff>:/res/img/open64.png</normaloff>:/res/img/open64.png</iconset>
    </property>
    <property name="text">
-    <string>Open the file on a computer</string>
+    <string>Open</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
@@ -912,7 +912,10 @@
      <normaloff>:/res/img/password64.png</normaloff>:/res/img/password64.png</iconset>
    </property>
    <property name="text">
-    <string>Set module password</string>
+    <string>Set SFP-module password</string>
+   </property>
+   <property name="toolTip">
+    <string>Set SFP-module password for writing data</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>

@@ -1,5 +1,3 @@
-#include "mainwindow.h"
-#include <QApplication>
 /*
  * Copyright (C) 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
  *
@@ -14,6 +12,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+#include "mainwindow.h"
+#include <QApplication>
+#include <QTranslator>
+
 int main(int argc, char *argv[])
 {
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -23,6 +25,10 @@ int main(int argc, char *argv[])
     //font.setPointSize(12);
     //QApplication::setFont(font);
     QApplication a(argc, argv);
+    QTranslator translator;
+        QString translateName = "SFP-Master_" + QLocale::system().name();
+        if(translator.load(translateName, "/usr/share/sfp-master/")) a.installTranslator(&translator);
+        a.installTranslator(&translator);
     MainWindow w;
     w.show();
 

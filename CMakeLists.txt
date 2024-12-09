@@ -64,8 +64,17 @@ find_package(PkgConfig)
   endif()
 endif()
 endif()
+
 # Qt5LinguistTools
 find_package(Qt5 REQUIRED COMPONENTS LinguistTools)
+
+# Translation files
+set(TS_FILES
+    language/SFP-Master_ru_RU.ts
+)
+
+qt5_add_translation(QM_FILES ${TS_FILES})
+add_custom_target(translations DEPENDS ${QM_FILES})
 
 add_executable(${PROJECT_NAME}
 main.cpp
@@ -85,6 +94,7 @@ ch341eeprom.h
 dialogabout.h
 mainwindow.ui
 resource.qrc
+${QM_FILES}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
@@ -95,6 +105,8 @@ install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/SFP-Master.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.1.gz" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/man/man1")
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/io.github.bigbigmdm.sfp-master.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo")
+install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/sfp-master")
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/71-CH341.rules" DESTINATION "${UDEVDIR}/rules.d")
 endif()
