@@ -17,7 +17,7 @@ the CH341a programmer.
 
 - See more details [here](https://github.com/bigbigmdm/Tools_for_CH341A_programmer?tab=readme-ov-file#Homemade-Chip-adapters).
 
-The OSHWLAB project of this adapter is [here](https://oshwlab.com/einkreader/ch341a_sfp_adapter)
+The OSHWLAB project of this adapter is [here](https://oshwlab.com/einkreader/ch341a_sfp_adapter).
 
 Jumpers J1 to J3 (TxPWR, RxPWR, TxEN) must be installed initially. They are used
 to supply power to the SFP module. If you want to programm a module with 
@@ -106,17 +106,18 @@ close the program.
 ## Licensing
 
 Copyright (C) 2023 - 2024 Mikhail Medvedev. 
-This project use [GPL-3+ License](https://www.gnu.org/licenses/gpl-3.0.html), 
-some parts taken from project [SNANDer](https://github.com/McMCCRU/SNANDer/commits?author=McMCCRU) 
-are [GPL-2+](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) and from 
-[QHexEdit2](https://github.com/Simsys/qhexedit2) is [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html). 
+This project and [ch341prog](https://github.com/setarcos/ch341prog) use 
+[GPL-3+ License](https://www.gnu.org/licenses/gpl-3.0.html), 
+some parts taken from project [QHexEdit2](https://github.com/Simsys/qhexedit2) 
+is [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html). 
 
 ## Translations
 
 - Italian translation by [Giovanni Scafora](https://github.com/giovanni69)
 
 Anyone can add or improve a translation by making a pull request.
-Translations files are located in: [language/](https://github.com/bigbigmdm/SFP-Master/tree/main/language) 
+Translations files are located in:
+[language/](https://github.com/bigbigmdm/SFP-Master/tree/main/language) 
 
-You can also add translation to the desktop file ([SFP-Master.desktop](https://github.com/bigbigmdm/SFP-Master/blob/main/other/SFP-Master.desktop).
+You can also add translation to the desktop file ([SFP-Master.desktop](https://github.com/bigbigmdm/SFP-Master/blob/main/other/SFP-Master.desktop)).
 
