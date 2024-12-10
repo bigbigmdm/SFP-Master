@@ -106,6 +106,7 @@ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/SFP-Master.png" DESTINATION "${CM
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.1.gz" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/man/man1")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/io.github.bigbigmdm.sfp-master.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo")
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.pdf" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/doc/sfp-master/pdf")
 install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/sfp-master")
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/71-CH341.rules" DESTINATION "${UDEVDIR}/rules.d")
