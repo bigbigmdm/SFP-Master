@@ -71,6 +71,7 @@ find_package(Qt5 REQUIRED COMPONENTS LinguistTools)
 # Translation files
 set(TS_FILES
     language/SFP-Master_ru_RU.ts
+    language/SFP-Master_it_IT.ts
 )
 
 qt5_add_translation(QM_FILES ${TS_FILES})
