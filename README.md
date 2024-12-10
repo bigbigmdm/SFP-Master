@@ -55,6 +55,8 @@ To work with the programmer, connect the SFP module to the connector in the SFP 
 the SFP adapter to the CH341A programmer device to the slot marked `24xx`. Connect the CH341A 
 Programmer Unit to the USB connector of the computer and start the `SFP-Master` programm.
 
+![Connection](img/connection.jpg)
+
 # How to use
 The hexadecimal chip editor (right side of the screen) is used to display and 
 modify buffer data.
