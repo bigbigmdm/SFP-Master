@@ -131,5 +131,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 %license LICENSE
 
 %changelog
+* Thu Dec 12 2024 Mikhail Medvedev 1.0.2-1
+- Added Italian translation by Giovanni Scafora. 
+- Fix errors in RPM spec file. 
+- Added changelog file.
 * Tue Dec 10 2024 Mikhail Medvedev 1.0.1-1
 - initial release
