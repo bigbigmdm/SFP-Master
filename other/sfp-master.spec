@@ -13,7 +13,7 @@
 # GNU General Public License for more details.
 
 Name: sfp-master
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%dist
 
 Summary: Reading, writing SFP modules data
