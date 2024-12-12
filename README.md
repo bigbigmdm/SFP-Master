@@ -114,7 +114,7 @@ close the program.
 
 ## Packages
 
-- For some versions of Fedora, you can use the official repositories.
+- For some versions of Fedora, you can use the COPR repositories.
 ```
 sudo dnf install dnf-plugins-core
 sudo dnf copr enable bigmdm/sfp-master
