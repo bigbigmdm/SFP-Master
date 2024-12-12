@@ -113,6 +113,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 /usr/lib/udev/rules.d/*.rules
 %_datadir/pixmaps/SFP-Master.png
 %_datadir/man/man1/*.1.*
+%_datadir/sfp-master/*.qm
 %license LICENSE
 
 %changelog
