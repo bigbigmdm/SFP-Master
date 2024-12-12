@@ -92,7 +92,7 @@ SFP-Master 是用于 CH341a 设备的光学 SFP 模块的免费编程软件。�
 
 %build
 # update translations
-lrelease-qt5 /language/*.ts
+lrelease-qt5 language/*.ts
 
 %cmake -DCMAKE_INSTALL_SYSCONFDIR=%_sysconfdir
 %cmake_build
