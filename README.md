@@ -1,4 +1,13 @@
 # SFP-Master
+
+* [Installing in Linux](#installing in Linux)
+* [Connection](#connection)
+* [How to use](#how-to-use)
+* [Packages](#packages)
+* [Changelog](ChangeLog)
+* [Licensing](#Licensing)
+* [Translations](#Translations)
+
 SFP-module data programmer for CH341a devices
 
 ![SFP-Master](img/screenshot.png) 
@@ -102,6 +111,15 @@ save the computer buffer to a file.
 save the file in the computer buffer.
 - The `File / Exit`  or ![Open](img/exit64.png) or `<Ctrl+X>` button is used to 
 close the program. 
+
+## Packages
+
+- For some versions of Fedora, you can use the official repositories.
+```
+sudo dnf install dnf-plugins-core
+sudo dnf copr enable bigmdm/sfp-master
+sudo dnf install sfp-master
+``` 
 
 ## Licensing
 
