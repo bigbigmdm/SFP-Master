@@ -91,14 +91,14 @@ computer buffer into the SFP-module.
  `<Ctrl+P>` to bring up
 the password setting menu for modules that are password protected.
 - The checkboxes are used to select the address area for read, write or save
- procedures.
+ procedures:
  
-| Checkbox colour |      SFP-Master address     | Real SFP address |
-| :---            |            :---:            |       :---:      |
-| Green           | 0x0000 - 0x007F (Alwais on) |  0xA000 - 0xA07F |
-| Blue            | 0x0080 - 0x00FF             |  0xA080 - 0xA0FF |
-| Red             | 0x0100 - 0x017F             |  0xA200 - 0xA27F |
-| Yellow          | 0x0180 - 0x01FF             |  0xA280 - 0xA2FF |
+|  Checkbox colour  | SFP-Master address | Real SFP address |
+| :---              |       :---:        |       :---:      |
+| Green (Alwais on) |   0x0000 - 0x007F  |  0xA000 - 0xA07F |
+| Blue              |   0x0080 - 0x00FF  |  0xA080 - 0xA0FF |
+| Red               |   0x0100 - 0x017F  |  0xA200 - 0xA27F |
+| Yellow            |   0x0180 - 0x01FF  |  0xA280 - 0xA2FF |
 
 The `Parse` button is used to re-parse hexadecimal data in the hex editor, if 
 they have been changed manually.
