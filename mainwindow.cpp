@@ -34,20 +34,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
+    timer->start(2000);
     SFPData.reserve(0x200);
     SFPData.resize(0x200);
     SFPData.fill(char(0xff));
-    QFont heFont;
-    heFont = QFont("DejaVu Sans Mono", 10);
-    hexEdit = new QHexEdit(ui->frame);
-    hexEdit->setGeometry(0,0,ui->frame->width(),ui->frame->height());
-    hexEdit->setData(SFPData);
-    hexEdit->setHexCaps(true);
-    defaultTextColor = ui->label->palette().color(QPalette::Text);
-    hexEdit->setAsciiFontColor(defaultTextColor);
-    hexEdit->setAddressFontColor(defaultTextColor);
-    hexEdit->setHexFontColor(defaultTextColor);
-    hexEdit->setFont(heFont);
     ui->statusBar->addPermanentWidget(ui->lStatus,0);
     ui->statusBar->addPermanentWidget(ui->eStatus,0);
     ui->statusBar->addPermanentWidget(ui->cLabel,0);
@@ -113,9 +105,18 @@ MainWindow::MainWindow(QWidget *parent) :
     statusCh341a = ch341aConnect();
     ch341StatusFlashing();
     ch341aShutdown();
-    timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
-    timer->start(2000);
+    QFont heFont;
+    heFont = QFont("DejaVu Sans Mono", 10);
+    hexEdit = new QHexEdit(ui->frame);
+    hexEdit->setGeometry(0,0,ui->frame->width(),ui->frame->height());
+    hexEdit->setData(SFPData);
+    hexEdit->setHexCaps(true);
+    defaultTextColor = ui->label->palette().color(QPalette::Text);
+    hexEdit->setAsciiFontColor(defaultTextColor);
+    hexEdit->setAddressFontColor(defaultTextColor);
+    hexEdit->setHexFontColor(defaultTextColor);
+    hexEdit->setFont(heFont);
+    //ui->centralWidget->resize( ui->centralWidget->width(), ui->centralWidget->height() + 2);
 }
 
 MainWindow::~MainWindow()
