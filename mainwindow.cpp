@@ -116,6 +116,13 @@ MainWindow::MainWindow(QWidget *parent) :
     hexEdit->setAddressFontColor(defaultTextColor);
     hexEdit->setHexFontColor(defaultTextColor);
     hexEdit->setFont(heFont);
+    QFontMetrics fm(hexEdit->fontMetrics());
+    int pixelsHigh = fm.height();
+    int sectionSize = pixelsHigh * 8 - 2;
+    ui->frame_2->setFixedHeight(sectionSize);
+    ui->frame_3->setFixedHeight(sectionSize);
+    ui->frame_4->setFixedHeight(sectionSize);
+    ui->frame_5->setFixedHeight(sectionSize);
     //ui->centralWidget->resize( ui->centralWidget->width(), ui->centralWidget->height() + 2);
 }
 
