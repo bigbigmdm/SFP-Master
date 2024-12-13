@@ -91,9 +91,14 @@ computer buffer into the SFP-module.
  `<Ctrl+P>` to bring up
 the password setting menu for modules that are password protected.
 - The checkboxes are used to select the address area for read, write or save
- procedures. The yellow checkbox is used for addresses 0x180 - 0x1FF, red for 
- 0x100 - 0x17F, blue for 0x080 - 0x0FF, and green for 0x000 - 0x07F (always 
- checked).
+ procedures.
+ 
+| Checkbox colour |      SFP-Master address     | Real SFP address |
+| :---            |            :---:            |       :---:      |
+| Green           | 0x0000 - 0x007F (Alwais on) |  0xA000 - 0xA07F |
+| Blue            | 0x0080 - 0x00FF             |  0xA080 - 0xA0FF |
+| Red             | 0x0100 - 0x017F             |  0xA200 - 0xA27F |
+| Yellow          | 0x0180 - 0x01FF             |  0xA280 - 0xA2FF |
 
 The `Parse` button is used to re-parse hexadecimal data in the hex editor, if 
 they have been changed manually.
