@@ -140,7 +140,7 @@
     <message>
         <location filename="../mainwindow.ui" line="86"/>
         <source>Link length supported for 9/25 fiber:</source>
-        <translation>9/25-ös fiber esetén támogatott kapcsolathossz:</translation>
+        <translation>9/25-ös fiber támogatott link hossza:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="102"/>
@@ -150,7 +150,7 @@
     <message>
         <location filename="../mainwindow.ui" line="111"/>
         <source>Link length supported for 50/125 fiber:</source>
-        <translation>50/125-ös fiber esetén támogatott kapcsolathossz:</translation>
+        <translation>50/125-ös fiber támogatott link hossza:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="127"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../mainwindow.ui" line="136"/>
         <source>Link length supported for 62.5/125 fiber:</source>
-        <translation>62.5/125-ös fiber esetén támogatott kapcsolathossz:</translation>
+        <translation>62.5/125-ös fiber támogatott link hossza:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="161"/>
@@ -187,7 +187,7 @@
     <message>
         <location filename="../mainwindow.ui" line="286"/>
         <source>Vendor revision:</source>
-        <translation>Kibocsátó felülvizsgálat:</translation>
+        <translation>Kibocsátói felülvizsgálat:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="300"/>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../mainwindow.ui" line="324"/>
         <source>Date code: </source>
-        <translation>Dátum kód: </translation>
+        <translation>Dátumkód: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="355"/>
@@ -213,12 +213,12 @@
     <message>
         <location filename="../mainwindow.ui" line="421"/>
         <source>Check code for Base ID Fields: </source>
-        <translation>Az alapazonosító mezők ellenőrzési kódja: </translation>
+        <translation>Alapazonosító mezők ellenőrzési kódja: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="438"/>
         <source>Check code for Extended ID Fields:</source>
-        <translation>A kiterjesztett azonosító mezők ellenőrző kódja:</translation>
+        <translation>Kiterjesztett azonosító mezők ellenőrző kódja:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="455"/>
@@ -233,7 +233,7 @@
     <message>
         <location filename="../mainwindow.ui" line="495"/>
         <source>Magic</source>
-        <translation>Varázs</translation>
+        <translation>Magic-érték</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
