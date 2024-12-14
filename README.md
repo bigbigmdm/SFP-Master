@@ -137,6 +137,7 @@ is [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 ## Translations
 
 - Italian translation by [Giovanni Scafora](https://github.com/giovanni69)
+- Hungarian translation by [blackPantherOS](https://github.com/blackPantherOS)
 
 Anyone can add or improve a translation by making a pull request.
 Translations files are located in:
