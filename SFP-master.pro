@@ -49,7 +49,8 @@ FORMS += \
     dialogabout.ui \
     dialogpass.ui
 
-TRANSLATIONS += language/SFP-Master_ru_RU.ts \
+TRANSLATIONS += language/SFP-Master_hu_HU.ts \
+         language/SFP-Master_ru_RU.ts \
          language/SFP-Master_it_IT.ts
 
 # Default rules for deployment.
