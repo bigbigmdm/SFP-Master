@@ -20,6 +20,8 @@ Package: sfp-master
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests:
-Description: Free software programmer of optical SFP modules for CH341a devices.
+Description: Free software programmer of optical SFP modules for CH341a devices
  It can be used to read, write and save SFP module data to the computer. 
- It requires an SFP to I2C adapter.
+ The SFP-Master makes respect to QHexEdit2 hex editor and ch341prog. It requires
+ an SFP to I2C adapter. This adapter is used to read and program SFP-module
+ data. It must be inserted into the slot labelled 24xx of the CH341a programmer.
