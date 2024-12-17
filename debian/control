@@ -16,7 +16,7 @@ Vcs-Git: https://github.com/bigbigmdm/SFP-Master.git -b debian/latest
 Vcs-Browser: https://github.com/bigbigmdm/SFP-Master/
 Rules-Requires-Root: no
 
-Package: imsprog
+Package: sfp-master
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests:
