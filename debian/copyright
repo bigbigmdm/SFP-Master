@@ -1,0 +1,123 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: sfp-master
+Upstream-Contact: Mikhail Medvedev e-ink-reader@yandex.ru
+Source: https://github.com/bigbigmdm/SFP-Master
+
+Files: *
+Copyright: 2023-2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
+License: GPL-3+
+
+Files:  */*metainfo.xml
+Copyright: 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
+License: GFDL-1.3
+
+Files: language/SFP-Master_hu_HU.ts
+Copyright: 2023 blackPantherOS <https://github.com/blackPantherOS>
+License: GPL-3+
+
+Files: language/SFP-Master_it_IT.ts
+Copyright: 2024 Giovanni Scafora <https://github.com/giovanni69>
+License: GPL-3+
+
+Files: build_all.sh
+       ChangeLog
+       CMakeLists.txt
+       dialogabout.cpp
+       dialogabout.h
+       dialogabout.ui
+       dialogpass.cpp
+       dialogpass.h
+       dialogpass.ui
+       main.cpp
+       mainwindow.cpp
+       mainwindow.h
+       mainwindow.ui
+       README.md
+       resource.qrc
+       SFP-master.pro
+       SFP-master.pro.user
+       uninstall.sh
+Copyright: 2023-2024, Mikhail Medvedev <e-ink-reader@yandex.ru>
+License: GPL-3+
+
+Files: IMSProg_programmer/ch341a_i2c.c
+       IMSProg_programmer/ch341funcs.c
+Copyright: 2023, Mikhail Medvedev <e-ink-reader@yandex.ru>
+           2011, asbokid <ballymunboy@gmail.com>
+License: GPL-3+
+
+Files: IMSProg_programmer/commands.h
+       IMSProg_programmer/commands.cpp
+       IMSProg_programmer/qhexedit.h
+       IMSProg_programmer/qhexedit.cpp
+       IMSProg_programmer/qhexedit.sip
+       IMSProg_programmer/chunks.cpp
+       IMSProg_programmer/chunks.h
+       IMSProg_programmer/QHexEditPlugin.cpp
+       IMSProg_programmer/QHexEditPlugin.h
+Copyright: 2015-2016 Winfried Simon
+Comment: from https://github.com/Simsys/qhexedit2/
+License: LGPL-2.1
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <https://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: GPL-3+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <https://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+License: LGPL-2.1
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation;
+ version 2.1 of the License.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the
+ Free Software Foundation, Inc., 51 Franklin Street - Suite 500,
+ Boston, MA 02110-1335, USA.
+ .
+ On Debian systems, the complete text of the GNU Lesser General Public License
+ version 2.1 can be found in `/usr/share/common-licenses/LGPL-2.1'.
+
+License: GFDL-1.3
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.3;
+ with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+ Texts.
+ .
+ On Debian GNU/Linux systems, the complete text of the GNU Free
+ Documentation License can be found in
+ `/usr/share/common-licenses/GFDL-1.3'.
