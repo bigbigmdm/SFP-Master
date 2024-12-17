@@ -1,6 +1,7 @@
 // libUSB driver for the ch341a in i2c mode
 //
 // Copyright 2011 asbokid <ballymunboy@gmail.com>
+// Copyright 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
 #include <stddef.h>
 #include <stdint.h>
 
