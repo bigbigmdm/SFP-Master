@@ -4,6 +4,7 @@
 //  Programming tool for the 24Cxx serial EEPROMs using the Winchiphead CH341A IC
 //
 // (c) December 2011 asbokid <ballymunboy@gmail.com> 
+// (c) 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
 //     
 //   This program is free software: you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by

@@ -537,7 +537,7 @@ void MainWindow::on_lineEdit_ifspeed_editingFinished()
 void MainWindow::on_lineEdit_925_editingFinished()
 {
     SFPData[14] = static_cast<char>(ui->lineEdit_925->text().toInt());
-     if (static_cast<int>(SFPData[14]) < 25) SFPData[15] = SFPData[14] * 10;
+    if (static_cast<int>(SFPData[14]) < 25) SFPData[15] = SFPData[14] * 10;
     hexEdit->setData(SFPData);
     checkSumsUpdate();
 }
