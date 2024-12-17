@@ -39,7 +39,7 @@ Files: build_all.sh
 Copyright: 2023-2024, Mikhail Medvedev <e-ink-reader@yandex.ru>
 License: GPL-3+
 
-Files: ch341a_i2c.c
+Files: ch341eeprom.h
        ch341funcs.c
 Copyright: 2023, Mikhail Medvedev <e-ink-reader@yandex.ru>
            2011, asbokid <ballymunboy@gmail.com>
