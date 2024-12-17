@@ -40,21 +40,21 @@ Files: build_all.sh
 Copyright: 2023-2024, Mikhail Medvedev <e-ink-reader@yandex.ru>
 License: GPL-3+
 
-Files: IMSProg_programmer/ch341a_i2c.c
-       IMSProg_programmer/ch341funcs.c
+Files: ch341a_i2c.c
+       ch341funcs.c
 Copyright: 2023, Mikhail Medvedev <e-ink-reader@yandex.ru>
            2011, asbokid <ballymunboy@gmail.com>
 License: GPL-3+
 
-Files: IMSProg_programmer/commands.h
-       IMSProg_programmer/commands.cpp
-       IMSProg_programmer/qhexedit.h
-       IMSProg_programmer/qhexedit.cpp
-       IMSProg_programmer/qhexedit.sip
-       IMSProg_programmer/chunks.cpp
-       IMSProg_programmer/chunks.h
-       IMSProg_programmer/QHexEditPlugin.cpp
-       IMSProg_programmer/QHexEditPlugin.h
+Files: commands.h
+       commands.cpp
+       qhexedit.h
+       qhexedit.cpp
+       qhexedit.sip
+       chunks.cpp
+       chunks.h
+       QHexEditPlugin.cpp
+       QHexEditPlugin.h
 Copyright: 2015-2016 Winfried Simon
 Comment: from https://github.com/Simsys/qhexedit2/
 License: LGPL-2.1
