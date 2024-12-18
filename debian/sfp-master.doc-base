@@ -4,5 +4,6 @@ Author: Mikhail Medvedev
 Abstract: This manual describes what sfp-master is, and how it can be used.
 Section: Programming
 
-Format: PDF
-Index: /usr/share/doc/sfp-master/pdf/SFP-Master.pdf
+Format: HTML
+Index: /usr/share/doc/sfp-master/html/index.html
+Files: /usr/share/doc/sfp-master/html/*.*
