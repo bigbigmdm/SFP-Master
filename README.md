@@ -125,6 +125,12 @@ sudo dnf install dnf-plugins-core
 sudo dnf copr enable bigmdm/sfp-master
 sudo dnf install sfp-master
 ``` 
+- For some versions of UBUNTU, you can use the Launchpad repositories.
+```
+sudo add-apt-repository ppa:bigmdm/sfp-master
+sudo apt update
+sudo apt install sfp-master
+``` 
 
 ## Licensing
 
