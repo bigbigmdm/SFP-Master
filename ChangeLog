@@ -3,3 +3,4 @@
   Fix errors in RPM spec file. Added changelog file.
 - Ver. 1.0.3 -  Added Hungarian translation by blackPantherOS.
   Fixed minor bugs in the main interface.
+- Ver. 1.0.4 - Optimization for Ubuntu and Debian.  

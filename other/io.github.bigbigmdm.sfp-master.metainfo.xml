@@ -85,6 +85,11 @@
     </screenshot>
   </screenshots>
   <releases>
+  <release version="1.0.4" date="2024-12-18" urgency="medium">	  
+    <description>
+	     <p>Optimization for Ubuntu and Debian.</p>
+    </description>
+  </release>
   <release version="1.0.3" date="2024-12-17" urgency="medium">	  
     <description>
 	     <p>Added Hungarian translation by blackPantherOS. Fixed minor bugs in the main interface.</p>
