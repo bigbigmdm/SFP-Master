@@ -85,6 +85,21 @@
     </screenshot>
   </screenshots>
   <releases>
+  <release version="1.0.4" date="2024-12-18" urgency="medium">	  
+    <description>
+	     <p>Optimization for Ubuntu and Debian.</p>
+    </description>
+  </release>
+  <release version="1.0.3" date="2024-12-17" urgency="medium">	  
+    <description>
+	     <p>Added Hungarian translation by blackPantherOS. Fixed minor bugs in the main interface.</p>
+    </description>
+  </release>
+  <release version="1.0.2" date="2024-12-12" urgency="medium">	  
+    <description>
+	     <p>Added Italian translation by Giovanni Scafora. Fixed errors in RPM spec file. Added changelog file.</p>
+    </description>
+  </release>	  
   <release version="1.0.1" date="2024-12-09" urgency="medium">	  
     <description>
 	     <p>This stable release fixes bugs, updated translations.</p>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SFP-Master</title>
+  <style type="text/css">
+      body{line-height: 3em;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+      code {border: 1px #ddd; border-radius:5px;background:#ddd;padding:2px;}
+      .ico {width: 48px; height: 48px;}
+p, li {line-height: 3em;}
+  </style>
+</head>
+<body>
+<h1 id="sfp-master">SFP-Master</h1>
+<ul>
+<li><a href="#installing%20in%20Linux">Installing in Linux</a></li>
+<li><a href="#connection">Connection</a></li>
+<li><a href="#how-to-use">How to use</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="ChangeLog">Changelog</a></li>
+<li><a href="#Licensing">Licensing</a></li>
+<li><a href="#Translations">Translations</a></li>
+</ul>
+<p>SFP-module data programmer for CH341a devices</p>
+<figure>
+<img src="/usr/share/doc/sfp-master/html/screenshot.png" alt="SFP-Master" /><figcaption>SFP-Master</figcaption>
+</figure>
+<p><strong>SFP-Master</strong> is a free software programmer of optical <code>SFP modules</code> for CH341a devices. It can be used to read, write and save SFP module data to the computer. The SFP-Master makes respect to <a href="https://github.com/Simsys/qhexedit2">QHexEdit2</a> hex editor and <a href="https://github.com/setarcos/ch341prog">ch341prog</a>. SFP-Master requires an SFP to I2C adapter. This adapter is used to read and program SFP-module data. It must be inserted into the slot labelled <code>24xxx</code> of the CH341a programmer.</p>
+<figure>
+<img src="/usr/share/doc/sfp-master/html/my_sfp_adapter_sch.png" alt="Adapter schematic" /><figcaption>Adapter schematic</figcaption>
+</figure>
+<figure>
+<img src="/usr/share/doc/sfp-master/html/my_sfp_adapter_3d.png" alt="Adapter schematic" /><figcaption>Adapter schematic</figcaption>
+</figure>
+<ul>
+<li>See more details <a href="https://github.com/bigbigmdm/Tools_for_CH341A_programmer?tab=readme-ov-file#Homemade-Chip-adapters">here</a>.</li>
+</ul>
+<p>The OSHWLAB project of this adapter is <a href="https://oshwlab.com/einkreader/ch341a_sfp_adapter">here</a>.</p>
+<p>Jumpers J1 to J3 (TxPWR, RxPWR, TxEN) must be installed initially. They are used to supply power to the SFP module. If you want to programm a module with hardware write protection, remove one of the jumpers and try to programm the module. If it fails, remove the other jumper and repeat the operation.</p>
+<h1 id="installing-in-linux">Installing in Linux</h1>
+<p>For build are needed: - g++ or clang - CMake - libusb 1.0 - Qt5 - Qt5 Qt5LinguistTools - pkgconf or pkg-config - udev</p>
+<p>On Debian and derivatives:</p>
+<p><code>sudo apt-get install cmake g++ libusb-1.0-0-dev qtbase5-dev qttools5-dev pkgconf</code></p>
+<p>On Debian &gt;=13 and Ubuntu &gt;=23.10:</p>
+<p><code>sudo apt-get install systemd-dev</code></p>
+<p>On older:</p>
+<p><code>sudo apt-get install udev</code></p>
+<p>To build and install the SFP-Master enter:</p>
+<p><code>sudo ./build_all.sh</code></p>
+<p>To uninstall, enter:</p>
+<p><code>sudo ./uninstall.sh</code></p>
+<h1 id="connection">Connection</h1>
+<p>To work with the programmer, connect the SFP module to the connector in the SFP adapter, connect the SFP adapter to the CH341A programmer device to the slot marked <code>24xx</code>. Connect the CH341A Programmer Unit to the USB connector of the computer and start the <code>SFP-Master</code> programm.</p>
+<figure>
+<img src="/usr/share/doc/sfp-master/html/connection.jpg" alt="Connection" /><figcaption>Connection</figcaption>
+</figure>
+<h1 id="how-to-use">How to use</h1>
+<p>The hexadecimal chip editor (right side of the screen) is used to display and modify buffer data.</p>
+<p>It contains the following controls: <code>Hex-Editor / Undo</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/undo64.png" alt="Undo" /> or <code>&lt;Ctrl+Z&gt;</code> undo and <code>Hex-Editor / Redo</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/redo64.png" alt="Redo" /> or <code>&lt;Ctrl+Y&gt;</code> redo.</p>
+<ul>
+<li>Pressing <code>SFP-module / Read from SFP</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/read64.png" alt="Read" /> or <code>&lt;Ctrl+R&gt;</code> to read data from the SFP-module into the computer buffer.</li>
+<li>Pressing <code>SFP-module / Write to SFP</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/write64.png" alt="Write" /> or <code>&lt;Ctrl+W&gt;</code> to write data from the computer buffer into the SFP-module.</li>
+<li>Press <code>SFP Module / Set Module Password</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/password64.png" alt="Password" /> or <code>&lt;Ctrl+P&gt;</code> to bring up the password setting menu for modules that are password protected.</li>
+<li>The checkboxes are used to select the address area for read, write or save procedures:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Checkbox colour</th>
+<th style="text-align: center;">SFP-Master address</th>
+<th style="text-align: center;">Real SFP address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Green (Alwais on)</td>
+<td style="text-align: center;">0x0000 - 0x007F</td>
+<td style="text-align: center;">0xA000 - 0xA07F</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Blue</td>
+<td style="text-align: center;">0x0080 - 0x00FF</td>
+<td style="text-align: center;">0xA080 - 0xA0FF</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Red</td>
+<td style="text-align: center;">0x0100 - 0x017F</td>
+<td style="text-align: center;">0xA200 - 0xA27F</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yellow</td>
+<td style="text-align: center;">0x0180 - 0x01FF</td>
+<td style="text-align: center;">0xA280 - 0xA2FF</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>Parse</code> button is used to re-parse hexadecimal data in the hex editor, if they have been changed manually.</p>
+<p>The <code>Checksum</code> button is used to calculate two checksums (addresses 0x03F and 0x05F according to SFF-8472 Rev 12.3), if the module data have been changed manually in the hex editor.</p>
+<p>Changing the data on the left side of the screen automatically causes the data to be changed in the hex editor.</p>
+<ul>
+<li>The <code>File / Save</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/save64.png" alt="Save" /> or <code>&lt;Ctrl+S&gt;</code> button is used to save the computer buffer to a file.</li>
+<li>The <code>File / Open</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/open64.png" alt="Open" /> or <code>&lt;Ctrl+O&gt;</code> button is used to save the file in the computer buffer.</li>
+<li>The <code>File / Exit</code> or <img class="ico" src="/usr/share/doc/sfp-master/html/exit64.png" alt="Open" /> or <code>&lt;Ctrl+X&gt;</code> button is used to close the program.</li>
+</ul>
+<h2 id="packages">Packages</h2>
+<ul>
+<li>For some versions of Fedora, you can use the COPR repositories.</li>
+</ul>
+<pre><code>sudo dnf install dnf-plugins-core
+sudo dnf copr enable bigmdm/sfp-master
+sudo dnf install sfp-master</code></pre>
+<h2 id="licensing">Licensing</h2>
+<p>Copyright (C) 2023 - 2024 Mikhail Medvedev. This project and <a href="https://github.com/setarcos/ch341prog">ch341prog</a> use <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3+ License</a>, some parts taken from project <a href="https://github.com/Simsys/qhexedit2">QHexEdit2</a> is <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">LGPL-2.1</a>.</p>
+<h2 id="translations">Translations</h2>
+<ul>
+<li>Italian translation by <a href="https://github.com/giovanni69">Giovanni Scafora</a></li>
+<li>Hungarian translation by <a href="https://github.com/blackPantherOS">blackPantherOS</a></li>
+</ul>
+<p>Anyone can add or improve a translation by making a pull request. Translations files are located in: <a href="https://github.com/bigbigmdm/SFP-Master/tree/main/language">language/</a></p>
+<p>You can also add translation to the desktop file (<a href="https://github.com/bigbigmdm/SFP-Master/blob/main/other/SFP-Master.desktop">SFP-Master.desktop</a>).</p>
+</body>
+</html>

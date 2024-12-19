@@ -1,5 +1,19 @@
+# spec file for package sfp-master
+#
+# Copyright (c) 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 3
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
 Name: sfp-master
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%dist
 
 Summary: Reading, writing SFP modules data
@@ -88,21 +102,17 @@ CH341a.
 SFP-Master 是用于 CH341a 设备的光学 SFP 模块的免费编程软件。它可用于读写 SFP 模块数据并将其保存到计算机中。它需要一个 SFP 至 I2C 适配器。该适配器用于读取和编程 SFP 模块数据。它必须插入 CH341a 编程器标有 24xxx 的插槽中。
 
 %prep
-%autosetup -p1 -n IMSProg-%{version}
+%autosetup -p1 -n SFP-Master-%{version}
 
 %build
 # update translations
 lrelease-qt5 language/*.ts
 
-pushd SFP-Master
 %cmake -DCMAKE_INSTALL_SYSCONFDIR=%_sysconfdir
 %cmake_build
-popd
 
 %install
-pushd SFP-Master
 %cmake_install
-popd
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
@@ -115,11 +125,15 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 %_datadir/applications/SFP-Master.desktop
 %_datadir/metainfo/*.xml
 /usr/lib/udev/rules.d/*.rules
-%_datadir/pixmaps/.png
 %_datadir/pixmaps/SFP-Master.png
 %_datadir/man/man1/*.1.*
+%_datadir/sfp-master/*.qm
 %license LICENSE
 
 %changelog
-* Wed Dec 10 2024 Mikhail Medvedev 1.0.1-1
+* Thu Dec 12 2024 Mikhail Medvedev 1.0.2-1
+- Added Italian translation by Giovanni Scafora. 
+- Fix errors in RPM spec file. 
+- Added changelog file.
+* Tue Dec 10 2024 Mikhail Medvedev 1.0.1-1
 - initial release

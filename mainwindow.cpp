@@ -34,20 +34,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
+    timer->start(2000);
     SFPData.reserve(0x200);
     SFPData.resize(0x200);
     SFPData.fill(char(0xff));
-    QFont heFont;
-    heFont = QFont("DejaVu Sans Mono", 10);
-    hexEdit = new QHexEdit(ui->frame);
-    hexEdit->setGeometry(0,0,ui->frame->width(),ui->frame->height());
-    hexEdit->setData(SFPData);
-    hexEdit->setHexCaps(true);
-    defaultTextColor = ui->label->palette().color(QPalette::Text);
-    hexEdit->setAsciiFontColor(defaultTextColor);
-    hexEdit->setAddressFontColor(defaultTextColor);
-    hexEdit->setHexFontColor(defaultTextColor);
-    hexEdit->setFont(heFont);
     ui->statusBar->addPermanentWidget(ui->lStatus,0);
     ui->statusBar->addPermanentWidget(ui->eStatus,0);
     ui->statusBar->addPermanentWidget(ui->cLabel,0);
@@ -113,9 +105,25 @@ MainWindow::MainWindow(QWidget *parent) :
     statusCh341a = ch341aConnect();
     ch341StatusFlashing();
     ch341aShutdown();
-    timer = new QTimer();
-    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
-    timer->start(2000);
+    QFont heFont;
+    heFont = QFont("DejaVu Sans Mono", 10);
+    hexEdit = new QHexEdit(ui->frame);
+    hexEdit->setGeometry(0,0,ui->frame->width(),ui->frame->height());
+    hexEdit->setData(SFPData);
+    hexEdit->setHexCaps(true);
+    defaultTextColor = ui->label->palette().color(QPalette::Text);
+    hexEdit->setAsciiFontColor(defaultTextColor);
+    hexEdit->setAddressFontColor(defaultTextColor);
+    hexEdit->setHexFontColor(defaultTextColor);
+    hexEdit->setFont(heFont);
+    QFontMetrics fm(hexEdit->fontMetrics());
+    int pixelsHigh = fm.height();
+    int sectionSize = pixelsHigh * 8 - 2;
+    ui->frame_2->setFixedHeight(sectionSize);
+    ui->frame_3->setFixedHeight(sectionSize);
+    ui->frame_4->setFixedHeight(sectionSize);
+    ui->frame_5->setFixedHeight(sectionSize);
+    //ui->centralWidget->resize( ui->centralWidget->width(), ui->centralWidget->height() + 2);
 }
 
 MainWindow::~MainWindow()
@@ -529,7 +537,7 @@ void MainWindow::on_lineEdit_ifspeed_editingFinished()
 void MainWindow::on_lineEdit_925_editingFinished()
 {
     SFPData[14] = static_cast<char>(ui->lineEdit_925->text().toInt());
-     if (static_cast<int>(SFPData[14]) < 25) SFPData[15] = SFPData[14] * 10;
+    if (static_cast<int>(SFPData[14]) < 25) SFPData[15] = SFPData[14] * 10;
     hexEdit->setData(SFPData);
     checkSumsUpdate();
 }

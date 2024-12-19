@@ -4,6 +4,7 @@
 //  Programming tool for the 24Cxx serial EEPROMs using the Winchiphead CH341A IC
 //
 // (c) December 2011 asbokid <ballymunboy@gmail.com> 
+// (c) 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
 //     
 //   This program is free software: you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by
@@ -46,8 +47,8 @@ struct libusb_device_handle *ch341configure(uint16_t vid, uint16_t pid) {
 
     struct libusb_device *dev;
 
-    int32_t ret=0, ret2 = 0;                    // set to < 0 to indicate USB errors
-    uint32_t i = 0, j = 0;
+    int32_t ret=0;                    // set to < 0 to indicate USB errors
+    uint32_t i = 0;
     int32_t currentConfig = 0;
 
     uint8_t  ch341DescriptorBuffer[0x12];
