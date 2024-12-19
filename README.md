@@ -150,6 +150,8 @@ is [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 
 - Hungarian translation by [Charles K Barcza](https://github.com/blackPantherOS)
 
+- Brasil translation by [Alexandre C. Leite](https://github.com/alexandrecleite)
+
 Anyone can add or improve a translation by making a pull request.
 Translations files are located in:
 [language/](https://github.com/bigbigmdm/SFP-Master/tree/main/language) 
