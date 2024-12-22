@@ -29,8 +29,8 @@ the CH341a programmer.
 The OSHWLAB project of this adapter is [here](https://oshwlab.com/einkreader/ch341a_sfp_adapter).
 
 Jumpers J1 to J3 (TxPWR, RxPWR, TxEN) must be installed initially. They are used
-to supply power to the SFP module. If you want to programm a module with 
-hardware write protection, remove one of the jumpers and try to programm 
+to supply power to the SFP module. If you want to program a module with 
+hardware write protection, remove one of the jumpers and try to program 
 the module. 
 If it fails, remove the other jumper and repeat the operation.
 
@@ -74,7 +74,7 @@ To uninstall, enter:
 To work with the programmer, connect the SFP module to the connector in the SFP
  adapter, connect the SFP adapter to the CH341A programmer device to the slot 
  marked `24xx`. Connect the CH341A Programmer Unit to the USB connector of the
- computer and start the `SFP-Master` programm.
+ computer and start the `SFP-Master` program.
 
 ![Connection](img/connection.jpg)
 
@@ -99,7 +99,7 @@ the password setting menu for modules that are password protected.
  
 |  Checkbox colour  | SFP-Master address | Real SFP address |
 | :---              |       :---:        |       :---:      |
-| Green (Alwais on) |   0x0000 - 0x007F  |  0xA000 - 0xA07F |
+| Green (Always on) |   0x0000 - 0x007F  |  0xA000 - 0xA07F |
 | Blue              |   0x0080 - 0x00FF  |  0xA080 - 0xA0FF |
 | Red               |   0x0100 - 0x017F  |  0xA200 - 0xA27F |
 | Yellow            |   0x0180 - 0x01FF  |  0xA280 - 0xA2FF |
