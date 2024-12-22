@@ -135,11 +135,12 @@ sudo add-apt-repository ppa:bigmdm/sfp-master
 sudo apt update
 sudo apt install sfp-master
 ``` 
-- The `ARCH AUR repository` by [Giovanni Scafora](https://github.com/giovanni69) is [here](https://aur.archlinux.org/packages/sfp-master-git)
 
 <a href="https://repology.org/project/sfp-master/versions">
     <img src="https://repology.org/badge/vertical-allrepos/sfp-master.svg" alt="Packaging status" align="right">
 </a>
+
+- The `ARCH AUR repository` by [Giovanni Scafora](https://github.com/giovanni69) is [here](https://aur.archlinux.org/packages/sfp-master-git)
 
 ## Licensing
 
