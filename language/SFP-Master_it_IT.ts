@@ -6,17 +6,17 @@
     <message>
         <location filename="../dialogabout.ui" line="26"/>
         <source>About SFP-Master</source>
-        <translation>informazioni su SFP-Master</translation>
+        <translation>Informazioni su SFP-Master</translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="38"/>
         <source>SFP-Master is a free software programmer of optical SFP modules for CH341a devices. It can be used to read, write and save SFP module data to the computer. It requires an SFP to I2C adapter. This adapter is used to read and program SFP-module data. It must be inserted into the slot labelled 24xxx of the CH341a programmer.</source>
-        <translation>SFP-Master è un programmatore software gratuito di moduli ottici SFP per dispositivi CH341a. Può essere utilizzato per leggere, scrivere e salvare i dati del modulo SFP sul computer. Richiede un adattatore SFP-I2C. Questo adattatore viene utilizzato per leggere e programmare i dati del modulo SFP. Deve essere inserito nello slot 24xxx del programmatore CH341a.</translation>
+        <translation>SFP-Master è un software gratuito per programmare i moduli ottici SFP, utilizzando i dispositivi CH341a. Può essere utilizzato per leggere, scrivere e salvare i dati del modulo SFP sul computer. Richiede un adattatore da SFP a I2C. Questo adattatore è utilizzato per leggere e programmare i dati del modulo SFP. Deve essere inserito nello slot 24xxx del programmatore CH341a.</translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="72"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In this program &lt;a href=&quot;https://github.com/Simsys/qhexedit2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;QhexEditor2&lt;/span&gt;&lt;/a&gt; widget and modified programmer &lt;a href=&quot;https://github.com/setarcos/ch341prog&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;setarcos&lt;/span&gt;&lt;/a&gt; were used.&lt;/p&gt;&lt;p&gt;The page on GitHub is &lt;a href=&quot;https://github.com/bigbigmdm/SFP-Master/tree/main&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;, the OSHWLAB page is &lt;a href=&quot;https://oshwlab.com/einkreader/ch341a_sfp_adapter&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Questo programma utilizza un widget &lt;a href=quot;https://github.com/Simsys/qhexedit2/quot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;QhexEditor2&lt;/span&gt;&lt;/a&gt; ed il programmatore modificato &lt;a href=quot;https://github.com/setarcos/ch341progquot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;setarcos&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;La pagina su GitHub è &lt;a href=quot;https://github.com/bigbigmdm/SFP-Master/tree/mainquot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;qui&lt;/span&gt;&lt;/a&gt;, la pagina di OSHWLAB è &lt;a href=quot;https://oshwlab.com/einkreader/ch341a_sfp_adapterquot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;qui&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Questo programma utilizza il widget &lt;a href=quot;https://github.com/Simsys/qhexedit2/quot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;QhexEditor2&lt;/span&gt;&lt;/a&gt; ed il programmatore modificato &lt;a href=quot;https://github.com/setarcos/ch341progquot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;setarcos&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;La pagina su GitHub è &lt;a href=quot;https://github.com/bigbigmdm/SFP-Master/tree/mainquot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;qui&lt;/span&gt;&lt;/a&gt;, la pagina di OSHWLAB è &lt;a href=quot;https://oshwlab.com/einkreader/ch341a_sfp_adapterquot;&gt;&lt;span style=quot; text-decoration: underline; color:#0000ff;quot;&gt;qui&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="101"/>
@@ -69,12 +69,12 @@
     <message>
         <location filename="../dialogpass.ui" line="60"/>
         <source>User defined:</source>
-        <translation>Password dell&apos;utente:</translation>
+        <translation>Definita dall&apos;utente:</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="71"/>
         <source>Start address (HEX):</source>
-        <translation>Indirizzo della password (HEX):</translation>
+        <translation>Indirizzo di partenza (HEX):</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="78"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../dialogpass.cpp" line="100"/>
         <source>Invalid field value.</source>
-        <translation>Valore del campo non valido.</translation>
+        <translation>Il valore inserito nel campo non è valido.</translation>
     </message>
 </context>
 <context>
@@ -345,7 +345,7 @@
     <message>
         <location filename="../mainwindow.ui" line="929"/>
         <source>About SFP-Master</source>
-        <translation>informazioni su SFP-Master</translation>
+        <translation>Informazioni su SFP-Master</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="932"/>
@@ -380,7 +380,7 @@
     <message>
         <location filename="../mainwindow.ui" line="968"/>
         <source>Exiting the programm</source>
-        <translation>Esci dal programma</translation>
+        <translation>Uscita dal programma</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="971"/>
