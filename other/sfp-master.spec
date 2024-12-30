@@ -99,7 +99,10 @@ SFP-модуля. Його потрібно вставити в гніздо з 
 CH341a.
 
 %description -l zh_CN.UTF-8
-SFP-Master 是用于 CH341a 设备的光学 SFP 模块的免费编程软件。它可用于读写 SFP 模块数据并将其保存到计算机中。它需要一个 SFP 至 I2C 适配器。该适配器用于读取和编程 SFP 模块数据。它必须插入 CH341a 编程器标有 24xxx 的插槽中。
+SFP-Master 是用于 CH341a 设备的光学 SFP 模块的免费编程软件。
+它可用于读写 SFP 模块数据并将其保存到计算机中。它需要一个 SFP 至 I2C 适配器。
+该适配器用于读取和编程 SFP 模块数据。它必须插入 CH341a 编程器标有 
+24xxx 的插槽中。
 
 %prep
 %autosetup -p1 -n SFP-Master-%{version}
