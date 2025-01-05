@@ -158,6 +158,8 @@ is [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 
 - Brasil translation by [Alexandre C. Leite](https://github.com/alexandrecleite)
 
+- German translation by [Wucke13](https://github.com/wucke13)
+
 Anyone can add or improve a translation by making a pull request.
 Translations files are located in:
 [language/](https://github.com/bigbigmdm/SFP-Master/tree/main/language) 
