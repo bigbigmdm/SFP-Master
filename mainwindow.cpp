@@ -123,7 +123,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frame_3->setFixedHeight(sectionSize);
     ui->frame_4->setFixedHeight(sectionSize);
     ui->frame_5->setFixedHeight(sectionSize);
-    //ui->centralWidget->resize( ui->centralWidget->width(), ui->centralWidget->height() + 2);
+    hexEdit->setMinimumHeight(pixelsHigh * 32 + 6);
 }
 
 MainWindow::~MainWindow()
