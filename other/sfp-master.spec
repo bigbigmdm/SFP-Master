@@ -13,7 +13,7 @@
 # GNU General Public License for more details.
 
 Name: sfp-master
-Version: 1.0.4
+Version: 1.0.5
 Release: 1%dist
 
 Summary: Reading, writing SFP modules data
@@ -134,10 +134,13 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 %license LICENSE
 
 %changelog
+* Wed Jan 08 2025 Mikhail Medvedev 1.0.5-1
+- Added German translation by Wucke13
+- Fixed minor bugs in the main interface
 * Wed Dec 18 2024 Mikhail Medvedev 1.0.4-1
 - Optimization for Ubuntu and Debian
 * Tue Dec 18 2024 Mikhail Medvedev 1.0.3-1
-- Added Hungarian translation by blackPantherOS
+- Added Hungarian translation by Charles K Barcza
 - Fixed minor bugs in the main interface
 * Thu Dec 12 2024 Mikhail Medvedev 1.0.2-1
 - Added Italian translation by Giovanni Scafora

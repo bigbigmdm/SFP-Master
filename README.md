@@ -144,7 +144,7 @@ sudo apt install sfp-master
 
 ## Licensing
 
-Copyright (C) 2023 - 2024 Mikhail Medvedev. 
+Copyright (C) 2024 - 2025 Mikhail Medvedev. 
 This project and [ch341prog](https://github.com/setarcos/ch341prog) use 
 [GPL-3+ License](https://www.gnu.org/licenses/gpl-3.0.html), 
 some parts taken from project [QHexEdit2](https://github.com/Simsys/qhexedit2) 

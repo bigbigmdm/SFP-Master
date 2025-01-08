@@ -85,6 +85,11 @@
     </screenshot>
   </screenshots>
   <releases>
+  <release version="1.0.5" date="2025-01-08" urgency="medium">	  
+    <description>
+	     <p>Added German translation by wucke13. Fixed minor bugs in the main interface.</p>
+    </description>
+  </release>
   <release version="1.0.4" date="2024-12-18" urgency="medium">	  
     <description>
 	     <p>Optimization for Ubuntu and Debian.</p>
