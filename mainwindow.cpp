@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
+ * Copyright (C) 2024 - 2025 Mikhail Medvedev <e-ink-reader@yandex.ru>
  *
  *
  * This program is free software; you can redistribute it and/or
@@ -123,7 +123,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frame_3->setFixedHeight(sectionSize);
     ui->frame_4->setFixedHeight(sectionSize);
     ui->frame_5->setFixedHeight(sectionSize);
-    //ui->centralWidget->resize( ui->centralWidget->width(), ui->centralWidget->height() + 2);
+    hexEdit->setMinimumHeight(pixelsHigh * 32 + 6);
 }
 
 MainWindow::~MainWindow()

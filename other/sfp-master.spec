@@ -13,7 +13,7 @@
 # GNU General Public License for more details.
 
 Name: sfp-master
-Version: 1.0.2
+Version: 1.0.5
 Release: 1%dist
 
 Summary: Reading, writing SFP modules data
@@ -99,7 +99,10 @@ SFP-модуля. Його потрібно вставити в гніздо з 
 CH341a.
 
 %description -l zh_CN.UTF-8
-SFP-Master 是用于 CH341a 设备的光学 SFP 模块的免费编程软件。它可用于读写 SFP 模块数据并将其保存到计算机中。它需要一个 SFP 至 I2C 适配器。该适配器用于读取和编程 SFP 模块数据。它必须插入 CH341a 编程器标有 24xxx 的插槽中。
+SFP-Master 是用于 CH341a 设备的光学 SFP 模块的免费编程软件。
+它可用于读写 SFP 模块数据并将其保存到计算机中。它需要一个 SFP 至 I2C 适配器。
+该适配器用于读取和编程 SFP 模块数据。它必须插入 CH341a 编程器标有 
+24xxx 的插槽中。
 
 %prep
 %autosetup -p1 -n SFP-Master-%{version}
@@ -131,9 +134,17 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 %license LICENSE
 
 %changelog
+* Wed Jan 08 2025 Mikhail Medvedev 1.0.5-1
+- Added German translation by Wucke13
+- Fixed minor bugs in the main interface
+* Wed Dec 18 2024 Mikhail Medvedev 1.0.4-1
+- Optimization for Ubuntu and Debian
+* Tue Dec 18 2024 Mikhail Medvedev 1.0.3-1
+- Added Hungarian translation by Charles K Barcza
+- Fixed minor bugs in the main interface
 * Thu Dec 12 2024 Mikhail Medvedev 1.0.2-1
-- Added Italian translation by Giovanni Scafora. 
-- Fix errors in RPM spec file. 
-- Added changelog file.
+- Added Italian translation by Giovanni Scafora
+- Fix errors in RPM spec file
+- Added changelog file
 * Tue Dec 10 2024 Mikhail Medvedev 1.0.1-1
 - initial release

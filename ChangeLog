@@ -1,6 +1,8 @@
 - Ver. 1.0.1 - Initial release
 - Ver. 1.0.2 - Added Italian translation by Giovanni Scafora. 
   Fix errors in RPM spec file. Added changelog file.
-- Ver. 1.0.3 -  Added Hungarian translation by blackPantherOS.
+- Ver. 1.0.3 -  Added Hungarian translation by Charles K Barcza.
   Fixed minor bugs in the main interface.
-- Ver. 1.0.4 - Optimization for Ubuntu and Debian.  
+- Ver. 1.0.4 - Optimization for Ubuntu and Debian.
+- Ver. 1.0.5 - Added German translation by wucke13
+  Fixed minor bugs in the main interface.

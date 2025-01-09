@@ -29,8 +29,8 @@ the CH341a programmer.
 The OSHWLAB project of this adapter is [here](https://oshwlab.com/einkreader/ch341a_sfp_adapter).
 
 Jumpers J1 to J3 (TxPWR, RxPWR, TxEN) must be installed initially. They are used
-to supply power to the SFP module. If you want to programm a module with 
-hardware write protection, remove one of the jumpers and try to programm 
+to supply power to the SFP module. If you want to program a module with 
+hardware write protection, remove one of the jumpers and try to program 
 the module. 
 If it fails, remove the other jumper and repeat the operation.
 
@@ -65,12 +65,16 @@ To uninstall, enter:
 
 `sudo ./uninstall.sh`
 
+### [Install](https://hu.blackpanther.hu/alkalmazas-letoltes/sfp-modul-olvaso-iro-mester-flasher/) to blackPanther OS
+
+`installing sfp-master`
+
 # Connection
 
 To work with the programmer, connect the SFP module to the connector in the SFP
  adapter, connect the SFP adapter to the CH341A programmer device to the slot 
  marked `24xx`. Connect the CH341A Programmer Unit to the USB connector of the
- computer and start the `SFP-Master` programm.
+ computer and start the `SFP-Master` program.
 
 ![Connection](img/connection.jpg)
 
@@ -95,7 +99,7 @@ the password setting menu for modules that are password protected.
  
 |  Checkbox colour  | SFP-Master address | Real SFP address |
 | :---              |       :---:        |       :---:      |
-| Green (Alwais on) |   0x0000 - 0x007F  |  0xA000 - 0xA07F |
+| Green (Always on) |   0x0000 - 0x007F  |  0xA000 - 0xA07F |
 | Blue              |   0x0080 - 0x00FF  |  0xA080 - 0xA0FF |
 | Red               |   0x0100 - 0x017F  |  0xA200 - 0xA27F |
 | Yellow            |   0x0180 - 0x01FF  |  0xA280 - 0xA2FF |
@@ -125,10 +129,22 @@ sudo dnf install dnf-plugins-core
 sudo dnf copr enable bigmdm/sfp-master
 sudo dnf install sfp-master
 ``` 
+- For some versions of UBUNTU, you can use the Launchpad repositories.
+```
+sudo add-apt-repository ppa:bigmdm/sfp-master
+sudo apt update
+sudo apt install sfp-master
+``` 
+
+<a href="https://repology.org/project/sfp-master/versions">
+    <img src="https://repology.org/badge/vertical-allrepos/sfp-master.svg" alt="Packaging status" align="right">
+</a>
+
+- The `ARCH AUR repository` by [Giovanni Scafora](https://github.com/giovanni69) is [here](https://aur.archlinux.org/packages/sfp-master-git)
 
 ## Licensing
 
-Copyright (C) 2023 - 2024 Mikhail Medvedev. 
+Copyright (C) 2024 - 2025 Mikhail Medvedev. 
 This project and [ch341prog](https://github.com/setarcos/ch341prog) use 
 [GPL-3+ License](https://www.gnu.org/licenses/gpl-3.0.html), 
 some parts taken from project [QHexEdit2](https://github.com/Simsys/qhexedit2) 
@@ -137,7 +153,12 @@ is [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 ## Translations
 
 - Italian translation by [Giovanni Scafora](https://github.com/giovanni69)
-- Hungarian translation by [blackPantherOS](https://github.com/blackPantherOS)
+
+- Hungarian translation by [Charles K Barcza](https://github.com/blackPantherOS)
+
+- Brasil translation by [Alexandre C. Leite](https://github.com/alexandrecleite)
+
+- German translation by [Wucke13](https://github.com/wucke13)
 
 Anyone can add or improve a translation by making a pull request.
 Translations files are located in:

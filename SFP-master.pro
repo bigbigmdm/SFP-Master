@@ -51,7 +51,9 @@ FORMS += \
 
 TRANSLATIONS += language/SFP-Master_hu_HU.ts \
          language/SFP-Master_ru_RU.ts \
-         language/SFP-Master_it_IT.ts
+         language/SFP-Master_it_IT.ts \
+         language/SFP-Master_pt_BR.ts \
+         language/SFP-Master_de_DE.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

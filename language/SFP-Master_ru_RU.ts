@@ -115,161 +115,161 @@
         <translation>Тип модуля:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="51"/>
+        <location filename="../mainwindow.ui" line="58"/>
         <source>Connector type:</source>
         <translation>Тип разъема:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="61"/>
+        <location filename="../mainwindow.ui" line="75"/>
         <source>Interface speed:</source>
         <translation>Скорость интерфейса:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="77"/>
+        <location filename="../mainwindow.ui" line="91"/>
         <source>MBit/s</source>
         <translation>МБит/с</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
+        <location filename="../mainwindow.ui" line="100"/>
         <source>Link length supported for 9/25 fiber:</source>
         <translation>Длина канала для волокна 9/25:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="102"/>
+        <location filename="../mainwindow.ui" line="116"/>
         <source>Km</source>
         <translation>Км</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="111"/>
+        <location filename="../mainwindow.ui" line="125"/>
         <source>Link length supported for 50/125 fiber:</source>
         <translation>Длина канала для волокна 50/125:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="127"/>
-        <location filename="../mainwindow.ui" line="152"/>
+        <location filename="../mainwindow.ui" line="141"/>
+        <location filename="../mainwindow.ui" line="166"/>
         <source>m</source>
         <translation>м</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="136"/>
+        <location filename="../mainwindow.ui" line="150"/>
         <source>Link length supported for 62.5/125 fiber:</source>
         <translation>Длина канала для волокна 62.5/125:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="161"/>
+        <location filename="../mainwindow.ui" line="175"/>
         <source>Manufacturer:</source>
         <translation>Производитель:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="175"/>
+        <location filename="../mainwindow.ui" line="189"/>
         <source>Manufacturer ID:</source>
         <translation>ID производителя:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="212"/>
-        <location filename="../mainwindow.ui" line="241"/>
+        <location filename="../mainwindow.ui" line="226"/>
+        <location filename="../mainwindow.ui" line="255"/>
         <source>/</source>
         <translation>/</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="272"/>
+        <location filename="../mainwindow.ui" line="286"/>
         <source>Model name:</source>
         <translation>Название модели:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="286"/>
+        <location filename="../mainwindow.ui" line="300"/>
         <source>Vendor revision:</source>
         <translation>Ревизия модели:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="300"/>
+        <location filename="../mainwindow.ui" line="314"/>
         <source>Laser wavelength:</source>
         <translation>Длина волны лазера:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="310"/>
+        <location filename="../mainwindow.ui" line="331"/>
         <source>Serial number:</source>
         <translation>Серийный номер:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="324"/>
+        <location filename="../mainwindow.ui" line="345"/>
         <source>Date code: </source>
         <translation>Дата изготовления:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="355"/>
-        <location filename="../mainwindow.ui" line="387"/>
+        <location filename="../mainwindow.ui" line="376"/>
+        <location filename="../mainwindow.ui" line="408"/>
         <source>-</source>
         <translation>-</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="421"/>
+        <location filename="../mainwindow.ui" line="442"/>
         <source>Check code for Base ID Fields: </source>
         <translation>Контрольная сумма базовой области:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="438"/>
+        <location filename="../mainwindow.ui" line="459"/>
         <source>Check code for Extended ID Fields:</source>
         <translation>Контрольная сумма доп. области:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="455"/>
+        <location filename="../mainwindow.ui" line="476"/>
         <source>Vendor ID:</source>
         <translation>ID вендора:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="482"/>
+        <location filename="../mainwindow.ui" line="503"/>
         <source>Checksums ⟳</source>
         <translation>Контр. сумма ⟳</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="495"/>
+        <location filename="../mainwindow.ui" line="516"/>
         <source>Magic</source>
         <translation>Magic</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="508"/>
+        <location filename="../mainwindow.ui" line="529"/>
         <source>Parse</source>
         <translation>Разобрать</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="705"/>
+        <location filename="../mainwindow.ui" line="741"/>
         <source>CRC32:</source>
         <translation>CRC32:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="758"/>
+        <location filename="../mainwindow.ui" line="794"/>
         <source>border: 2px solid gray;border-radius: 5px;font-weight:600;border-style:inset;</source>
         <translation>border: 2px solid gray;border-radius: 5px;font-weight:600;border-style:inset;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="771"/>
+        <location filename="../mainwindow.ui" line="807"/>
         <source>CH341a:</source>
         <translation>CH341a:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="789"/>
+        <location filename="../mainwindow.ui" line="827"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="798"/>
+        <location filename="../mainwindow.ui" line="836"/>
         <source>SFP-module</source>
         <translation>SFP-модуль</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="806"/>
-        <location filename="../mainwindow.ui" line="926"/>
+        <location filename="../mainwindow.ui" line="844"/>
+        <location filename="../mainwindow.ui" line="964"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="812"/>
+        <location filename="../mainwindow.ui" line="850"/>
         <source>HEX-Editor</source>
         <translation>HEX-редактор</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="858"/>
+        <location filename="../mainwindow.ui" line="896"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
@@ -278,195 +278,195 @@
         <translation type="vanished">Открыть файл на компьютере</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="861"/>
+        <location filename="../mainwindow.ui" line="899"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="870"/>
+        <location filename="../mainwindow.ui" line="908"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="873"/>
+        <location filename="../mainwindow.ui" line="911"/>
         <source>Save the image of the SFP module on your computer</source>
         <translation>Сохранить образ SFP-модуля на компьютер</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="876"/>
+        <location filename="../mainwindow.ui" line="914"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="885"/>
+        <location filename="../mainwindow.ui" line="923"/>
         <source>Read from SFP</source>
         <translation>Чтение SFP-модуля</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="888"/>
+        <location filename="../mainwindow.ui" line="926"/>
         <source>Reading data from the SFP module</source>
         <translation>Прочиталь данные из SFP-модуля</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="891"/>
+        <location filename="../mainwindow.ui" line="929"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="900"/>
+        <location filename="../mainwindow.ui" line="938"/>
         <source>Write to SFP</source>
         <translation>Запись SFP-модуля</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="903"/>
+        <location filename="../mainwindow.ui" line="941"/>
         <source>Writing data to the SFP module</source>
         <translation>Записать данные в SFP-модуль</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="906"/>
+        <location filename="../mainwindow.ui" line="944"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="915"/>
+        <location filename="../mainwindow.ui" line="953"/>
         <source>Set SFP-module password</source>
         <translation>Установка пароля SFP-модуля</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="918"/>
+        <location filename="../mainwindow.ui" line="956"/>
         <source>Set SFP-module password for writing data</source>
         <translation>Установка пароля SFP-модуля для записи данных</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="921"/>
+        <location filename="../mainwindow.ui" line="959"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="929"/>
+        <location filename="../mainwindow.ui" line="967"/>
         <source>About SFP-Master</source>
         <translation>О программе SFP-Master</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="932"/>
+        <location filename="../mainwindow.ui" line="970"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="941"/>
+        <location filename="../mainwindow.ui" line="979"/>
         <source>Undo</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="944"/>
+        <location filename="../mainwindow.ui" line="982"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="953"/>
+        <location filename="../mainwindow.ui" line="991"/>
         <source>Redo</source>
         <translation>Повтор</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="956"/>
+        <location filename="../mainwindow.ui" line="994"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="965"/>
+        <location filename="../mainwindow.ui" line="1003"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="968"/>
+        <location filename="../mainwindow.ui" line="1006"/>
         <source>Exiting the programm</source>
         <translation>Выход из программы</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="971"/>
+        <location filename="../mainwindow.ui" line="1009"/>
         <source>Ctrl+X</source>
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="130"/>
+        <location filename="../mainwindow.cpp" line="138"/>
         <source>Opening file</source>
         <translation>Открывается файл</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="134"/>
+        <location filename="../mainwindow.cpp" line="142"/>
         <source>Open file</source>
         <translation>Открыть файл</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="142"/>
+        <location filename="../mainwindow.cpp" line="150"/>
         <source>Current file: </source>
         <translation>Текущий файл: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="148"/>
-        <location filename="../mainwindow.cpp" line="334"/>
-        <location filename="../mainwindow.cpp" line="382"/>
-        <location filename="../mainwindow.cpp" line="394"/>
-        <location filename="../mainwindow.cpp" line="635"/>
-        <location filename="../mainwindow.cpp" line="645"/>
-        <location filename="../mainwindow.cpp" line="675"/>
-        <location filename="../mainwindow.cpp" line="690"/>
-        <location filename="../mainwindow.cpp" line="720"/>
-        <location filename="../mainwindow.cpp" line="732"/>
+        <location filename="../mainwindow.cpp" line="156"/>
+        <location filename="../mainwindow.cpp" line="342"/>
+        <location filename="../mainwindow.cpp" line="390"/>
+        <location filename="../mainwindow.cpp" line="402"/>
+        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="653"/>
+        <location filename="../mainwindow.cpp" line="683"/>
+        <location filename="../mainwindow.cpp" line="698"/>
+        <location filename="../mainwindow.cpp" line="728"/>
+        <location filename="../mainwindow.cpp" line="740"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="148"/>
+        <location filename="../mainwindow.cpp" line="156"/>
         <source>The file size is incorrect!</source>
         <translation>Недопустимый размер файла!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="334"/>
-        <location filename="../mainwindow.cpp" line="394"/>
+        <location filename="../mainwindow.cpp" line="342"/>
+        <location filename="../mainwindow.cpp" line="402"/>
         <source>Vendor ID is incorrect!</source>
         <translation>Недопустимый ID вендора!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="377"/>
         <source>Saving file</source>
         <translation>Сохраняется файл</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="371"/>
+        <location filename="../mainwindow.cpp" line="379"/>
         <source>Save file</source>
         <translation>Сохранить файл</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="390"/>
         <source>Error saving file!</source>
         <translation>Ошибка записи файла!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="635"/>
-        <location filename="../mainwindow.cpp" line="675"/>
-        <location filename="../mainwindow.cpp" line="720"/>
+        <location filename="../mainwindow.cpp" line="643"/>
+        <location filename="../mainwindow.cpp" line="683"/>
+        <location filename="../mainwindow.cpp" line="728"/>
         <source>Programmer CH341a is not connected!</source>
         <translation>Программатор CH341A не подключен!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="645"/>
+        <location filename="../mainwindow.cpp" line="653"/>
         <source>Error reading SFP module data.</source>
         <translation>Ошибка чтения данных SFP-модуля.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="690"/>
-        <location filename="../mainwindow.cpp" line="732"/>
+        <location filename="../mainwindow.cpp" line="698"/>
+        <location filename="../mainwindow.cpp" line="740"/>
         <source>Error writing SFP module data.</source>
         <translation>Ошибка записи данных в SFP-модуль.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="799"/>
+        <location filename="../mainwindow.cpp" line="807"/>
         <source>Connected</source>
         <translation>Подключен</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="804"/>
+        <location filename="../mainwindow.cpp" line="812"/>
         <source>Not connected</source>
         <translation>Не подключен</translation>
     </message>
