@@ -12,11 +12,15 @@ Copyright: 2024 Mikhail Medvedev <e-ink-reader@yandex.ru>
 License: GFDL-1.3
 
 Files: language/SFP-Master_hu_HU.ts
-Copyright: 2023 blackPantherOS <https://github.com/blackPantherOS>
+Copyright: 2024 Charles K Barcza <https://github.com/blackPantherOS>
 License: GPL-3+
 
 Files: language/SFP-Master_it_IT.ts
 Copyright: 2024 Giovanni Scafora <https://github.com/giovanni69>
+License: GPL-3+
+
+Files: language/SFP-Master_de_DE.ts
+Copyright: 2025 wucke13 <https://github.com/wucke13>
 License: GPL-3+
 
 Files: build_all.sh
