@@ -634,7 +634,7 @@ void MainWindow::on_actionRead_SFP_triggered()
     int res = 0;
     int i = 0;
     uint8_t *buf;
-    buf = (uint8_t *)malloc(static_cast<unsigned long>(0x200));
+    buf = static_cast<uint8_t*>(malloc(0x200));
     for (i=0; i < 0x200; i++) buf[i] = 0xff;
     statusCh341a = ch341aConnect();
     ch341StatusFlashing();
@@ -661,6 +661,7 @@ void MainWindow::on_actionRead_SFP_triggered()
             on_pushButton_parsing_clicked();
 
         ch341aShutdown();
+        free(buf);
         doNotDisturbCancel();
     }
 
@@ -673,7 +674,7 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
     int res = 0;
     int i = 0;
     uint8_t *buf;
-    buf = (uint8_t *)malloc(static_cast<unsigned long>(0x200));
+    buf = static_cast<uint8_t*>(malloc(0x200));
     for (i=0; i < 0x200; i++) buf[i] = 0xff;
     if (currentPass.id > 0) writePassword();
     statusCh341a = ch341aConnect();
@@ -699,6 +700,7 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
             return;
         }
         ch341aShutdown();
+        free(buf);
         doNotDisturbCancel();
     }
 }
@@ -713,8 +715,8 @@ void MainWindow::writePassword()
         uint32_t i = 0;
         uint8_t *buf, *buf1;
 
-        buf = (uint8_t *)malloc(static_cast<unsigned long>(0x10));
-        buf1 = (uint8_t *)malloc(static_cast<unsigned long>(0x02));
+        buf = static_cast<uint8_t*>(malloc(0x10));
+        buf1 = static_cast<uint8_t*>(malloc(0x02));
 
         buf[0] = static_cast<uint8_t>((currentPass.password >> 24) & 0xff);
         buf[1] = static_cast<uint8_t>((currentPass.password >> 16) & 0xff);
@@ -742,6 +744,8 @@ void MainWindow::writePassword()
                  }
 
               }
+              free(buf);
+              free(buf1);
               ch341aShutdown();
            }
 
