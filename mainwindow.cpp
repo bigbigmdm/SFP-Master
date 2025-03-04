@@ -633,8 +633,7 @@ void MainWindow::on_actionRead_SFP_triggered()
     int size = calcSize();
     int res = 0;
     int i = 0;
-    uint8_t *buf;
-    buf = static_cast<uint8_t*>(malloc(0x200));
+    std::shared_ptr<uint8_t[]> buf(new uint8_t[0x200]);
     for (i=0; i < 0x200; i++) buf[i] = 0xff;
     statusCh341a = ch341aConnect();
     ch341StatusFlashing();
@@ -647,7 +646,7 @@ void MainWindow::on_actionRead_SFP_triggered()
       }
     else
     {
-            res = ch341readEEPROM_param(buf, 0, static_cast<uint32_t>(size), static_cast<uint32_t>(size), 0x08, 0x11);
+            res = ch341readEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), static_cast<uint32_t>(size), 0x08, 0x11);
             if (res < 0)
             {
                 QMessageBox::about(this, tr("Error"), tr("Error reading SFP module data."));
@@ -661,7 +660,6 @@ void MainWindow::on_actionRead_SFP_triggered()
             on_pushButton_parsing_clicked();
 
         ch341aShutdown();
-        free(buf);
         doNotDisturbCancel();
     }
 
@@ -673,8 +671,7 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
     int size = calcSize();
     int res = 0;
     int i = 0;
-    uint8_t *buf;
-    buf = static_cast<uint8_t*>(malloc(0x200));
+    std::shared_ptr<uint8_t[]> buf(new uint8_t[0x200]);
     for (i=0; i < 0x200; i++) buf[i] = 0xff;
     if (currentPass.id > 0) writePassword();
     statusCh341a = ch341aConnect();
@@ -693,14 +690,13 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
         {
              buf[i] = static_cast<uint8_t>(SFPData[i]) ;
         }
-        res = ch341writeEEPROM_param(buf, 0, static_cast<uint32_t>(size), 0x08, 0x11);  //- correct writting first 0x17f
+        res = ch341writeEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11);  //- correct writting first 0x17f
         if (res < 0)
         {
             QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));
             return;
         }
         ch341aShutdown();
-        free(buf);
         doNotDisturbCancel();
     }
 }
@@ -713,10 +709,9 @@ void MainWindow::writePassword()
     {
         int res;
         uint32_t i = 0;
-        uint8_t *buf, *buf1;
 
-        buf = static_cast<uint8_t*>(malloc(0x10));
-        buf1 = static_cast<uint8_t*>(malloc(0x02));
+        std::shared_ptr<uint8_t[]> buf(new uint8_t[0x10]);
+        std::shared_ptr<uint8_t[]> buf1(new uint8_t[0x02]);
 
         buf[0] = static_cast<uint8_t>((currentPass.password >> 24) & 0xff);
         buf[1] = static_cast<uint8_t>((currentPass.password >> 16) & 0xff);
@@ -736,7 +731,7 @@ void MainWindow::writePassword()
               for (i= 0; i < 4; i++)
               {
                  buf1[0] = buf[i];
-                 res = ch341writeEEPROM_param(buf1, currentPass.address+i, static_cast<uint32_t>(0x01), 0x08, 0x11);  //- correct writting first 0x17f
+                 res = ch341writeEEPROM_param(buf1.get(), currentPass.address+i, static_cast<uint32_t>(0x01), 0x08, 0x11);  //- correct writting first 0x17f
                  if (res < 0)
                  {
                      QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));
@@ -744,8 +739,6 @@ void MainWindow::writePassword()
                  }
 
               }
-              free(buf);
-              free(buf1);
               ch341aShutdown();
            }
 
