@@ -142,6 +142,8 @@ sudo apt install sfp-master
 
 - The `ARCH AUR repository` by [Giovanni Scafora](https://github.com/giovanni69) is [here](https://aur.archlinux.org/packages/sfp-master-git)
 
+- The Windows release by [Anime4000](https://github.com/Anime4000) is [here](https://github.com/Anime4000/SFP-Master/releases)
+
 ## Licensing
 
 Copyright (C) 2024 - 2025 Mikhail Medvedev. 
