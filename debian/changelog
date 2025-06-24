@@ -1,5 +1,5 @@
 sfp-master (1.0.6-1) unstable; urgency=medium
 
-  * Initial release
+  * Initial release. (Closes: #1108245)
 
  -- Mikhail Medvedev <e-ink-reader@yandex.ru>  Thu, 04 Mar 2025 09:17:23 +0300
