@@ -23,7 +23,7 @@
 #include <QFileInfo>
 #include <QCryptographicHash>
 #include <QValidator>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QtDebug>
 #include "dialogabout.h"
 #include "dialogpass.h"
@@ -74,14 +74,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_connector->addItem("MU",      9);
     ui->comboBox_connector->addItem("SG",     0xA);
     ui->comboBox_connector->addItem("RJ-45", 0x22);
-    QRegExp reHex( "[A-Fa-f0-9]{1,2}" );
-    QRegExp reDigits( "[0-9]{1,5}" );
-    QRegExpValidator *validator = new QRegExpValidator(reHex, this);
-    QRegExpValidator *valDigit = new QRegExpValidator(reDigits, this);
+    QRegularExpression reHex( "[A-Fa-f0-9]{1,2}" );
+    QRegularExpression reDigits( "[0-9]{1,5}" );
+    QRegularExpressionValidator *validator = new QRegularExpressionValidator(reHex, this);
+    QRegularExpressionValidator *valDigit = new QRegularExpressionValidator(reDigits, this);
     ui->lineEdit_vendorid->setValidator(validator);
     ui->lineEdit_manid0->setValidator(validator);
     ui->lineEdit_manid1->setValidator(validator);
     ui->lineEdit_manid2->setValidator(validator);
+    ui->lineEdit_day->setValidator(valDigit);
+    ui->lineEdit_mon->setValidator(valDigit);
+    ui->lineEdit_year->setValidator(valDigit);
     ui->lineEdit_925->setValidator(valDigit);
     ui->lineEdit_50125->setValidator(valDigit);
     ui->lineEdit_62125->setValidator(valDigit);
@@ -876,7 +879,7 @@ QString MainWindow::bytePrint(unsigned char z)
     z = z % 16;
     if (z > 0x9) z = z + 0x37;
     else z = z + 0x30;
-    return QString(s) + QString(z);
+    return QString(static_cast<char>(s)) + QString(static_cast<char>(z));
 }
 
 QString MainWindow::checkSumLo()
