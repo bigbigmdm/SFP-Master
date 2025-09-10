@@ -18,7 +18,6 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     //If you need to change the system font - recomment this lines...
     //QFont font("Monospace");
     //font.setStyleHint(QFont::TypeWriter);

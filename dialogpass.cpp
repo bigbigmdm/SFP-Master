@@ -16,17 +16,18 @@
 #include "ui_dialogpass.h"
 #include "mainwindow.h"
 #include <QValidator>
-#include <QRegExp>
+//#include <QRegExp>
+#include <QRegularExpression>
 
 DialogPass::DialogPass(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogPass)
 {
     ui->setupUi(this);
-    QRegExp reHex3( "[0-2][A-Fa-f0-9]{2,2}" );
-    QRegExp reHex2( "[A-Fa-f0-9]{1,2}" );
-    QRegExpValidator *validatorA = new QRegExpValidator(reHex3, this);
-    QRegExpValidator *validatorL = new QRegExpValidator(reHex2, this);
+    QRegularExpression reHex3( "[0-2][A-Fa-f0-9]{2,2}" );
+    QRegularExpression reHex2( "[A-Fa-f0-9]{1,2}" );
+    QRegularExpressionValidator *validatorA = new QRegularExpressionValidator(reHex3, this);
+    QRegularExpressionValidator *validatorL = new QRegularExpressionValidator(reHex2, this);
     ui->lineEdit->setValidator(validatorA);
     ui->lineEdit_2->setValidator(validatorL);
     ui->lineEdit_3->setValidator(validatorL);
@@ -61,7 +62,7 @@ void DialogPass::setID(const uint id, uint32_t userAddr, uint32_t userPass)
    }
    firstDigit = static_cast<unsigned char>(userAddr >> 8) + 0x30;
    if (firstDigit > 0x32) firstDigit = 0x30;
-   ui->lineEdit->setText(QString(firstDigit) + bytePrt(static_cast<unsigned char>(userAddr & 0xff)));
+   ui->lineEdit->setText(QString(static_cast<char>(firstDigit)) + bytePrt(static_cast<unsigned char>(userAddr & 0xff)));
    ui->lineEdit_2->setText(bytePrt(static_cast<unsigned char>((userPass >> 24) & 0xff)));
    ui->lineEdit_3->setText(bytePrt(static_cast<unsigned char>((userPass >> 16) & 0xff)));
    ui->lineEdit_4->setText(bytePrt(static_cast<unsigned char>((userPass >>  8) & 0xff)));
@@ -141,5 +142,5 @@ QString DialogPass::bytePrt(unsigned char z)
     z = z % 16;
     if (z > 0x9) z = z + 0x37;
     else z = z + 0x30;
-    return QString(s) + QString(z);
+    return QString(static_cast<char>(s)) + QString(static_cast<char>(z));
 }
