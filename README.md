@@ -1,6 +1,6 @@
 # SFP-Master
 
-* [Installing in Linux](#installing in Linux)
+* [Installing in Linux](#installing-in-Linux)
 * [Connection](#connection)
 * [How to use](#how-to-use)
 * [Packages](#packages)
