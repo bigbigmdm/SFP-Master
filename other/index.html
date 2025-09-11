@@ -43,9 +43,21 @@ p, li {line-height: 3em;}
 <p>The OSHWLAB project of this adapter is <a href="https://oshwlab.com/einkreader/ch341a_sfp_adapter">here</a>.</p>
 <p>Jumpers J1 to J3 (TxPWR, RxPWR, TxEN) must be installed initially. They are used to supply power to the SFP module. If you want to programm a module with hardware write protection, remove one of the jumpers and try to programm the module. If it fails, remove the other jumper and repeat the operation.</p>
 <h1 id="installing-in-linux">Installing in Linux</h1>
-<p>For build are needed: - g++ or clang - CMake - libusb 1.0 - Qt5 - Qt5 Qt5LinguistTools - pkgconf or pkg-config - udev</p>
-<p>On Debian and derivatives:</p>
-<p><code>sudo apt-get install cmake g++ libusb-1.0-0-dev qtbase5-dev qttools5-dev pkgconf</code></p>
+<p>For build are needed:
+<ul>
+<li>g++ or clang</li>
+<li>CMake</li>
+<li>libusb 1.0</li>
+<li>Qt5 or Qt6</li>
+<li>Qt5 Qt5LinguistTools or Qt6 Qt6LinguistTools</li>
+<li>pkgconf or pkg-config</li>
+<li>udev</li>
+</ul></p>
+<p>On Debian and derivatives for QT5 version:</p>
+<p><code>sudo apt-get install cmake g++ libusb-1.0-0-dev pkgconf qtbase5-dev qttools5-dev</code></p>
+<p>On Debian and derivatives for QT6 version:</p>
+<p><code>sudo apt-get install cmake g++ libusb-1.0-0-dev pkgconf qt6-base-dev 
+qt6-tools-dev linguist-qt6 qt6-l10n-tools qt6-tools-dev-tools</code></p>
 <p>On Debian &gt;=13 and Ubuntu &gt;=23.10:</p>
 <p><code>sudo apt-get install systemd-dev</code></p>
 <p>On older:</p>
