@@ -43,7 +43,7 @@ if (TARGET Qt6::Core AND TARGET Qt6::Widgets)
     find_package(Qt6LinguistTools REQUIRED)
 else()
     # If QT6 not found, using QT5
-    find_package(Qt5 5.15 REQUIRED COMPONENTS Core Widgets LinguistTools)
+    find_package(Qt5 REQUIRED COMPONENTS Core Widgets LinguistTools)
     set(QT_VERSION_MAJOR 5)
 endif()
 
