@@ -82,7 +82,12 @@ set(TS_FILES
     language/SFP-Master_de_DE.ts
 )
 
-qt_add_translation(QM_FILES ${TS_FILES})
+if (QT_VERSION_MAJOR EQUAL 5)
+    qt5_add_translation(QM_FILES ${TS_FILES})
+else()
+    qt_add_translation(QM_FILES ${TS_FILES})
+endif()
+
 add_custom_target(translations DEPENDS ${QM_FILES})
 
 add_executable(${PROJECT_NAME}
