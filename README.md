@@ -1,6 +1,6 @@
 # SFP-Master
 
-* [Installing in Linux](#installing in Linux)
+* [Installing in Linux](#installing-in-Linux)
 * [Connection](#connection)
 * [How to use](#how-to-use)
 * [Packages](#packages)
@@ -40,14 +40,19 @@ For build are needed:
 - g++ or clang
 - CMake
 - libusb 1.0
-- Qt5
-- Qt5 Qt5LinguistTools
+- Qt5 or QT6
+- Qt5 Qt5LinguistTools or QT6 Qt5LinguistTools
 - pkgconf or pkg-config
 - udev
 
-On Debian and derivatives:
+On Debian and derivatives for QT5 version:
 
-`sudo apt-get install cmake g++ libusb-1.0-0-dev qtbase5-dev qttools5-dev pkgconf`
+`sudo apt-get install cmake g++ libusb-1.0-0-dev pkgconf qtbase5-dev qttools5-dev`
+
+On Debian and derivatives for QT6 version:
+
+`sudo apt-get install cmake g++ libusb-1.0-0-dev pkgconf qt6-base-dev 
+qt6-tools-dev linguist-qt6 qt6-l10n-tools qt6-tools-dev-tools`
 
 On Debian >=13 and Ubuntu >=23.10:
 
@@ -141,6 +146,8 @@ sudo apt install sfp-master
 </a>
 
 - The `ARCH AUR repository` by [Giovanni Scafora](https://github.com/giovanni69) is [here](https://aur.archlinux.org/packages/sfp-master-git)
+
+- The Windows release by [Anime4000](https://github.com/Anime4000) is [here](https://github.com/Anime4000/SFP-Master/releases)
 
 ## Licensing
 

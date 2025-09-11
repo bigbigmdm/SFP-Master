@@ -7,3 +7,4 @@
 - Ver. 1.0.5 - Added German translation by wucke13
   Fixed minor bugs in the main interface.
 - Ver. 1.0.6 - Fixed memory leaks.
+- Ver. 1.0.7 - Ported from QT5 to QT6.

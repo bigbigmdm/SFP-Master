@@ -1,3 +1,4 @@
+#!/bin/bash
 rm -rf /usr/bin/SFP-Master
 rm -rf /usr/share/pixmaps/write64.png
 rm -rf /usr/share/applications/SFP-Master.desktop

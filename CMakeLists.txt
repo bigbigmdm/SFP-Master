@@ -37,8 +37,16 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
-find_package(Qt5Widgets REQUIRED)
+find_package(Qt6 QUIET COMPONENTS Core Widgets)
+if (TARGET Qt6::Core AND TARGET Qt6::Widgets)
+    set(QT_VERSION_MAJOR 6)
+    find_package(Qt6LinguistTools REQUIRED)
+else()
+    # If QT6 not found, using QT5
+    find_package(Qt5 REQUIRED COMPONENTS Core Widgets LinguistTools)
+    set(QT_VERSION_MAJOR 5)
+endif()
+
 find_package(LibUSB REQUIRED)
 
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
@@ -65,9 +73,6 @@ find_package(PkgConfig)
 endif()
 endif()
 
-# Qt5LinguistTools
-find_package(Qt5 REQUIRED COMPONENTS LinguistTools)
-
 # Translation files
 set(TS_FILES
     language/SFP-Master_hu_HU.ts
@@ -77,7 +82,12 @@ set(TS_FILES
     language/SFP-Master_de_DE.ts
 )
 
-qt5_add_translation(QM_FILES ${TS_FILES})
+if (QT_VERSION_MAJOR EQUAL 5)
+    qt5_add_translation(QM_FILES ${TS_FILES})
+else()
+    qt_add_translation(QM_FILES ${TS_FILES})
+endif()
+
 add_custom_target(translations DEPENDS ${QM_FILES})
 
 add_executable(${PROJECT_NAME}
@@ -102,8 +112,14 @@ ${QM_FILES}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(${PROJECT_NAME} Qt5::Core)
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets ${LibUSB_LIBRARIES})
+
+if (QT_VERSION_MAJOR EQUAL 5)
+    target_link_libraries(${PROJECT_NAME} Qt5::Core)
+    target_link_libraries(${PROJECT_NAME} Qt5::Widgets ${LibUSB_LIBRARIES})
+else()
+    target_link_libraries(${PROJECT_NAME} Qt::Core)
+    target_link_libraries(${PROJECT_NAME} Qt::Widgets ${LibUSB_LIBRARIES})
+endif()
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/SFP-Master.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps")
