@@ -13,7 +13,7 @@
 # GNU General Public License for more details.
 
 Name: sfp-master
-Version: 1.0.6
+Version: 1.0.7
 Release: 1%dist
 
 Summary: Reading, writing SFP modules data
@@ -32,9 +32,9 @@ Url: https://github.com/bigbigmdm/SFP-Master
 Source: https://github.com/bigbigmdm/SFP-Master/archive/refs/tags/v%{version}.tar.gz
 
 BuildRequires: gcc-c++
-BuildRequires: pkgconfig(Qt5Core)
-BuildRequires: pkgconfig(Qt5Widgets)
-BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: pkgconfig(Qt6Core)
+BuildRequires: pkgconfig(Qt6Widgets)
+BuildRequires: cmake(Qt6LinguistTools)
 BuildRequires: pkgconfig(libusb-1.0)
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
@@ -134,6 +134,8 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 %license LICENSE
 
 %changelog
+* Thu Sep 11 2025 Mikhail Medvedev 1.0.7-1
+- Ported from QT5 to QT6
 * Wed Mar 04 2025 Mikhail Medvedev 1.0.6-1
 - Fixed memory leaks
 * Wed Jan 08 2025 Mikhail Medvedev 1.0.5-1
