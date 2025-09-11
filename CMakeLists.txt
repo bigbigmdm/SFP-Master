@@ -112,8 +112,14 @@ ${QM_FILES}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(${PROJECT_NAME} Qt::Core)
-target_link_libraries(${PROJECT_NAME} Qt::Widgets ${LibUSB_LIBRARIES})
+
+if (QT_VERSION_MAJOR EQUAL 5)
+    target_link_libraries(${PROJECT_NAME} Qt5::Core)
+    target_link_libraries(${PROJECT_NAME} Qt5::Widgets ${LibUSB_LIBRARIES})
+else()
+    target_link_libraries(${PROJECT_NAME} Qt::Core)
+    target_link_libraries(${PROJECT_NAME} Qt::Widgets ${LibUSB_LIBRARIES})
+endif()
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/SFP-Master.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps")
