@@ -87,7 +87,7 @@
   <releases>
   <release version="1.0.7" date="2025-09-11" urgency="medium">	  
     <description>
-	     <p>Migrate from QT5 to QT6.</p>
+	     <p>Migrated from QT5 to QT6.</p>
     </description>
   </release>
   <release version="1.0.6" date="2025-03-04" urgency="medium">	  
