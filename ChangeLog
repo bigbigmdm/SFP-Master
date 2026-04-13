@@ -8,3 +8,4 @@
   Fixed minor bugs in the main interface.
 - Ver. 1.0.6 - Fixed memory leaks.
 - Ver. 1.0.7 - Ported from QT5 to QT6.
+- Ver. 1.1.1 - I2C driver changed.

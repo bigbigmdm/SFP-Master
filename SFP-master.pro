@@ -30,9 +30,9 @@ SOURCES += \
     chunks.cpp \
     qhexedit.cpp \
     commands.cpp \
-    ch341funcs.c \
     dialogabout.cpp \
-    dialogpass.cpp
+    dialogpass.cpp \
+    ch34x_i2c.c
 
 HEADERS += \
         mainwindow.h \
@@ -40,9 +40,9 @@ HEADERS += \
     mainwindow.h \
     commands.h \
     qhexedit.h \
-    ch341eeprom.h \
     dialogabout.h \
-    dialogpass.h
+    dialogpass.h \
+    ch34x_i2c.h
 
 FORMS += \
         mainwindow.ui \

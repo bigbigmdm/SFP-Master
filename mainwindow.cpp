@@ -111,7 +111,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QFont heFont;
     heFont = QFont("DejaVu Sans Mono", 10);
     hexEdit = new QHexEdit(ui->frame);
-    hexEdit->setGeometry(0,0,ui->frame->width(),ui->frame->height());
+    //hexEdit->setGeometry(0,0,ui->frame->width(),ui->frame->height());
     hexEdit->setData(SFPData);
     hexEdit->setHexCaps(true);
     defaultTextColor = ui->label->palette().color(QPalette::Text);
@@ -649,7 +649,8 @@ void MainWindow::on_actionRead_SFP_triggered()
       }
     else
     {
-            res = ch341readEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), static_cast<uint32_t>(size), 0x08, 0x11);
+            //res = ch341readEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), static_cast<uint32_t>(size), 0x08, 0x11);
+            res = ch34xi2cBlockRead(buf.get(), 0, static_cast<uint32_t>(size), 0x11, 0);
             if (res < 0)
             {
                 QMessageBox::about(this, tr("Error"), tr("Error reading SFP module data."));
@@ -693,7 +694,9 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
         {
              buf[i] = static_cast<uint8_t>(SFPData[i]) ;
         }
-        res = ch341writeEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11);  //- correct writting first 0x17f
+        //res = ch341writeEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11);  //- correct writting first 0x17f
+        //(uint8_t * buf, uint32_t address, uint32_t blockSize, uint32_t sectorSize, uint8_t algorithm, uint8_t progDevice);
+        res = ch34xi2cBlockWrite(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11, 0);
         if (res < 0)
         {
             QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));
@@ -731,17 +734,16 @@ void MainWindow::writePassword()
              }
            else
            {
-              for (i= 0; i < 4; i++)
-              {
-                 buf1[0] = buf[i];
-                 res = ch341writeEEPROM_param(buf1.get(), currentPass.address+i, static_cast<uint32_t>(0x01), 0x08, 0x11);  //- correct writting first 0x17f
+
+                 //res = ch341writeEEPROM_param(buf1.get(), currentPass.address+i, static_cast<uint32_t>(0x01), 0x08, 0x11);  //- correct writting first 0x17f
+                 res = res = ch34xi2cBlockWrite(buf.get(), currentPass.address, 0x04, 0x08, 0x11, 0);
                  if (res < 0)
                  {
                      QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));
                      return;
                  }
 
-              }
+
               ch341aShutdown();
            }
 
@@ -1021,3 +1023,8 @@ QString MainWindow::hexiAddr(uint32_t add)
    return rez;
 }
 
+void MainWindow::showEvent(QShowEvent* event)
+{
+    QMainWindow::showEvent(event);
+    hexEdit->setGeometry(0, 0, ui->frame->width(), ui->frame->height());
+}
