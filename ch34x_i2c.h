@@ -21,35 +21,35 @@
 
 #pragma once
 #include <stdint.h>
-#include <libusb-1.0/libusb.h>  //#include <libusb.h>
+#include <libusb.h>
 
-#define USB_LOCK_VENDOR 0x1a86
-#define USB_LOCK_PRODUCT 0x5512
+#define USB_LOCK_VENDOR                   0x1a86
+#define USB_LOCK_PRODUCT                  0x5512
 
-#define IN_BUF_SZ			0x100
-#define EEPROM_READ_BULKOUT_BUF_SZ	0x65
-#define DEFAULT_INTERFACE		0x00
-#define DEFAULT_CONFIGURATION		0x01
+#define IN_BUF_SZ                         0x100
+#define EEPROM_READ_BULKOUT_BUF_SZ        0x65
+#define DEFAULT_INTERFACE                 0x00
+#define DEFAULT_CONFIGURATION             0x01
 
 #define ch341_BULK_WRITE_ENDPOINT         0x02        /* bEndpointAddress 0x02  EP 2 OUT (Bulk) */
 #define ch341_BULK_READ_ENDPOINT          0x82        /* bEndpointAddress 0x82  EP 2 IN  (Bulk) */
 #define ch347_BULK_WRITE_ENDPOINT         0x06        /* bEndpointAddress 0x02  EP 2 OUT (Bulk) */
 #define ch347_BULK_READ_ENDPOINT          0x86        /* bEndpointAddress 0x82  EP 2 IN  (Bulk) */
-#define DEFAULT_TIMEOUT             3000        // 300mS for USB timeouts
+#define DEFAULT_TIMEOUT                   3000        // 300mS for USB timeouts
 
-#define ch34x_CMD_I2C_STREAM		0xAA
-#define	ch34x_CMD_I2C_STM_MS		0x50
-#define	ch34x_CMD_I2C_STM_STA		0x74
-#define	ch34x_CMD_I2C_STM_STO		0x75
-#define	ch34x_CMD_I2C_STM_OUT		0x80
-#define	ch34x_CMD_I2C_STM_IN		0xC0
-#define	ch34x_CMD_I2C_STM_SET		0x60
-#define	ch34x_CMD_I2C_STM_END		0x00
+#define ch34x_CMD_I2C_STREAM              0xAA
+#define	ch34x_CMD_I2C_STM_MS              0x50
+#define	ch34x_CMD_I2C_STM_STA             0x74
+#define	ch34x_CMD_I2C_STM_STO             0x75
+#define	ch34x_CMD_I2C_STM_OUT             0x80
+#define	ch34x_CMD_I2C_STM_IN              0xC0
+#define	ch34x_CMD_I2C_STM_SET             0x60
+#define	ch34x_CMD_I2C_STM_END             0x00
 
-#define CH341_I2C_LOW_SPEED		0 // low speed - 20kHz
-#define CH341_I2C_STANDARD_SPEED	1 // standard speed - 100kHz
-#define CH341_I2C_FAST_SPEED		2 // fast speed - 400kHz
-#define CH341_I2C_HIGH_SPEED		3 // high speed - 750kHz
+#define CH341_I2C_LOW_SPEED               0 // low speed - 20kHz
+#define CH341_I2C_STANDARD_SPEED          1 // standard speed - 100kHz
+#define CH341_I2C_FAST_SPEED              2 // fast speed - 400kHz
+#define CH341_I2C_HIGH_SPEED              3 // high speed - 750kHz
 
 struct libusb_device_handle *ch341configure(uint16_t vid, uint16_t pid);
 int32_t ch341setstream(uint32_t speed);

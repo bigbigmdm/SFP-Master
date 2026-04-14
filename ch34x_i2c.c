@@ -17,7 +17,7 @@
 //   You should have received a copy of the GNU General Public License
 //   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <libusb-1.0/libusb.h> //#include <libusb.h>
+#include <libusb.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -27,11 +27,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <time.h>
-
 #include "ch34x_i2c.h"
-//#include "ch347.h"
-//#include "ch341a_spi.h"
-//Initialise and close CH341A see in ch341a_spi.h, CH347 - in ch347.h
+
 struct libusb_device_handle *devHandle;
 extern struct ch347_priv *priv;
 

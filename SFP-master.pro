@@ -7,6 +7,8 @@
 QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 LIBS += -lusb-1.0
+CONFIG += link_pkgconfig
+PKGCONFIG += libusb-1.0
 
 TARGET = SFP-master
 TEMPLATE = app

@@ -9,6 +9,13 @@ set(CMAKE_AUTOUIC ON)
 
 project(SFP-Master LANGUAGES C CXX)
 
+include(FindPkgConfig)
+pkg_check_modules(LIBUSB REQUIRED libusb-1.0)
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  set(CMAKE_INSTALL_DO_STRIP FALSE)
+endif()
+
 # Set the CMAKE_INSTALL_PREFIX to /usr if not specified
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
@@ -47,11 +54,9 @@ else()
     set(QT_VERSION_MAJOR 5)
 endif()
 
-find_package(LibUSB REQUIRED)
-
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 set(UDEVDIR "/usr/lib/udev")
-if (CMAKE_INSTALL_PREFIX STREQUAL "/usr" OR CMAKE_INSTALL_PREFIX STREQUAL "/" )
+if (CMAKE_INSTALL_PREFIX STREQUAL "/usr" OR CMAKE_INSTALL_PREFIX STREQUAL "/" AND NOT CMAKE_CROSSCOMPILING)
 # /usr and / install prefixes at treated by cmake GNUInstallDirs as
 # synonym for "system location". In this case we can look up the correct udevdir
 # using pkg-config.
@@ -112,13 +117,14 @@ ${QM_FILES}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${LIBUSB_INCLUDE_DIRS})
 
 if (QT_VERSION_MAJOR EQUAL 5)
     target_link_libraries(${PROJECT_NAME} Qt5::Core)
-    target_link_libraries(${PROJECT_NAME} Qt5::Widgets ${LibUSB_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} Qt5::Widgets ${LIBUSB_LIBRARIES})
 else()
     target_link_libraries(${PROJECT_NAME} Qt::Core)
-    target_link_libraries(${PROJECT_NAME} Qt::Widgets ${LibUSB_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} Qt::Widgets ${LIBUSB_LIBRARIES})
 endif()
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
