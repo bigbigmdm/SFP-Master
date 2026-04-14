@@ -650,7 +650,7 @@ void MainWindow::on_actionRead_SFP_triggered()
     else
     {
             //res = ch341readEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), static_cast<uint32_t>(size), 0x08, 0x11);
-            res = ch34xi2cBlockRead(buf.get(), 0, static_cast<uint32_t>(size), 0x11, 0);
+            res = ch34xi2cBlockRead(buf.get(), 0, static_cast<uint32_t>(size), 0x11);
             if (res < 0)
             {
                 QMessageBox::about(this, tr("Error"), tr("Error reading SFP module data."));
@@ -696,7 +696,7 @@ void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
         }
         //res = ch341writeEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11);  //- correct writting first 0x17f
         //(uint8_t * buf, uint32_t address, uint32_t blockSize, uint32_t sectorSize, uint8_t algorithm, uint8_t progDevice);
-        res = ch34xi2cBlockWrite(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11, 0);
+        res = ch34xi2cBlockWrite(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11);
         if (res < 0)
         {
             QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));
@@ -736,7 +736,7 @@ void MainWindow::writePassword()
            {
 
                  //res = ch341writeEEPROM_param(buf1.get(), currentPass.address+i, static_cast<uint32_t>(0x01), 0x08, 0x11);  //- correct writting first 0x17f
-                 res = res = ch34xi2cBlockWrite(buf.get(), currentPass.address, 0x04, 0x08, 0x11, 0);
+                 res = res = ch34xi2cBlockWrite(buf.get(), currentPass.address, 0x04, 0x08, 0x11);
                  if (res < 0)
                  {
                      QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));

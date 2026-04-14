@@ -55,7 +55,7 @@ struct libusb_device_handle *ch341configure(uint16_t vid, uint16_t pid);
 int32_t ch341setstream(uint32_t speed);
 int32_t ch341aConnect();
 int32_t ch341aShutdown();
-int ch34xi2cBlockRead(uint8_t * buf, uint32_t address, uint32_t blockSize, uint8_t algorithm, uint8_t progDevice);
-int ch34xi2cBlockWrite(uint8_t * buf, uint32_t address, uint32_t blockSize, uint32_t sectorSize, uint8_t algorithm, uint8_t progDevice);
+int ch34xi2cBlockRead(uint8_t * buf, uint32_t address, uint32_t blockSize, uint8_t algorithm);
+int ch34xi2cBlockWrite(uint8_t * buf, uint32_t address, uint32_t blockSize, uint32_t sectorSize, uint8_t algorithm);
 
 #endif /* __CH34x_I2C_H__ */

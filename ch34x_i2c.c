@@ -37,7 +37,6 @@ struct xxx {
   uint8_t obuf[512];
 } i2c_buf;
 
-uint8_t progDev = 0;
 
 struct libusb_device_handle *ch341configure(uint16_t vid, uint16_t pid) {
 
@@ -194,7 +193,7 @@ int ch34xdelay_ms(unsigned ms) {
     return 0;
 }
 
-int ch34xi2cBlockRead(uint8_t *buf, uint32_t address, uint32_t blockSize, uint8_t algorithm, uint8_t progDevice)
+int ch34xi2cBlockRead(uint8_t *buf, uint32_t address, uint32_t blockSize, uint8_t algorithm)
 {
     int ret;
     uint32_t step, maxstep;
@@ -204,7 +203,6 @@ int ch34xi2cBlockRead(uint8_t *buf, uint32_t address, uint32_t blockSize, uint8_
     uint8_t deviceAddress = 0;
     uint8_t wordAddressLo = 0;
     uint8_t wordAddressHi = 0;
-    progDev = progDevice;
 
         if (size > 16) size = 16;
         maxstep = blockSize / size;
@@ -256,12 +254,7 @@ int ch34xi2cBlockRead(uint8_t *buf, uint32_t address, uint32_t blockSize, uint8_
                 return ret;
             }
 
-            if (progDev > 1)
-            {
-                if ((algorithm & 0x0f) == 0x02) memcpy(&buf[step * size], &i2c_buf.ibuf[4], size);
-                else memcpy(&buf[step * size], &i2c_buf.ibuf[3], size);
-            }
-            else memcpy(&buf[step * size], &i2c_buf.ibuf[0], size);
+            memcpy(&buf[step * size], &i2c_buf.ibuf[0], size);
 
             address = address + size;
             ret = ch34xdelay_ms(10);
@@ -274,7 +267,7 @@ int ch34xi2cBlockRead(uint8_t *buf, uint32_t address, uint32_t blockSize, uint8_
     return 0;
 }
 
-int ch34xi2cBlockWrite(uint8_t *buf, uint32_t address, uint32_t blockSize, uint32_t sectorSize, uint8_t algorithm, uint8_t progDevice)
+int ch34xi2cBlockWrite(uint8_t *buf, uint32_t address, uint32_t blockSize, uint32_t sectorSize, uint8_t algorithm)
 {
     int ret;
     int32_t actuallen = 0;
@@ -283,10 +276,9 @@ int ch34xi2cBlockWrite(uint8_t *buf, uint32_t address, uint32_t blockSize, uint3
     uint8_t deviceAddress = 0;
     uint8_t wordAddressLo = 0;
     uint8_t wordAddressHi = 0;
-    progDev = progDevice;
 
         if (size > sectorSize) size = sectorSize;
-        if ((progDev < 2) && (size > 16)) size = 16;
+        if (size > 16) size = 16;
         maxstep = blockSize / size;
 
         for (step = 0; step < maxstep; step++)
@@ -327,25 +319,7 @@ int ch34xi2cBlockWrite(uint8_t *buf, uint32_t address, uint32_t blockSize, uint3
                 fprintf(stderr, "Failed to write to I2C: '%s'\n", strerror(-ret));
                 return ret;
             }
-            if (progDev > 1)
-            {
-                ret = libusb_bulk_transfer(devHandle, ch341_BULK_WRITE_ENDPOINT, i2c_buf.obuf, size + 12 , &actuallen, DEFAULT_TIMEOUT);
 
-                if (ret < 0) {
-                    fprintf(stderr, "Failed to write to I2C: '%s'\n", strerror(-ret));
-                    return -1;
-                }
-
-                for (unsigned i = 0; i < actuallen; ++i)
-                {
-                    if (i2c_buf.ibuf[i] != 0x01)
-                    {
-                        fprintf(stderr, "received NACK at %d", i);
-                        return -1;
-                    }
-                }
-
-            }
             ret = ch34xdelay_ms(10);
             if (ret < 0)
             {
