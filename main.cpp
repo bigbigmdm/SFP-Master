@@ -14,7 +14,54 @@
  */
 #include "mainwindow.h"
 #include <QApplication>
+#include <QFile>
+#include <QDir>
+#include <QStandardPaths>
 #include <QTranslator>
+
+static QString setUpTranslation(const QStringList &searchPaths)
+{
+    QString localeName = QLocale::system().name();
+    QString translateName = "SFP-Master_" + localeName;
+
+    // skip user-specific dir for translations (first one); try the rest
+    foreach (const QString &path, searchPaths.mid(1))
+    {
+        QTranslator *translator = new QTranslator(qApp);
+        if (translator->load(translateName, path))
+        {
+            qApp->installTranslator(translator);
+            qDebug() << "Installed" << translateName << "from" << path;
+            return path;
+        } else {
+            delete translator;
+        }
+    }
+
+    return QString();
+}
+
+static void initPaths()
+{
+    QStringList allPaths = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
+    if (allPaths.isEmpty()) {
+        // do not translate
+        qFatal("Critical error: QStandardPaths::standardLocations(QStandardPaths::AppDataLocation): empty list");
+    }
+
+    QDir binDir(QCoreApplication::applicationDirPath());
+    QString binRelPath = QDir::cleanPath(binDir.absoluteFilePath("../share/" + QCoreApplication::applicationName()));
+    allPaths.insert(1, binRelPath);
+
+    QDir userAppDataLocation(allPaths.value(0));
+    if (!userAppDataLocation.exists()) {
+        userAppDataLocation.mkpath(".");
+        // XXX some sort of error handling that befits the application
+    }
+
+    qApp->setProperty("app/translationDirectory", setUpTranslation(allPaths));
+
+}
 
 int main(int argc, char *argv[])
 {
@@ -24,10 +71,8 @@ int main(int argc, char *argv[])
     //font.setPointSize(12);
     //QApplication::setFont(font);
     QApplication a(argc, argv);
-    QTranslator translator;
-        QString translateName = "SFP-Master_" + QLocale::system().name();
-        if(translator.load(translateName, "/usr/share/sfp-master/")) a.installTranslator(&translator);
-        a.installTranslator(&translator);
+    QCoreApplication::setApplicationName("sfp-master");
+    initPaths();
     MainWindow w;
     w.show();
 
