@@ -85,12 +85,19 @@
     </screenshot>
   </screenshots>
   <releases>
-  <release version="1.0.7" date="2025-09-11" urgency="medium">	  
+  <release version="1.1.1" date="2026-04-14" urgency="medium">
+    <description>
+	     <p>I2C driver changed.</p>
+	     <p>Fix: UDEV and LIBUSB pathes, used PKGCONFIG.</p>
+	     <p>Mutltiplatform translation path added.</p>
+    </description>
+  </release>
+  <release version="1.0.7" date="2025-09-11" urgency="medium">
     <description>
 	     <p>Migrated from QT5 to QT6.</p>
     </description>
   </release>
-  <release version="1.0.6" date="2025-03-04" urgency="medium">	  
+  <release version="1.0.6" date="2025-03-04" urgency="medium">
     <description>
 	     <p>Fixed memory leaks.</p>
     </description>
