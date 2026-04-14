@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it_IT">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>DialogAbout</name>
     <message>
         <location filename="../dialogabout.ui" line="26"/>
         <source>About SFP-Master</source>
-        <translation>Informazioni su SFP-Master</translation>
+        <translation>关于 SFP-Master</translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="38"/>
         <source>SFP-Master is a free software programmer of optical SFP modules for CH341a devices. It can be used to read, write and save SFP module data to the computer. It requires an SFP to I2C adapter. This adapter is used to read and program SFP-module data. It must be inserted into the slot labelled 24xxx of the CH341a programmer.</source>
-        <translation>SFP-Master è un software gratuito per programmare i moduli ottici SFP, utilizzando i dispositivi CH341a. Può essere utilizzato per leggere, scrivere e salvare i dati del modulo SFP sul computer. Richiede un adattatore da SFP a I2C. Questo adattatore è utilizzato per leggere e programmare i dati del modulo SFP. Deve essere inserito nello slot 24xxx del programmatore CH341a.</translation>
+        <translation>SFP-Master 是一款免费的软件，用于通过 CH341a 设备编程光纤 SFP 模块。它可以用来读取、写入和保存 SFP 模块数据到电脑。它需要一个 SFP 转 I2C 适配器。此适配器用于读取和编程 SFP 模块数据。必须将其插入 CH341a 编程器的标有 24xxx 的插槽中。</translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="72"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In this program &lt;a href=&quot;https://github.com/Simsys/qhexedit2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;QhexEditor2&lt;/span&gt;&lt;/a&gt; widget and modified programmer &lt;a href=&quot;https://github.com/setarcos/ch341prog&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;setarcos&lt;/span&gt;&lt;/a&gt; were used.&lt;/p&gt;&lt;p&gt;The page on GitHub is &lt;a href=&quot;https://github.com/bigbigmdm/SFP-Master/tree/main&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;, the OSHWLAB page is &lt;a href=&quot;https://oshwlab.com/einkreader/ch341a_sfp_adapter&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Questo programma utilizza il widget &lt;a href=&quot;https://github.com/Simsys/qhexedit2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;QhexEditor2&lt;/span&gt;&lt;/a&gt; ed il programmatore modificato &lt;a href=&quot;https://github.com/setarcos/ch341prog&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;setarcos&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;La pagina su GitHub è &lt;a href=&quot;https://github.com/bigbigmdm/SFP-Master/tree/main&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;qui&lt;/span&gt;&lt;/a&gt;, la pagina di OSHWLAB è &lt;a href=&quot;https://oshwlab.com/einkreader/ch341a_sfp_adapter&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;qui&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;在此程序中 &lt;a href=&quot;https://github.com/Simsys/qhexedit2/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;使用了 QhexEditor2&lt;/span&gt;&lt;/a&gt; 部件和修改后的程序员 &lt;a href=&quot;https://github.com/setarcos/ch341prog&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;setarcos&lt;/span&gt;&lt;/a&gt;。GitHub上的页面是&lt;a href=&quot;https://github.com/bigbigmdm/SFP-Master/tree/main&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;这里&lt;/span&gt;&lt;/a&gt;，OSHWLAB 页面是&lt;a href=&quot;https://oshwlab.com/einkreader/ch341a_sfp_adapter&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;这里&lt;/span&gt;&lt;/a&gt;。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="101"/>
         <source>Written by 2024 Mikhail Medvedev</source>
-        <translation>Scritto da Mikhail Medvedev nel 2024</translation>
+        <translation>2024年 Mikhail Medvedev 著</translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="122"/>
         <source>Version: </source>
-        <translation>Versione: </translation>
+        <translation>版本: </translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="132"/>
         <source>1.0.1</source>
-        <translation>1.0.1</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../dialogabout.ui" line="165"/>
         <source>Close</source>
-        <translation>Chiudi</translation>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -44,62 +44,62 @@
     <message>
         <location filename="../dialogpass.ui" line="20"/>
         <source>Password settings</source>
-        <translation>Impostazioni della password</translation>
+        <translation>密码设置</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="32"/>
         <source>None</source>
-        <translation>Nessuna</translation>
+        <translation>无</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="39"/>
         <source>Default-1</source>
-        <translation>Predefinita-1</translation>
+        <translation>默认-1</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="46"/>
         <source>Default-2</source>
-        <translation>Predefinita-2</translation>
+        <translation>默认-2</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="53"/>
         <source>Default-3</source>
-        <translation>Predefinita-3</translation>
+        <translation>默认-3</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="60"/>
         <source>User defined:</source>
-        <translation>Definita dall&apos;utente:</translation>
+        <translation>用户自定义:</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="71"/>
         <source>Start address (HEX):</source>
-        <translation>Indirizzo di partenza (HEX):</translation>
+        <translation>起始地址 (HEX):</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="78"/>
         <source>17B</source>
-        <translation>17B</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="85"/>
         <source>Password (HEX):</source>
-        <translation>Password (HEX):</translation>
+        <translation>密码 (HEX):</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="141"/>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>确认</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="101"/>
         <source>Error</source>
-        <translation>Errore</translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="101"/>
         <source>Invalid field value.</source>
-        <translation>Il valore inserito nel campo non è valido.</translation>
+        <translation>无效的字段值。</translation>
     </message>
 </context>
 <context>
@@ -107,22 +107,22 @@
     <message>
         <location filename="../mainwindow.ui" line="20"/>
         <source>SFP-master - SFP module programmer for CH341A devices</source>
-        <translation>SFP-master - Programmatore di moduli SFP per dispositivi CH341A</translation>
+        <translation>SFP-master - 用于 CH341A 设备的 SFP 模块编程器</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="41"/>
         <source>Module type:</source>
-        <translation>Tipo di modulo:</translation>
+        <translation>模块类型:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="58"/>
         <source>Connector type:</source>
-        <translation>Tipo di connettore:</translation>
+        <translation>连接器类型:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="75"/>
         <source>Interface speed:</source>
-        <translation>Velocità dell&apos;interfaccia:</translation>
+        <translation>接口速度:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="91"/>
@@ -132,7 +132,7 @@
     <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Link length supported for 9/25 fiber:</source>
-        <translation>Distanza supportata dalla fibra 9/25:</translation>
+        <translation>9/25 光纤支持的链路长度:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="116"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../mainwindow.ui" line="125"/>
         <source>Link length supported for 50/125 fiber:</source>
-        <translation>Distanza supportata dalla fibra 50/125:</translation>
+        <translation>50/125 光纤支持的链路长度:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="141"/>
@@ -153,17 +153,17 @@
     <message>
         <location filename="../mainwindow.ui" line="150"/>
         <source>Link length supported for 62.5/125 fiber:</source>
-        <translation>Distanza supportata dalla fibra 62.5/125:</translation>
+        <translation>62.5/125 光纤支持的链路长度:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="175"/>
         <source>Manufacturer:</source>
-        <translation>Produttore:</translation>
+        <translation>制造商:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="189"/>
         <source>Manufacturer ID:</source>
-        <translation>ID del produttore:</translation>
+        <translation>制造商 ID:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="226"/>
@@ -174,27 +174,27 @@
     <message>
         <location filename="../mainwindow.ui" line="286"/>
         <source>Model name:</source>
-        <translation>Nome del modello:</translation>
+        <translation>型号名称:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="300"/>
         <source>Vendor revision:</source>
-        <translation>Revisione del modello:</translation>
+        <translation>供应商修订版:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="314"/>
         <source>Laser wavelength:</source>
-        <translation>Lunghezza d&apos;onda del laser:</translation>
+        <translation>激光波长:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="331"/>
         <source>Serial number:</source>
-        <translation>Numero seriale:</translation>
+        <translation>序列号:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="345"/>
         <source>Date code: </source>
-        <translation>Data di produzione: </translation>
+        <translation>日期代码: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="376"/>
@@ -205,202 +205,198 @@
     <message>
         <location filename="../mainwindow.ui" line="442"/>
         <source>Check code for Base ID Fields: </source>
-        <translation>Codice di verifica dei campi ID di base: </translation>
+        <translation>检查代码中的基础 ID 字段: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="459"/>
         <source>Check code for Extended ID Fields:</source>
-        <translation>Codice di verifica dei campi ID estesi:</translation>
+        <translation>检查代码以查找扩展 ID 字段:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="476"/>
         <source>Vendor ID:</source>
-        <translation>ID fornitore:</translation>
+        <translation>供应商 ID:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="503"/>
         <source>Checksums ⟳</source>
-        <translation>Checksum ⟳</translation>
+        <translation>校验和 ⟳</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="516"/>
         <source>Magic</source>
-        <translation>Magic</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="529"/>
         <source>Parse</source>
-        <translation>Analizza</translation>
+        <translation>解析</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="741"/>
         <source>CRC32:</source>
-        <translation>CRC32:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="794"/>
         <source>border: 2px solid gray;border-radius: 5px;font-weight:600;border-style:inset;</source>
-        <translation>border: 2px solid gray;border-radius: 5px;font-weight:600;border-style:inset;</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="807"/>
         <source>CH341a:</source>
-        <translation>CH341a:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="827"/>
         <source>File</source>
-        <translation>File</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="836"/>
         <source>SFP-module</source>
-        <translation>Modulo-SFP</translation>
+        <translation>SFP 模块</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="844"/>
         <location filename="../mainwindow.ui" line="964"/>
         <source>About</source>
-        <translation>Informazioni</translation>
+        <translation>关于</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="850"/>
         <source>HEX-Editor</source>
-        <translation>Editor-HEX</translation>
+        <translation>HEX 编辑器</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="896"/>
         <source>Open</source>
-        <translation>Apri</translation>
-    </message>
-    <message>
-        <source>Open the file on a computer</source>
-        <translation type="vanished">Apri il file sul computer</translation>
+        <translation>打开</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="899"/>
         <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="908"/>
         <source>Save</source>
-        <translation>Salva</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="911"/>
         <source>Save the image of the SFP module on your computer</source>
-        <translation>Salva l&apos;immagine del modulo SFP sul tuo computer</translation>
+        <translation>将 SFP 模块的镜像保存到您的电脑上</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="914"/>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="923"/>
         <source>Read from SFP</source>
-        <translation>Leggi dal modulo SFP</translation>
+        <translation>从 SFP 读取</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="926"/>
         <source>Reading data from the SFP module</source>
-        <translation>Lettura dei dati dal modulo SFP</translation>
+        <translation>从 SFP 模块读取数据</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="929"/>
         <source>Ctrl+R</source>
-        <translation>Ctrl+R</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="938"/>
         <source>Write to SFP</source>
-        <translation>Scrivi sul modulo SFP</translation>
+        <translation>写入到 SFP</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="941"/>
         <source>Writing data to the SFP module</source>
-        <translation>Scrittura dei dati sul modulo SFP</translation>
+        <translation>将数据写入 SFP 模块</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="944"/>
         <source>Ctrl+W</source>
-        <translation>Ctrl+W</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="953"/>
         <source>Set SFP-module password</source>
-        <translation>Imposta la password del modulo SFP</translation>
+        <translation>设置 SFP 模块密码</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="956"/>
         <source>Set SFP-module password for writing data</source>
-        <translation>Imposta la password del modulo SFP per la scrittura dei dati</translation>
+        <translation>设置 SFP 模块密码以写入数据</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="959"/>
         <source>Ctrl+P</source>
-        <translation>Ctrl+P</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="967"/>
         <source>About SFP-Master</source>
-        <translation>Informazioni su SFP-Master</translation>
+        <translation>关于 SFP-Master</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="970"/>
         <source>Ctrl+A</source>
-        <translation>Ctrl+A</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="979"/>
         <source>Undo</source>
-        <translation>Annulla</translation>
+        <translation>撤销</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="982"/>
         <source>Ctrl+Z</source>
-        <translation>Ctrl+Z</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
         <source>Redo</source>
-        <translation>Ripeti</translation>
+        <translation>重做</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="994"/>
         <source>Ctrl+Y</source>
-        <translation>Ctrl+Y</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1003"/>
         <source>Exit</source>
-        <translation>Esci</translation>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1006"/>
         <source>Exiting the programm</source>
-        <translation>Uscita dal programma</translation>
+        <translation>退出程序</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1009"/>
         <source>Ctrl+X</source>
-        <translation>Ctrl+X</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="141"/>
         <source>Opening file</source>
-        <translation>Apertura del file</translation>
+        <translation>打开文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Open file</source>
-        <translation>Apri file</translation>
+        <translation>打开文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="153"/>
         <source>Current file: </source>
-        <translation>File attuale: </translation>
+        <translation>当前文件: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="159"/>
@@ -408,67 +404,67 @@
         <location filename="../mainwindow.cpp" line="393"/>
         <location filename="../mainwindow.cpp" line="405"/>
         <location filename="../mainwindow.cpp" line="645"/>
-        <location filename="../mainwindow.cpp" line="656"/>
-        <location filename="../mainwindow.cpp" line="685"/>
-        <location filename="../mainwindow.cpp" line="702"/>
-        <location filename="../mainwindow.cpp" line="731"/>
-        <location filename="../mainwindow.cpp" line="742"/>
+        <location filename="../mainwindow.cpp" line="655"/>
+        <location filename="../mainwindow.cpp" line="684"/>
+        <location filename="../mainwindow.cpp" line="699"/>
+        <location filename="../mainwindow.cpp" line="728"/>
+        <location filename="../mainwindow.cpp" line="740"/>
         <source>Error</source>
-        <translation>Errore</translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="159"/>
         <source>The file size is incorrect!</source>
-        <translation>La dimensione del file non è corretta!</translation>
+        <translation>文件大小不正确！</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="345"/>
         <location filename="../mainwindow.cpp" line="405"/>
         <source>Vendor ID is incorrect!</source>
-        <translation>L&apos;ID del fornitore non è corretto!</translation>
+        <translation>供应商 ID 不正确！</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="380"/>
         <source>Saving file</source>
-        <translation>Salvataggio del file</translation>
+        <translation>保存文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="382"/>
         <source>Save file</source>
-        <translation>Salva il file</translation>
+        <translation>保存文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Error saving file!</source>
-        <translation>Si è verificato un errore durante il salvataggio del file!</translation>
+        <translation>保存文件时出错！</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="645"/>
-        <location filename="../mainwindow.cpp" line="685"/>
-        <location filename="../mainwindow.cpp" line="731"/>
+        <location filename="../mainwindow.cpp" line="684"/>
+        <location filename="../mainwindow.cpp" line="728"/>
         <source>Programmer CH341a is not connected!</source>
-        <translation>Il programmatore CH341a non è connesso!</translation>
+        <translation>编程器 CH341a 未连接！</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="656"/>
+        <location filename="../mainwindow.cpp" line="655"/>
         <source>Error reading SFP module data.</source>
-        <translation>Si è verificato un errore durante la lettura dei dati dal modulo SFP.</translation>
+        <translation>读取 SFP 模块数据出错。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="702"/>
-        <location filename="../mainwindow.cpp" line="742"/>
+        <location filename="../mainwindow.cpp" line="699"/>
+        <location filename="../mainwindow.cpp" line="740"/>
         <source>Error writing SFP module data.</source>
-        <translation>Si è verificato un errore durante la scrittura dei dati sul modulo SFP.</translation>
+        <translation>写入 SFP 模块数据时出错。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="809"/>
+        <location filename="../mainwindow.cpp" line="807"/>
         <source>Connected</source>
-        <translation>Connesso</translation>
+        <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="814"/>
+        <location filename="../mainwindow.cpp" line="812"/>
         <source>Not connected</source>
-        <translation>Non connesso</translation>
+        <translation>未连接</translation>
     </message>
 </context>
 <context>
@@ -476,17 +472,17 @@
     <message>
         <location filename="../commands.cpp" line="130"/>
         <source>Inserting %1 bytes</source>
-        <translation>Inseriti %1 byte</translation>
+        <translation>正在插入 %1 字节</translation>
     </message>
     <message>
         <location filename="../commands.cpp" line="152"/>
         <source>Delete %1 chars</source>
-        <translation>Eliminati %1 caratteri</translation>
+        <translation>删除 %1 个字符</translation>
     </message>
     <message>
         <location filename="../commands.cpp" line="177"/>
         <source>Overwrite %1 chars</source>
-        <translation>Sovrascritti %1 caratteri</translation>
+        <translation>覆盖 %1 个字符</translation>
     </message>
 </context>
 </TS>

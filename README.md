@@ -167,6 +167,8 @@ is [LGPL-2.1](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 
 - German translation by [Wucke13](https://github.com/wucke13)
 
+- Simplified Chinese translation by [taotieren](https://github.com/taotieren)
+
 Anyone can add or improve a translation by making a pull request.
 Translations files are located in:
 [language/](https://github.com/bigbigmdm/SFP-Master/tree/main/language) 
