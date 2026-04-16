@@ -20,8 +20,6 @@ endif()
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
       set(CMAKE_INSTALL_PREFIX "/usr/local" CACHE PATH "The default install prefix on macOS" FORCE)
-  # Set Qt5 path for macOS
-  	set(CMAKE_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}/opt/qt@5" CACHE PATH "Path to Qt5 on macOS" FORCE)
   else()
       set(CMAKE_INSTALL_PREFIX "/usr" CACHE PATH "The default install prefix" FORCE)
   endif()
@@ -44,23 +42,28 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-find_package(Qt6 QUIET COMPONENTS Core Widgets)
-if (TARGET Qt6::Core AND TARGET Qt6::Widgets)
-    set(QT_VERSION_MAJOR 6)
-    find_package(Qt6LinguistTools REQUIRED)
-else()
-    # If QT6 not found, using QT5
+option(FORCE_QT5 "Force using Qt5 instead of Qt6" OFF)
+
+if(FORCE_QT5)
+    message(STATUS "Forced Qt5 mode")
     find_package(Qt5 REQUIRED COMPONENTS Core Widgets LinguistTools)
     set(QT_VERSION_MAJOR 5)
+else()
+    find_package(Qt6 QUIET COMPONENTS Core Widgets)
+    if(TARGET Qt6::Core AND TARGET Qt6::Widgets)
+        message(STATUS "Using Qt6")
+        set(QT_VERSION_MAJOR 6)
+        find_package(Qt6LinguistTools REQUIRED)
+    else()
+        message(STATUS "Qt6 not found, using Qt5")
+        find_package(Qt5 REQUIRED COMPONENTS Core Widgets LinguistTools)
+        set(QT_VERSION_MAJOR 5)
+    endif()
 endif()
 
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 set(UDEVDIR "/usr/lib/udev")
 if (CMAKE_INSTALL_PREFIX STREQUAL "/usr" OR CMAKE_INSTALL_PREFIX STREQUAL "/" AND NOT CMAKE_CROSSCOMPILING)
-# /usr and / install prefixes at treated by cmake GNUInstallDirs as
-# synonym for "system location". In this case we can look up the correct udevdir
-# using pkg-config.
-# See: https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html#special-cases
 find_package(PkgConfig)
   if (PKG_CONFIG_FOUND)
     pkg_check_modules( PKGCONFIG_UDEV udev)
@@ -120,11 +123,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${LIBUSB_INCLUDE_DIRS})
 
 if (QT_VERSION_MAJOR EQUAL 5)
-    target_link_libraries(${PROJECT_NAME} Qt5::Core)
-    target_link_libraries(${PROJECT_NAME} Qt5::Widgets ${LIBUSB_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets ${LIBUSB_LIBRARIES})
 else()
-    target_link_libraries(${PROJECT_NAME} Qt::Core)
-    target_link_libraries(${PROJECT_NAME} Qt::Widgets ${LIBUSB_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} Qt::Core Qt::Widgets ${LIBUSB_LIBRARIES})
 endif()
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
@@ -149,4 +150,3 @@ install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/sfp-master")
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/70-CH341.rules" DESTINATION "${UDEVDIR}/rules.d")
 endif()
-
