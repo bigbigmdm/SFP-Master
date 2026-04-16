@@ -90,6 +90,7 @@
 	     <p>I2C driver changed.</p>
 	     <p>Fix: UDEV and LIBUSB pathes, used PKGCONFIG.</p>
 	     <p>Mutltiplatform translation path added.</p>
+	     <p>The option to switch Qt versions has been added</p>
     </description>
   </release>
   <release version="1.0.7" date="2025-09-11" urgency="medium">

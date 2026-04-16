@@ -13,7 +13,7 @@
 # GNU General Public License for more details.
 
 Name: sfp-master
-Version: 1.0.7
+Version: 1.1.1
 Release: 1%dist
 
 Summary: Reading, writing SFP modules data
@@ -134,12 +134,15 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 %license LICENSE
 
 %changelog
+* Wed Apr 16 2026 Mikhail Medvedev 1.1.1-1
+- Added mutltiplatform translation path
+- I2C driver has been changed
+- Added the option to switch Qt versions
+- Fixed UDEV and LIBUSB pathes, used PKGCONFIG
 * Thu Sep 11 2025 Mikhail Medvedev 1.0.7-1
 - Ported from QT5 to QT6
-
 * Fri Jul 25 2025 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_43_Mass_Rebuild
-
 * Tue Mar 04 2025 Mikhail Medvedev 1.0.6-1
 - Fixed memory leaks
 * Wed Jan 08 2025 Mikhail Medvedev 1.0.5-1

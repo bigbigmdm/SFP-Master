@@ -9,4 +9,5 @@
 - Ver. 1.0.6 - Fixed memory leaks.
 - Ver. 1.0.7 - Ported from QT5 to QT6.
 - Ver. 1.1.1 - I2C driver changed. Fix: UDEV and LIBUSB pathes, used PKGCONFIG. 
-Mutltiplatform translation path added.
+Mutltiplatform translation path added. The option to switch Qt versions has been
+ added.
