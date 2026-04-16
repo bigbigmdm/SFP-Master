@@ -21,9 +21,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name: [Ubuntu-22, Debian-11, Debian-12, Debian-Testing, Debian-Experimental]
+        name: [Ubuntu-20, Ubuntu-22, Debian-11, Debian-12, Debian-Testing, Debian-Experimental]
         cpp_compiler: [g++]
         include:
+          - name: Ubuntu-20
+            # Uses gcc 9.3.0, clang 10.0.0, cmake 3.16.3
+            image: "ubuntu:20.04"
+            ubuntu: 20
           - name: Ubuntu-22
             # Uses gcc 12.2.0, clang 15.0.7, cmake 3.24.2
             image: "ubuntu:22.04"
@@ -74,9 +78,8 @@ jobs:
             cmake \
             g++ \
             libusb-1.0-0-dev \
-            qt6-base-dev \
-            qt6-tools-dev \
-            qt6-l10n-tools \
+            qtbase5-dev \
+            qttools5-dev \
             pkg-config
           apt-get satisfy "systemd-dev (>= 253-2~) | udev (<< 253-2~)" --yes
       - uses: actions/checkout@v6
