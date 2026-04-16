@@ -74,8 +74,9 @@ jobs:
             cmake \
             g++ \
             libusb-1.0-0-dev \
-            qtbase5-dev \
-            qttools5-dev \
+            qt6-base-dev \
+            qt6-tools-dev \
+            qt6-l10n-tools \
             pkg-config
           apt-get satisfy "systemd-dev (>= 253-2~) | udev (<< 253-2~)" --yes
       - uses: actions/checkout@v6
