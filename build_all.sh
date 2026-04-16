@@ -9,7 +9,10 @@ fi
 
 rm -rf build/
 mkdir build/
+# For using Qt6
 cmake -S . -B build/
+# For using Qt5
+#cmake -S . -B build/ -DFORCE_QT5=ON
 cmake --build build/ --parallel
 cmake --install build/
 rm -rf build/
