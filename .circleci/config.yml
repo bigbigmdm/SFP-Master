@@ -51,26 +51,14 @@ jobs:
         <<: *shared
         docker:
             - image: library/debian:trixie
-    ubuntu1404:
-        <<: *shared
-        docker:
-            - image: library/ubuntu:trusty
-    ubuntu1604:
-        <<: *shared
-        docker:
-            - image: library/ubuntu:xenial
-    ubuntu1804:
-        <<: *shared
-        docker:
-            - image: library/ubuntu:bionic
-    ubuntu2004:
-        <<: *shared
-        docker:
-            - image: library/ubuntu:focal
     ubuntu2204:
         <<: *shared
         docker:
             - image: library/ubuntu:jammy
+    ubuntu2404:
+        <<: *shared
+        docker:
+            - image: library/ubuntu:noble
     ubuntu2310:
         <<: *shared
         docker:
@@ -88,6 +76,8 @@ workflows:
       - ubuntu2004:
           <<: *debian_only
       - ubuntu2204:
+          <<: *debian_only
+      - ubuntu2404:
           <<: *debian_only
       - ubuntu2310:
           <<: *debian_only

@@ -7,6 +7,8 @@
 QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 LIBS += -lusb-1.0
+CONFIG += link_pkgconfig
+PKGCONFIG += libusb-1.0
 
 TARGET = SFP-master
 TEMPLATE = app
@@ -30,9 +32,9 @@ SOURCES += \
     chunks.cpp \
     qhexedit.cpp \
     commands.cpp \
-    ch341funcs.c \
     dialogabout.cpp \
-    dialogpass.cpp
+    dialogpass.cpp \
+    ch34x_i2c.c
 
 HEADERS += \
         mainwindow.h \
@@ -40,9 +42,9 @@ HEADERS += \
     mainwindow.h \
     commands.h \
     qhexedit.h \
-    ch341eeprom.h \
     dialogabout.h \
-    dialogpass.h
+    dialogpass.h \
+    ch34x_i2c.h
 
 FORMS += \
         mainwindow.ui \
@@ -53,7 +55,8 @@ TRANSLATIONS += language/SFP-Master_hu_HU.ts \
          language/SFP-Master_ru_RU.ts \
          language/SFP-Master_it_IT.ts \
          language/SFP-Master_pt_BR.ts \
-         language/SFP-Master_de_DE.ts
+         language/SFP-Master_de_DE.ts \
+         language/SFP-Master_zh_Hans.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

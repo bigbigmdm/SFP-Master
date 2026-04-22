@@ -22,11 +22,13 @@
 #include <QFileDialog>
 #include <QTime>
 #include <QTimer>
+#include <QResizeEvent>
 #include "qhexedit.h"
 #include <QCryptographicHash>
 #include "dialogpass.h"
 extern "C" {
-#include "ch341eeprom.h"
+//#include "ch341eeprom.h"
+#include "ch34x_i2c.h"
 }
 
 namespace Ui {
@@ -46,6 +48,7 @@ public slots:
     void receiveUserPass(uint32_t addr, uint32_t passw);
 
 private slots:
+    void showEvent(QShowEvent* event);
     void on_actionLoad_triggered();
     void on_pushButton_parsing_clicked();
     void on_pushButton_checksum_clicked();
