@@ -1,3 +1,14 @@
+sfp-master (1.1.1-1) unstable; urgency=medium
+
+  * New upstream version:
+    - copyright information changed
+    - debian/control changed
+    - unused files removed
+    - changed I2C driver
+    - Fix: UDEV and LIBUSB pathes, used PKGCONFIG
+    - Added: the option to switch Qt versions
+ -- Mikhail Medvedev <e-ink-reader@yandex.ru>  Wed, 22 Apr 2026 09:04:11 +0300
+
 sfp-master (1.0.7-1) unstable; urgency=medium
 
   * Initial release. (Closes: #1108245)

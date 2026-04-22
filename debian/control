@@ -11,6 +11,7 @@ Build-Depends:
  qt6-tools-dev, 
  linguist-qt6,
  qt6-l10n-tools,
+ qt6-base-dev-tools,
  qt6-tools-dev-tools,
  systemd-dev (>= 253-2~) | udev (<< 253-2~),
 Standards-Version: 4.7.2
