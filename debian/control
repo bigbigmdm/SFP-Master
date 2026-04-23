@@ -8,7 +8,7 @@ Build-Depends:
  libusb-1.0-0-dev,
  pkgconf,
  qt6-base-dev,
- qt6-tools-dev, 
+ qt6-tools-dev,
  linguist-qt6,
  qt6-l10n-tools,
  qt6-base-dev-tools,
