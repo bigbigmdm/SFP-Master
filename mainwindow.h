@@ -109,7 +109,8 @@ private:
     void checkSumsUpdate();
     void writePassword();
     int writeAndVerify(uint8_t *buf, int size, uint32_t password, bool usePassword, QStringList *ranges);
-    QString complianceString();
+    void complianceToCheckboxes();   // EEPROM bytes 3-10 -> checkbox states
+    void checkboxesToCompliance();   // checkbox states -> EEPROM bytes 3-10
     uint_least32_t Crc32(QByteArray &buf, size_t len);
     int calcSize();
     QTimer *timer;

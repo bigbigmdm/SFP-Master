@@ -550,10 +550,58 @@
          </widget>
         </item>
         <item row="20" column="1">
-         <widget class="QLineEdit" name="lineEdit_compliance">
-          <property name="readOnly"><bool>true</bool></property>
-          <property name="text"><string/></property>
-         </widget>
+         <layout class="QGridLayout" name="gridLayout_compliance">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="cb_10gSR">
+            <property name="text"><string>10GBASE-SR</string></property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="cb_1gSX">
+            <property name="text"><string>1000BASE-SX</string></property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="cb_10gLR">
+            <property name="text"><string>10GBASE-LR</string></property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="cb_1gLX">
+            <property name="text"><string>1000BASE-LX</string></property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="cb_10gLRM">
+            <property name="text"><string>10GBASE-LRM</string></property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QCheckBox" name="cb_1gCX">
+            <property name="text"><string>1000BASE-CX</string></property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="cb_10gER">
+            <property name="text"><string>10GBASE-ER</string></property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="cb_1gT">
+            <property name="text"><string>1000BASE-T</string></property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="cb_dacP">
+            <property name="text"><string>Passive DAC</string></property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QCheckBox" name="cb_dacA">
+            <property name="text"><string>Active DAC</string></property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>

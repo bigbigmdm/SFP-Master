@@ -17,6 +17,7 @@
 #include "qhexedit.h"
 #include <QLabel>
 #include <QMessageBox>
+#include <QCheckBox>
 #include <QErrorMessage>
 #include <QDragEnterEvent>
 #include <QtGui>
@@ -138,6 +139,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_om3->setValidator(valDigit);
     ui->lineEdit_om4cu->setValidator(valDigit);
     ui->lineEdit_ifspeed->setValidator(valDigit);
+    for (QCheckBox *cb : {ui->cb_10gSR, ui->cb_10gLR, ui->cb_10gLRM, ui->cb_10gER,
+                          ui->cb_1gSX, ui->cb_1gLX, ui->cb_1gCX, ui->cb_1gT,
+                          ui->cb_dacP, ui->cb_dacA})
+        connect(cb, &QCheckBox::toggled, this, &MainWindow::checkboxesToCompliance);
     lastDirectory = QDir::homePath(); //"/home/";
     cmdStarted = false;
     crc32show();
@@ -229,40 +234,41 @@ void MainWindow::on_actionLoad_triggered()
     on_pushButton_parsing_clicked();
 }
 
-// Decode the transceiver compliance codes (A0h bytes 3-10, SFF-8472 / SFF-8024)
-// into a human-readable list. These bits are what hosts (e.g. the Ubiquiti SFP
-// wizard) use to classify a module as optical/laser vs copper; this UI did not
-// surface them before, so a module could read as a laser elsewhere yet show
-// nothing here. Only the widely used bits are decoded.
-QString MainWindow::complianceString()
+// Transceiver compliance checkboxes mapped to their EEPROM bit (A0h bytes
+// 3-10, SFF-8472 / SFF-8024). These bits are what hosts (e.g. the Ubiquiti
+// SFP wizard) use to classify a module as optical/laser vs copper. Only the
+// widely used bits are exposed; other bits in those bytes are preserved.
+//
+// Build the (checkbox, byte, mask) table from the current ui pointers.
+#define COMPLIANCE_MAP(FN) do { \
+    FN(cb_10gSR, 3, 0x10); FN(cb_10gLR, 3, 0x20); \
+    FN(cb_10gLRM, 3, 0x40); FN(cb_10gER, 3, 0x80); \
+    FN(cb_1gSX, 6, 0x01); FN(cb_1gLX, 6, 0x02); \
+    FN(cb_1gCX, 6, 0x04); FN(cb_1gT, 6, 0x08); \
+    FN(cb_dacA, 8, 0x04); FN(cb_dacP, 8, 0x08); \
+} while (0)
+
+void MainWindow::complianceToCheckboxes()
 {
-    QStringList codes;
-    const unsigned b3 = static_cast<unsigned>(SFPData[3]  & 0xff); // 10G Ethernet / Infiniband
-    const unsigned b6 = static_cast<unsigned>(SFPData[6]  & 0xff); // Ethernet (1G)
-    const unsigned b8 = static_cast<unsigned>(SFPData[8]  & 0xff); // SFP+ cable technology
+#define SET_CB(CB, BYTE, MASK) do { \
+    ui->CB->blockSignals(true); \
+    ui->CB->setChecked((static_cast<unsigned>(SFPData[BYTE] & 0xff) & (MASK)) != 0); \
+    ui->CB->blockSignals(false); } while (0)
+    COMPLIANCE_MAP(SET_CB);
+#undef SET_CB
+}
 
-    if (b3 & 0x80) codes << "10GBASE-ER";
-    if (b3 & 0x40) codes << "10GBASE-LRM";
-    if (b3 & 0x20) codes << "10GBASE-LR";
-    if (b3 & 0x10) codes << "10GBASE-SR";
-
-    if (b6 & 0x80) codes << "BASE-PX";
-    if (b6 & 0x40) codes << "BASE-BX10";
-    if (b6 & 0x20) codes << "100BASE-FX";
-    if (b6 & 0x10) codes << "100BASE-LX/LX10";
-    if (b6 & 0x08) codes << "1000BASE-T";
-    if (b6 & 0x04) codes << "1000BASE-CX";
-    if (b6 & 0x02) codes << "1000BASE-LX";
-    if (b6 & 0x01) codes << "1000BASE-SX";
-
-    if (b8 & 0x08) codes << "Passive DAC";
-    if (b8 & 0x04) codes << "Active DAC";
-
-    QString raw;
-    for (int i = 3; i <= 10; i++)
-        raw += bytePrint(static_cast<unsigned char>(SFPData[i])) + " ";
-    if (codes.isEmpty()) codes << "(none set)";
-    return codes.join(", ") + "   [" + raw.trimmed() + "]";
+void MainWindow::checkboxesToCompliance()
+{
+    if (!hexEdit) return;
+#define GET_CB(CB, BYTE, MASK) do { \
+    unsigned v = static_cast<unsigned>(SFPData[BYTE] & 0xff); \
+    v = ui->CB->isChecked() ? (v | (MASK)) : (v & ~(unsigned)(MASK)); \
+    SFPData[BYTE] = static_cast<char>(v); } while (0)
+    COMPLIANCE_MAP(GET_CB);
+#undef GET_CB
+    hexEdit->setData(SFPData);
+    checkSumsUpdate();
 }
 
 void MainWindow::on_pushButton_parsing_clicked()
@@ -344,7 +350,7 @@ void MainWindow::on_pushButton_parsing_clicked()
     if (static_cast<int>(SFPData[0x62] &0xff) < 64) ui->lineEdit_vendorid->setText(bytePrint(static_cast<unsigned char>(SFPData[0x62])));
     else ui->lineEdit_vendorid->setText("");
 
-    ui->lineEdit_compliance->setText(complianceString());
+    complianceToCheckboxes();
 
     ui->lineEdit_crclow->setText(checkSumLo());
     ui->lineEdit_crchigh->setText(checkSumHi());
