@@ -910,7 +910,8 @@ void MainWindow::on_actionWrite_to_SFP_triggered()
     }
 
     // Still locked: cycle through the known module passwords automatically.
-    if (mismatches > 0)
+    // A user-defined password (id 4) is used on its own - never brute-forced.
+    if (mismatches > 0 && currentPass.id != 4)
     {
         for (unsigned c = 0; c < kKnownPasswordCount && mismatches > 0; c++)
         {
@@ -931,6 +932,12 @@ void MainWindow::on_actionWrite_to_SFP_triggered()
     else if (mismatches == 0)
         QMessageBox::about(this, tr("Write"),
                            tr("Write verified: %1 bytes written successfully (%2).").arg(size).arg(usedWith));
+    else if (currentPass.id == 4)
+        QMessageBox::about(this, tr("Error"),
+                           tr("Verify failed: %1 bytes differ using the user-defined password. "
+                              "The module did not unlock with it.\n\n"
+                              "Differing ranges:\n%2")
+                           .arg(mismatches).arg(ranges.join("\n")));
     else
         QMessageBox::about(this, tr("Error"),
                            tr("Verify failed: %1 bytes differ after trying every known password. "
