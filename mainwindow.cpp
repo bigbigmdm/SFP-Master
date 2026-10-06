@@ -29,6 +29,51 @@
 #include "dialogpass.h"
 #include <stdlib.h>
 
+// Known factory/vendor SFP write-unlock passwords, written to A2h byte 0x7B
+// (module address 0x17b) and tried in this order by the auto-cycle on write
+// and by the password scan. These are published defaults for modules you own,
+// not credentials for anyone else's hardware.
+static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
+    // Common factory / host defaults.
+    {"Default",       0x00001011},
+    {"SNR-1",         0x22445588},
+    {"SNR-2",         0x44554455},
+    {"Finisar",       0x9bb03dfa}, // FTL414QB2N, HP J4858A, Juniper 740-021308
+    {"OCP",           0x4f435000}, // "OCP\0" Infinera / Oplink
+    {"All zero",      0x00000000},
+    {"All ones",      0xffffffff},
+    // Ubiquiti UFiber / UACC modules.
+    {"Ubiquiti-1",    0x78563412}, // DAC-SFP28-3M, OM-SFP10 series
+    {"Ubiquiti-csww", 0x63737777}, // "csww" OM-*-10G-D, OM-SFP28-SR/LR
+    {"Ubiquiti-SFPX", 0x53465058}, // "SFPX" OM-SFP28-LR
+    {"Ubiquiti-2",    0x80818283}, // OM-QSFP28-LR4 / PSM4
+    {"Ubiquiti-QSFP", 0x51534650}, // "QSFP" OM-QSFP28-SR4
+    // Community-contributed (FSBox firmware dump); vendor not attributed.
+    {"SFP+",          0x5346502b},
+    {"8472",          0x38343732},
+    {"8473",          0x38343733},
+    {"XGRD",          0x58475244},
+    {"HXPR",          0x48585052},
+    {"FESU",          0x46455355},
+    {"Ak47",          0x416b3437},
+    {"FSBox-1",       0x22242827},
+    {"FSBox-2",       0x02020202},
+    {"FSBox-3",       0x80000003},
+    {"FSBox-4",       0x09050207},
+    {"FSBox-5",       0xa0a1a2a3},
+    {"FSBox-6",       0xfcd3a635},
+    {"FSBox-7",       0xcf454d20},
+    {"FSBox-8",       0x82525339},
+    {"FSBox-9",       0xf0042ab9},
+    {"FSBox-10",      0xf0020aab},
+    {"FSBox-11",      0xf0051aba},
+    {"FSBox-12",      0xf0517ab7},
+    {"FSBox-13",      0xaabcaaad},
+    {"FSBox-14",      0xc8d9eafb},
+};
+static const unsigned kKnownPasswordCount =
+    sizeof(kKnownPasswords) / sizeof(kKnownPasswords[0]);
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -45,6 +90,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->statusBar->addPermanentWidget(ui->cLabel,0);
     ui->statusBar->addPermanentWidget(ui->crcEdit,0);
     ui->comboBox_wavelength->addItem(" ", 0);
+    ui->comboBox_wavelength->addItem("850 nm", 850);
     ui->comboBox_wavelength->addItem("1270 nm", 1270);
     ui->comboBox_wavelength->addItem("1290 nm", 1290);
     ui->comboBox_wavelength->addItem("1310 nm", 1310);
@@ -180,6 +226,42 @@ void MainWindow::on_actionLoad_triggered()
     on_pushButton_parsing_clicked();
 }
 
+// Decode the transceiver compliance codes (A0h bytes 3-10, SFF-8472 / SFF-8024)
+// into a human-readable list. These bits are what hosts (e.g. the Ubiquiti SFP
+// wizard) use to classify a module as optical/laser vs copper; this UI did not
+// surface them before, so a module could read as a laser elsewhere yet show
+// nothing here. Only the widely used bits are decoded.
+QString MainWindow::complianceString()
+{
+    QStringList codes;
+    const unsigned b3 = static_cast<unsigned>(SFPData[3]  & 0xff); // 10G Ethernet / Infiniband
+    const unsigned b6 = static_cast<unsigned>(SFPData[6]  & 0xff); // Ethernet (1G)
+    const unsigned b8 = static_cast<unsigned>(SFPData[8]  & 0xff); // SFP+ cable technology
+
+    if (b3 & 0x80) codes << "10GBASE-ER";
+    if (b3 & 0x40) codes << "10GBASE-LRM";
+    if (b3 & 0x20) codes << "10GBASE-LR";
+    if (b3 & 0x10) codes << "10GBASE-SR";
+
+    if (b6 & 0x80) codes << "BASE-PX";
+    if (b6 & 0x40) codes << "BASE-BX10";
+    if (b6 & 0x20) codes << "100BASE-FX";
+    if (b6 & 0x10) codes << "100BASE-LX/LX10";
+    if (b6 & 0x08) codes << "1000BASE-T";
+    if (b6 & 0x04) codes << "1000BASE-CX";
+    if (b6 & 0x02) codes << "1000BASE-LX";
+    if (b6 & 0x01) codes << "1000BASE-SX";
+
+    if (b8 & 0x08) codes << "Passive DAC";
+    if (b8 & 0x04) codes << "Active DAC";
+
+    QString raw;
+    for (int i = 3; i <= 10; i++)
+        raw += bytePrint(static_cast<unsigned char>(SFPData[i])) + " ";
+    if (codes.isEmpty()) codes << "(none set)";
+    return codes.join(", ") + "   [" + raw.trimmed() + "]";
+}
+
 void MainWindow::on_pushButton_parsing_clicked()
 {
     //Parsing module parameters
@@ -206,6 +288,13 @@ void MainWindow::on_pushButton_parsing_clicked()
 
     ui->lineEdit_62125->setText(QString::number(static_cast<int>(SFPData[17] &0xff) * 10));
 
+    // Byte 15 (SMF, 100 m units), 19 (OM3 50/125, 10 m units) and 18 (OM4 in
+    // 10 m / copper DAC in 1 m) were previously not parsed, so laser reach
+    // stored only in those bytes (e.g. 850 nm OM3 "SR" modules) looked empty.
+    ui->lineEdit_smf100->setText(QString::number(static_cast<int>(SFPData[15] &0xff) * 100));
+    ui->lineEdit_om3->setText(QString::number(static_cast<int>(SFPData[19] &0xff) * 10));
+    ui->lineEdit_om4cu->setText(QString::number(static_cast<int>(SFPData[18] &0xff)));
+
     for (i = 20; i<=35; i++) tmpstr.append( static_cast<char>(SFPData[i]));
     ui->lineEdit_manuf->setText(tmpstr);
 
@@ -221,9 +310,15 @@ void MainWindow::on_pushButton_parsing_clicked()
     for (i = 56; i<=59; i++) tmpstr.append( static_cast<char>(SFPData[i]));
     ui->lineEdit_revision->setText(tmpstr);
 
-    index = ui->comboBox_wavelength->findData(static_cast<int>(SFPData[60] &0xff) * 256 + static_cast<int>(SFPData[61] &0xff));
+    int wl = static_cast<int>(SFPData[60] &0xff) * 256 + static_cast<int>(SFPData[61] &0xff);
+    index = ui->comboBox_wavelength->findData(wl);
+    if ( index == -1 && wl != 0 )
+    { // value not in the preset list (e.g. 850 nm MMF): add it so it shows
+       ui->comboBox_wavelength->addItem(QString("%1 nm").arg(wl), wl);
+       index = ui->comboBox_wavelength->findData(wl);
+    }
     if ( index != -1 )
-    { // -1 for not found
+    {
        ui->comboBox_wavelength->setCurrentIndex(index);
     }
 
@@ -245,6 +340,8 @@ void MainWindow::on_pushButton_parsing_clicked()
 
     if (static_cast<int>(SFPData[0x62] &0xff) < 64) ui->lineEdit_vendorid->setText(bytePrint(static_cast<unsigned char>(SFPData[0x62])));
     else ui->lineEdit_vendorid->setText("");
+
+    ui->lineEdit_compliance->setText(complianceString());
 
     ui->lineEdit_crclow->setText(checkSumLo());
     ui->lineEdit_crchigh->setText(checkSumHi());
@@ -669,42 +766,124 @@ void MainWindow::on_actionRead_SFP_triggered()
 
 }
 
-void MainWindow::on_actionWrite_to_SFP_triggered() //beta - no password...
+// One write attempt: optionally unlock with a password, write the data block,
+// then read it back and count the bytes that did not take. Assumes the
+// programmer is already connected. Returns the mismatch count, or -1 on a USB
+// error. The password/diagnostics window A2h 0x60-0x7F is never verified
+// because it does not read back what was written.
+int MainWindow::writeAndVerify(uint8_t *buf, int size, uint32_t password, bool usePassword, QStringList *ranges)
+{
+    int res;
+    if (usePassword)
+    {
+        uint8_t pw[4];
+        pw[0] = static_cast<uint8_t>((password >> 24) & 0xff);
+        pw[1] = static_cast<uint8_t>((password >> 16) & 0xff);
+        pw[2] = static_cast<uint8_t>((password >>  8) & 0xff);
+        pw[3] = static_cast<uint8_t>(password & 0xff);
+        res = ch34xi2cBlockWrite(pw, 0x17b, 0x04, 0x08, 0x11);
+        if (res < 0) return -1;
+    }
+
+    res = ch34xi2cBlockWrite(buf, 0, static_cast<uint32_t>(size), 0x08, 0x11);
+    if (res < 0) return -1;
+
+    std::shared_ptr<uint8_t[]> verify(new uint8_t[0x200]);
+    for (int i = 0; i < 0x200; i++) verify[i] = 0xff;
+    res = ch34xi2cBlockRead(verify.get(), 0, static_cast<uint32_t>(size), 0x11);
+    if (res < 0) return -1;
+
+    int mismatches = 0;
+    int start = -1;
+    for (int i = 0; i <= size; i++)
+    {
+        bool bad = (i < size) && !(i >= 0x160 && i < 0x180) && (verify[i] != buf[i]);
+        if (bad)
+        {
+            mismatches++;
+            if (start < 0) start = i;
+        }
+        else if (start >= 0)
+        {
+            if (ranges)
+            {
+                QString dev = (start < 0x100) ? "A0h" : "A2h";
+                *ranges << QString("%1 0x%2-0x%3").arg(dev)
+                           .arg(start & 0xff, 2, 16, QChar('0'))
+                           .arg((i - 1) & 0xff, 2, 16, QChar('0'));
+            }
+            start = -1;
+        }
+    }
+    return mismatches;
+}
+
+void MainWindow::on_actionWrite_to_SFP_triggered()
 {
     doNotDisturb();
     int size = calcSize();
-    int res = 0;
     int i = 0;
     std::shared_ptr<uint8_t[]> buf(new uint8_t[0x200]);
     for (i=0; i < 0x200; i++) buf[i] = 0xff;
-    if (currentPass.id > 0) writePassword();
+
     statusCh341a = ch341aConnect();
     ch341StatusFlashing();
     if (statusCh341a != 0)
-      {
-          QMessageBox::about(this, tr("Error"), tr("Programmer CH341a is not connected!"));
-          ch341aShutdown();
-          doNotDisturbCancel();
-          return;
-      }
-    else
     {
-        SFPData = hexEdit->data();
-        for (i=0; i< size; i++)
-        {
-             buf[i] = static_cast<uint8_t>(SFPData[i]) ;
-        }
-        //res = ch341writeEEPROM_param(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11);  //- correct writting first 0x17f
-        //(uint8_t * buf, uint32_t address, uint32_t blockSize, uint32_t sectorSize, uint8_t algorithm, uint8_t progDevice);
-        res = ch34xi2cBlockWrite(buf.get(), 0, static_cast<uint32_t>(size), 0x08, 0x11);
-        if (res < 0)
-        {
-            QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));
-            return;
-        }
+        QMessageBox::about(this, tr("Error"), tr("Programmer CH341a is not connected!"));
         ch341aShutdown();
         doNotDisturbCancel();
+        return;
     }
+
+    SFPData = hexEdit->data();
+    for (i=0; i< size; i++)
+        buf[i] = static_cast<uint8_t>(SFPData[i]);
+
+    // First try without a password (10Gtek copper modules often ship unlocked).
+    // If a specific password is selected, honour it first instead.
+    QStringList ranges;
+    int mismatches;
+    QString usedWith;
+    if (currentPass.id > 0)
+    {
+        mismatches = writeAndVerify(buf.get(), size, currentPass.password, true, &ranges);
+        usedWith = tr("password \"%1\"").arg(currentPass.name);
+    }
+    else
+    {
+        mismatches = writeAndVerify(buf.get(), size, 0, false, &ranges);
+        usedWith = tr("no password");
+    }
+
+    // Still locked: cycle through the known module passwords automatically.
+    if (mismatches > 0)
+    {
+        for (unsigned c = 0; c < kKnownPasswordCount && mismatches > 0; c++)
+        {
+            ranges.clear();
+            int m = writeAndVerify(buf.get(), size, kKnownPasswords[c].pw, true, &ranges);
+            if (m < 0) { mismatches = -1; break; }
+            mismatches = m;
+            if (mismatches == 0)
+                usedWith = tr("password \"%1\"").arg(kKnownPasswords[c].name);
+        }
+    }
+
+    ch341aShutdown();
+    doNotDisturbCancel();
+
+    if (mismatches < 0)
+        QMessageBox::about(this, tr("Error"), tr("Error writing SFP module data."));
+    else if (mismatches == 0)
+        QMessageBox::about(this, tr("Write"),
+                           tr("Write verified: %1 bytes written successfully (%2).").arg(size).arg(usedWith));
+    else
+        QMessageBox::about(this, tr("Error"),
+                           tr("Verify failed: %1 bytes differ after trying every known password. "
+                              "The module uses an unlock scheme this tool does not support.\n\n"
+                              "Differing ranges:\n%2")
+                           .arg(mismatches).arg(ranges.join("\n")));
 }
 
 void MainWindow::writePassword()
@@ -759,10 +938,85 @@ void MainWindow::writePassword()
    }
 }
 
+// Non-destructive probe: read the module's current contents, then try writing
+// those same bytes back under each known password. A verified write of
+// identical data proves the password unlocked write access without changing
+// anything on the module. Reports the first password that works.
+void MainWindow::on_actionScan_module_password_triggered()
+{
+    doNotDisturb();
+    int size = calcSize();
+
+    statusCh341a = ch341aConnect();
+    ch341StatusFlashing();
+    if (statusCh341a != 0)
+    {
+        QMessageBox::about(this, tr("Error"), tr("Programmer CH341a is not connected!"));
+        ch341aShutdown();
+        doNotDisturbCancel();
+        return;
+    }
+
+    std::shared_ptr<uint8_t[]> buf(new uint8_t[0x200]);
+    for (int i = 0; i < 0x200; i++) buf[i] = 0xff;
+    if (ch34xi2cBlockRead(buf.get(), 0, static_cast<uint32_t>(size), 0x11) < 0)
+    {
+        ch341aShutdown();
+        doNotDisturbCancel();
+        QMessageBox::about(this, tr("Error"), tr("Error reading SFP module data."));
+        return;
+    }
+
+    QStringList ranges;
+    QString found;
+    bool error = false;
+
+    // Many copper modules ship write-unlocked, so try with no password first.
+    int m = writeAndVerify(buf.get(), size, 0, false, &ranges);
+    if (m < 0) error = true;
+    else if (m == 0) found = tr("no password (module is already write-unlocked)");
+
+    for (unsigned c = 0; found.isEmpty() && !error && c < kKnownPasswordCount; c++)
+    {
+        ranges.clear();
+        m = writeAndVerify(buf.get(), size, kKnownPasswords[c].pw, true, &ranges);
+        if (m < 0) { error = true; break; }
+        if (m == 0)
+            found = tr("\"%1\" (0x%2)").arg(kKnownPasswords[c].name)
+                        .arg(kKnownPasswords[c].pw, 8, 16, QChar('0'));
+    }
+
+    ch341aShutdown();
+    doNotDisturbCancel();
+
+    if (error)
+        QMessageBox::about(this, tr("Error"), tr("Error accessing the SFP module."));
+    else if (!found.isEmpty())
+        QMessageBox::about(this, tr("Scan password"),
+                           tr("Write access unlocked with %1.\n\n"
+                              "The module's stored data was not changed.").arg(found));
+    else
+        QMessageBox::about(this, tr("Scan password"),
+                           tr("None of the %1 known passwords unlocked write access.\n\n"
+                              "The module uses an unlock scheme this tool does not support.")
+                           .arg(kKnownPasswordCount));
+}
+
 void MainWindow::on_actionSet_module_password_triggered()
 {
     DialogPass* passDialog = new DialogPass();
     passDialog->show();
+    QStringList builtIn;
+    QList<quint32> builtInValues;
+    for (unsigned c = 0; c < kKnownPasswordCount; c++)
+    {
+        builtIn << QString("%1  %2  %3")
+                       .arg(c + 1, 2)
+                       .arg(QString::fromLatin1(kKnownPasswords[c].name), -14)
+                       .arg(kKnownPasswords[c].pw, 8, 16, QChar('0'));
+        builtInValues << kKnownPasswords[c].pw;
+    }
+    passDialog->setBuiltInList(builtIn, builtInValues);
     passDialog->setID(currentPass.id, currentPass.address, currentPass.password);
     connect(passDialog, SIGNAL(sendID(uint8_t)), this, SLOT(receiveID(uint8_t)));
     connect(passDialog, SIGNAL(sendUserPass(uint32_t, uint32_t)), this, SLOT(receiveUserPass(uint32_t, uint32_t)));
@@ -831,6 +1085,7 @@ void MainWindow::on_actionAbout_triggered()
     ui->actionRead_SFP->setDisabled(true);
     ui->actionWrite_to_SFP->setDisabled(true);
     ui->actionSet_module_password->setDisabled(true);
+    ui->actionScan_module_password->setDisabled(true);
     ui->actionAbout->setDisabled(true);
     ui->actionUndo->setDisabled(true);
     ui->actionRedo->setDisabled(true);
@@ -851,6 +1106,7 @@ void MainWindow::on_actionAbout_triggered()
      ui->actionRead_SFP->setDisabled(false);
      ui->actionWrite_to_SFP->setDisabled(false);
      ui->actionSet_module_password->setDisabled(false);
+     ui->actionScan_module_password->setDisabled(false);
      ui->actionAbout->setDisabled(false);
      ui->actionUndo->setDisabled(false);
      ui->actionRedo->setDisabled(false);
