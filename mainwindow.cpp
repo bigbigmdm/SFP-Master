@@ -76,7 +76,8 @@ static const unsigned kKnownPasswordCount =
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    hexEdit(nullptr)
 {
     ui->setupUi(this);
     timer = new QTimer();
@@ -551,15 +552,14 @@ void MainWindow::on_comboBox_connector_currentIndexChanged(int index)
 
 void MainWindow::on_comboBox_wavelength_currentIndexChanged(int index)
 {
-    int val = 0;
-    if (index > 0)
-    {
-      val = ui->comboBox_wavelength->itemData(index).toInt();
-      SFPData[60] = static_cast<char>(val >> 8);
-      SFPData[61] = static_cast<char>(val & 0xff);
-      hexEdit->setData(SFPData);
-      checkSumsUpdate();
-    }
+    // Combo is populated during setupUi, before hexEdit exists; skip until ready.
+    if (!hexEdit) return;
+    // index 0 is the blank entry: selecting it clears the wavelength (00 00).
+    int val = (index > 0) ? ui->comboBox_wavelength->itemData(index).toInt() : 0;
+    SFPData[60] = static_cast<char>(val >> 8);
+    SFPData[61] = static_cast<char>(val & 0xff);
+    hexEdit->setData(SFPData);
+    checkSumsUpdate();
 }
 
 void MainWindow::on_lineEdit_manuf_editingFinished()
