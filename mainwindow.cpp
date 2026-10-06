@@ -134,6 +134,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_925->setValidator(valDigit);
     ui->lineEdit_50125->setValidator(valDigit);
     ui->lineEdit_62125->setValidator(valDigit);
+    ui->lineEdit_om3->setValidator(valDigit);
+    ui->lineEdit_om4cu->setValidator(valDigit);
     ui->lineEdit_ifspeed->setValidator(valDigit);
     lastDirectory = QDir::homePath(); //"/home/";
     cmdStarted = false;
@@ -293,7 +295,7 @@ void MainWindow::on_pushButton_parsing_clicked()
     // stored only in those bytes (e.g. 850 nm OM3 "SR" modules) looked empty.
     ui->lineEdit_smf100->setText(QString::number(static_cast<int>(SFPData[15] &0xff) * 100));
     ui->lineEdit_om3->setText(QString::number(static_cast<int>(SFPData[19] &0xff) * 10));
-    ui->lineEdit_om4cu->setText(QString::number(static_cast<int>(SFPData[18] &0xff)));
+    ui->lineEdit_om4cu->setText(QString::number(static_cast<int>(SFPData[18] &0xff) * 10));
 
     for (i = 20; i<=35; i++) tmpstr.append( static_cast<char>(SFPData[i]));
     ui->lineEdit_manuf->setText(tmpstr);
@@ -655,6 +657,22 @@ void MainWindow::on_lineEdit_62125_editingFinished()
     hexEdit->setData(SFPData);
     checkSumsUpdate();
 }
+
+void MainWindow::on_lineEdit_om3_editingFinished()
+{
+    SFPData[19] = static_cast<char>(ui->lineEdit_om3->text().toInt() / 10);
+    hexEdit->setData(SFPData);
+    checkSumsUpdate();
+}
+
+void MainWindow::on_lineEdit_om4cu_editingFinished()
+{
+    // OM4 reach is stored in units of 10 m (same convention as OM3).
+    SFPData[18] = static_cast<char>(ui->lineEdit_om4cu->text().toInt() / 10);
+    hexEdit->setData(SFPData);
+    checkSumsUpdate();
+}
+
 void MainWindow::on_lineEdit_day_editingFinished()
 {
     QString tmp;

@@ -200,8 +200,7 @@
          <layout class="QHBoxLayout" name="horizontalLayout_om3">
           <item>
            <widget class="QLineEdit" name="lineEdit_om3">
-            <property name="readOnly"><bool>true</bool></property>
-            <property name="text"><string/></property>
+                        <property name="text"><string/></property>
            </widget>
           </item>
           <item>
@@ -220,12 +219,11 @@
          <layout class="QHBoxLayout" name="horizontalLayout_om4cu">
           <item>
            <widget class="QLineEdit" name="lineEdit_om4cu">
-            <property name="readOnly"><bool>true</bool></property>
-            <property name="text"><string/></property>
+                        <property name="text"><string/></property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_om4cuu"><property name="text"><string>OM4&#215;10 m / Cu&#215;1 m</string></property></widget>
+           <widget class="QLabel" name="label_om4cuu"><property name="text"><string>m (OM4)</string></property></widget>
           </item>
          </layout>
         </item>

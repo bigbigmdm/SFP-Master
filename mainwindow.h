@@ -69,6 +69,8 @@ private slots:
     void on_lineEdit_925_editingFinished();
     void on_lineEdit_50125_editingFinished();
     void on_lineEdit_62125_editingFinished();
+    void on_lineEdit_om3_editingFinished();
+    void on_lineEdit_om4cu_editingFinished();
     void on_lineEdit_day_editingFinished();
     void on_lineEdit_mon_editingFinished();
     void on_lineEdit_year_editingFinished();
