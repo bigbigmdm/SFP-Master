@@ -213,6 +213,10 @@
           <property name="text">
            <string>Link length, OM4 / copper (DAC):</string>
           </property>
+          <property name="toolTip">
+           <string>A0h byte 0x12. Shown and edited as OM4 optical reach in 10 m steps (e.g. 150 = 150 m).
+For a copper DAC cable the same byte holds the length in metres (1 m steps), so the real DAC length is the shown value divided by 10 (e.g. 30 shown = 3 m DAC).</string>
+          </property>
          </widget>
         </item>
         <item row="8" column="1">
