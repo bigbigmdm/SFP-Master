@@ -352,6 +352,14 @@ void MainWindow::on_pushButton_parsing_clicked()
 
     complianceToCheckboxes();
 
+    // Ubiquiti-proprietary A2h vendor strings (fixed offsets, not SFF-8472).
+    tmpstr = "";
+    for (i = 0x180; i < 0x180 + 0x18; i++) tmpstr.append(static_cast<char>(SFPData[i]));
+    ui->lineEdit_vpn->setText(tmpstr);
+    tmpstr = "";
+    for (i = 0x1C0; i < 0x1C0 + 0x14; i++) tmpstr.append(static_cast<char>(SFPData[i]));
+    ui->lineEdit_vprod->setText(tmpstr);
+
     ui->lineEdit_crclow->setText(checkSumLo());
     ui->lineEdit_crchigh->setText(checkSumHi());
     SFPData = hexEdit->data();
@@ -675,6 +683,27 @@ void MainWindow::on_lineEdit_om4cu_editingFinished()
 {
     // OM4 reach is stored in units of 10 m (same convention as OM3).
     SFPData[18] = static_cast<char>(ui->lineEdit_om4cu->text().toInt() / 10);
+    hexEdit->setData(SFPData);
+    checkSumsUpdate();
+}
+
+// Ubiquiti-proprietary ASCII strings in the A2h vendor area. Written space
+// padded to the fixed field width; no vendor checksum is recomputed (the
+// standard SFF-8472 checksums do not cover this region).
+void MainWindow::on_lineEdit_vpn_editingFinished()
+{
+    QByteArray t = ui->lineEdit_vpn->text().toLatin1();
+    for (int i = 0; i < 0x18; i++)
+        SFPData[0x180 + i] = (i < t.size()) ? t[i] : static_cast<char>(0x20);
+    hexEdit->setData(SFPData);
+    checkSumsUpdate();
+}
+
+void MainWindow::on_lineEdit_vprod_editingFinished()
+{
+    QByteArray t = ui->lineEdit_vprod->text().toLatin1();
+    for (int i = 0; i < 0x14; i++)
+        SFPData[0x1C0 + i] = (i < t.size()) ? t[i] : static_cast<char>(0x20);
     hexEdit->setData(SFPData);
     checkSumsUpdate();
 }

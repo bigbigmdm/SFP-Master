@@ -603,6 +603,28 @@
           </item>
          </layout>
         </item>
+        <item row="20" column="0">
+         <widget class="QLabel" name="label_vpn">
+          <property name="text"><string>Vendor PN/serial (A2h 0x80):</string></property>
+         </widget>
+        </item>
+        <item row="20" column="1">
+         <widget class="QLineEdit" name="lineEdit_vpn">
+          <property name="maxLength"><number>24</number></property>
+          <property name="toolTip"><string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string></property>
+         </widget>
+        </item>
+        <item row="21" column="0">
+         <widget class="QLabel" name="label_vprod">
+          <property name="text"><string>Vendor product name (A2h 0xC0):</string></property>
+         </widget>
+        </item>
+        <item row="21" column="1">
+         <widget class="QLineEdit" name="lineEdit_vprod">
+          <property name="maxLength"><number>20</number></property>
+          <property name="toolTip"><string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string></property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
