@@ -16,6 +16,10 @@
 #define DIALOGPASS_H
 
 #include <QDialog>
+#include <QStringList>
+#include <QList>
+
+class QListWidgetItem;
 
 namespace Ui {
 class DialogPass;
@@ -29,12 +33,14 @@ public:
     explicit DialogPass(QWidget *parent = nullptr);
     ~DialogPass();
     void setID(const uint id, uint32_t userAddr, uint32_t userPass);
+    void setBuiltInList(const QStringList &items, const QList<quint32> &values);
     void setUserPassword();
     uint32_t hexToInt(QString str);
     QString bytePrt(unsigned char z);
 
 private slots:
     void on_pushButton_clicked();
+    void onBuiltInDoubleClicked(QListWidgetItem *item);
 
 signals:
     void sendID(uint8_t);
@@ -42,6 +48,7 @@ signals:
 
 private:
     Ui::DialogPass *ui;
+    QList<quint32> builtInValues;
 
 };
 

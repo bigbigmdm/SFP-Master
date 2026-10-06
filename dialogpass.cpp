@@ -18,6 +18,8 @@
 #include <QValidator>
 //#include <QRegExp>
 #include <QRegularExpression>
+#include <QFont>
+#include <QListWidgetItem>
 
 DialogPass::DialogPass(QWidget *parent) :
     QDialog(parent),
@@ -33,6 +35,36 @@ DialogPass::DialogPass(QWidget *parent) :
     ui->lineEdit_3->setValidator(validatorL);
     ui->lineEdit_4->setValidator(validatorL);
     ui->lineEdit_5->setValidator(validatorL);
+    QFont mono("DejaVu Sans Mono");
+    mono.setStyleHint(QFont::Monospace);
+    ui->listWidget_builtin->setFont(mono);
+    connect(ui->listWidget_builtin, &QListWidget::itemDoubleClicked,
+            this, &DialogPass::onBuiltInDoubleClicked);
+}
+
+// Fill the read-only list showing the built-in passwords and the order the
+// write/scan cycles through them. Populated by MainWindow from kKnownPasswords.
+void DialogPass::setBuiltInList(const QStringList &items, const QList<quint32> &values)
+{
+    ui->listWidget_builtin->clear();
+    ui->listWidget_builtin->addItems(items);
+    builtInValues = values;
+}
+
+// Double-clicking a built-in password loads it into the User defined fields and
+// selects that option, so the next write tries it first instead of re-scanning
+// the whole list. The user still confirms with Ok.
+void DialogPass::onBuiltInDoubleClicked(QListWidgetItem *item)
+{
+    int row = ui->listWidget_builtin->row(item);
+    if (row < 0 || row >= builtInValues.size()) return;
+    quint32 pw = builtInValues[row];
+    ui->radioButton_4->setChecked(true);
+    ui->lineEdit->setText("17B");
+    ui->lineEdit_2->setText(bytePrt(static_cast<unsigned char>((pw >> 24) & 0xff)));
+    ui->lineEdit_3->setText(bytePrt(static_cast<unsigned char>((pw >> 16) & 0xff)));
+    ui->lineEdit_4->setText(bytePrt(static_cast<unsigned char>((pw >>  8) & 0xff)));
+    ui->lineEdit_5->setText(bytePrt(static_cast<unsigned char>(pw & 0xff)));
 }
 
 void DialogPass::setID(const uint id, uint32_t userAddr, uint32_t userPass)
