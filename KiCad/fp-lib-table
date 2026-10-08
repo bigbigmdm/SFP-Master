@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "SFP") (type "KiCad") (uri "${KIPRJMOD}/SFP.pretty") (options "") (descr ""))
+)
