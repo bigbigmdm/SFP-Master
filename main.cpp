@@ -72,6 +72,7 @@ int main(int argc, char *argv[])
     //QApplication::setFont(font);
     QApplication a(argc, argv);
     QCoreApplication::setApplicationName("sfp-master");
+    QCoreApplication::setOrganizationName("sfp-master");
     initPaths();
     MainWindow w;
     w.show();

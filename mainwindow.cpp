@@ -924,15 +924,17 @@ void MainWindow::on_actionWrite_to_SFP_triggered()
     for (i=0; i< size; i++)
         buf[i] = static_cast<uint8_t>(SFPData[i]);
 
-    // First try without a password (10Gtek copper modules often ship unlocked).
-    // If a specific password is selected, honour it first instead.
+    // Password handling is chosen in the Set-password dialog:
+    //   ModeNone  - write with no password, no guessing
+    //   ModeSaved - use the selected saved password only (no guessing)
+    //   ModeGuess - try no password, then cycle through the known passwords
     QStringList ranges;
     int mismatches;
     QString usedWith;
-    if (currentPass.id > 0)
+    if (currentPass.id == DialogPass::ModeSaved)
     {
         mismatches = writeAndVerify(buf.get(), size, currentPass.password, true, &ranges);
-        usedWith = tr("password \"%1\"").arg(currentPass.name);
+        usedWith = tr("the saved password");
     }
     else
     {
@@ -940,9 +942,8 @@ void MainWindow::on_actionWrite_to_SFP_triggered()
         usedWith = tr("no password");
     }
 
-    // Still locked: cycle through the known module passwords automatically.
-    // A user-defined password (id 4) is used on its own - never brute-forced.
-    if (mismatches > 0 && currentPass.id != 4)
+    // Guess mode only: cycle through the known module passwords.
+    if (mismatches > 0 && currentPass.id == DialogPass::ModeGuess)
     {
         for (unsigned c = 0; c < kKnownPasswordCount && mismatches > 0; c++)
         {
@@ -963,16 +964,22 @@ void MainWindow::on_actionWrite_to_SFP_triggered()
     else if (mismatches == 0)
         QMessageBox::about(this, tr("Write"),
                            tr("Write verified: %1 bytes written successfully (%2).").arg(size).arg(usedWith));
-    else if (currentPass.id == 4)
+    else if (currentPass.id == DialogPass::ModeSaved)
         QMessageBox::about(this, tr("Error"),
-                           tr("Verify failed: %1 bytes differ using the user-defined password. "
+                           tr("Verify failed: %1 bytes differ using the saved password. "
                               "The module did not unlock with it.\n\n"
+                              "Differing ranges:\n%2")
+                           .arg(mismatches).arg(ranges.join("\n")));
+    else if (currentPass.id == DialogPass::ModeGuess)
+        QMessageBox::about(this, tr("Error"),
+                           tr("Verify failed: %1 bytes differ after trying every known password. "
+                              "The module uses an unlock scheme this tool does not support.\n\n"
                               "Differing ranges:\n%2")
                            .arg(mismatches).arg(ranges.join("\n")));
     else
         QMessageBox::about(this, tr("Error"),
-                           tr("Verify failed: %1 bytes differ after trying every known password. "
-                              "The module uses an unlock scheme this tool does not support.\n\n"
+                           tr("Verify failed: %1 bytes differ writing with no password. "
+                              "Try selecting a saved password or \"Try known passwords\".\n\n"
                               "Differing ranges:\n%2")
                            .arg(mismatches).arg(ranges.join("\n")));
 }
@@ -1107,7 +1114,7 @@ void MainWindow::on_actionSet_module_password_triggered()
 {
     DialogPass* passDialog = new DialogPass();
     passDialog->show();
-    QStringList builtIn;
+    QStringList builtIn, builtInNames;
     QList<quint32> builtInValues;
     for (unsigned c = 0; c < kKnownPasswordCount; c++)
     {
@@ -1115,12 +1122,13 @@ void MainWindow::on_actionSet_module_password_triggered()
                        .arg(c + 1, 2)
                        .arg(QString::fromLatin1(kKnownPasswords[c].name), -14)
                        .arg(kKnownPasswords[c].pw, 8, 16, QChar('0'));
+        builtInNames << QString::fromLatin1(kKnownPasswords[c].name);
         builtInValues << kKnownPasswords[c].pw;
     }
-    passDialog->setBuiltInList(builtIn, builtInValues);
-    passDialog->setID(currentPass.id, currentPass.address, currentPass.password);
-    connect(passDialog, SIGNAL(sendID(uint8_t)), this, SLOT(receiveID(uint8_t)));
-    connect(passDialog, SIGNAL(sendUserPass(uint32_t, uint32_t)), this, SLOT(receiveUserPass(uint32_t, uint32_t)));
+    passDialog->setBuiltInList(builtIn, builtInNames, builtInValues);
+    passDialog->setSelection(currentPass.id, currentPass.address, currentPass.password);
+    connect(passDialog, SIGNAL(sendSelection(int, uint32_t, uint32_t)),
+            this, SLOT(receiveSelection(int, uint32_t, uint32_t)));
 }
 
 void MainWindow::on_actionAbout_triggered()
@@ -1129,16 +1137,15 @@ void MainWindow::on_actionAbout_triggered()
     aboutDialog->show();
 }
 
- void MainWindow::receiveID(uint8_t id)
+ // mode: 0 = no password, 1 = try known passwords (guess), 2 = use saved password.
+ void MainWindow::receiveSelection(int mode, uint32_t addr, uint32_t passw)
  {
-   if (id < 5) currentPass = pass[id];
-   else currentPass = pass[0];
- }
-
- void MainWindow::receiveUserPass(uint32_t addr, uint32_t passw)
- {
-    pass[4].address = addr;
-    pass[4].password = passw;
+    currentPass.id       = static_cast<uint8_t>(mode);
+    currentPass.address  = addr;
+    currentPass.password = passw;
+    if (mode == DialogPass::ModeGuess)      currentPass.name = tr("known passwords");
+    else if (mode == DialogPass::ModeSaved) currentPass.name = tr("saved password");
+    else                                    currentPass.name = tr("no password");
  }
 
  void MainWindow::on_actionUndo_triggered()

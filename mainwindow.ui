@@ -1109,7 +1109,7 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
   <action name="actionScan_module_password">
    <property name="icon">
     <iconset resource="resource.qrc">
-     <normaloff>:/res/img/password64.png</normaloff>:/res/img/password64.png</iconset>
+     <normaloff>:/res/img/unlock64.png</normaloff>:/res/img/unlock64.png</iconset>
    </property>
    <property name="text">
     <string>Scan module password</string>

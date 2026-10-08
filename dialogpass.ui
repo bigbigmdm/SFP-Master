@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>308</width>
-    <height>430</height>
+    <width>360</width>
+    <height>470</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>308</width>
+    <width>360</width>
     <height>0</height>
    </size>
   </property>
@@ -25,106 +25,72 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QRadioButton" name="radioButton_0">
-       <property name="text">
-        <string>None</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_1">
-       <property name="text">
-        <string>Default-1</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_2">
-       <property name="text">
-        <string>Default-2</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_3">
-       <property name="text">
-        <string>Default-3</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_4">
-       <property name="text">
-        <string>User defined:</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="QRadioButton" name="radio_none">
+     <property name="text">
+      <string>No password</string>
+     </property>
+    </widget>
    </item>
    <item>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Start address (HEX):</string>
-       </property>
+    <widget class="QRadioButton" name="radio_guess">
+     <property name="text">
+      <string>Try known passwords (guess)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QRadioButton" name="radio_saved">
+     <property name="text">
+      <string>Use saved password (selected below):</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="tableSaved">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>110</height>
+      </size>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <column>
+      <property name="text"><string>Name</string></property>
+     </column>
+     <column>
+      <property name="text"><string>Addr (hex)</string></property>
+     </column>
+     <column>
+      <property name="text"><string>Password (hex)</string></property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_btns">
+     <item>
+      <widget class="QPushButton" name="pushButton_add">
+       <property name="text"><string>Add</string></property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="text">
-        <string>17B</string>
-       </property>
+     <item>
+      <widget class="QPushButton" name="pushButton_remove">
+       <property name="text"><string>Remove</string></property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Password (HEX):</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLineEdit" name="lineEdit_2">
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_3">
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_4">
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_5">
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
+     <item>
+      <spacer name="horizontalSpacer_btns">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+      </spacer>
      </item>
     </layout>
    </item>
    <item>
     <widget class="QLabel" name="label_builtin">
      <property name="text">
-      <string>Built-in passwords tried on write/scan (in order).
-Double-click one to load it as the User defined password:</string>
+      <string>Built-in passwords (double-click to add to your list):</string>
      </property>
     </widget>
    </item>
@@ -133,7 +99,7 @@ Double-click one to load it as the User defined password:</string>
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>120</height>
+       <height>110</height>
       </size>
      </property>
      <property name="selectionMode">

@@ -30,26 +30,34 @@ class DialogPass : public QDialog
     Q_OBJECT
 
 public:
+    // Write-password mode shared with MainWindow (stored in currentPass.id).
+    enum Mode { ModeNone = 0, ModeGuess = 1, ModeSaved = 2 };
+
     explicit DialogPass(QWidget *parent = nullptr);
     ~DialogPass();
-    void setID(const uint id, uint32_t userAddr, uint32_t userPass);
-    void setBuiltInList(const QStringList &items, const QList<quint32> &values);
-    void setUserPassword();
+    void setBuiltInList(const QStringList &items, const QStringList &names,
+                        const QList<quint32> &values);
+    void setSelection(int mode, uint32_t addr, uint32_t pass);
     uint32_t hexToInt(QString str);
     QString bytePrt(unsigned char z);
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_clicked();            // Ok
+    void on_pushButton_add_clicked();
+    void on_pushButton_remove_clicked();
     void onBuiltInDoubleClicked(QListWidgetItem *item);
 
 signals:
-    void sendID(uint8_t);
-    void sendUserPass(uint32_t userAddr, uint32_t userPass);
+    void sendSelection(int mode, uint32_t addr, uint32_t pass);
 
 private:
     Ui::DialogPass *ui;
+    QStringList builtInNames;
     QList<quint32> builtInValues;
 
+    void loadSaved();
+    void saveSaved();
+    void addSavedRow(const QString &name, uint32_t addr, uint32_t pass);
 };
 
 #endif // DIALOGPASS_H

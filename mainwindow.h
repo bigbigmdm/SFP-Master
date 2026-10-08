@@ -44,8 +44,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void receiveID(uint8_t);
-    void receiveUserPass(uint32_t addr, uint32_t passw);
+    void receiveSelection(int mode, uint32_t addr, uint32_t pass);
 
 private slots:
     void showEvent(QShowEvent* event);
