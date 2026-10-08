@@ -170,27 +170,89 @@
          </layout>
         </item>
         <item row="6" column="0">
+         <widget class="QLabel" name="label_smf100">
+          <property name="text">
+           <string>Link length supported for SMF (100 m):</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_smf100">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_smf100">
+            <property name="readOnly"><bool>true</bool></property>
+            <property name="text"><string/></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_smf100u"><property name="text"><string>m</string></property></widget>
+          </item>
+         </layout>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_om3">
+          <property name="text">
+           <string>Link length supported for 50/125 OM3:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_om3">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_om3">
+                        <property name="text"><string/></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_om3u"><property name="text"><string>m</string></property></widget>
+          </item>
+         </layout>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_om4cu">
+          <property name="text">
+           <string>Link length, OM4 / copper (DAC):</string>
+          </property>
+          <property name="toolTip">
+           <string>A0h byte 0x12. Shown and edited as OM4 optical reach in 10 m steps (e.g. 150 = 150 m).
+For a copper DAC cable the same byte holds the length in metres (1 m steps), so the real DAC length is the shown value divided by 10 (e.g. 30 shown = 3 m DAC).</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_om4cu">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_om4cu">
+                        <property name="text"><string/></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_om4cuu"><property name="text"><string>m (OM4)</string></property></widget>
+          </item>
+         </layout>
+        </item>
+        <item row="9" column="0">
          <widget class="QLabel" name="label_7">
           <property name="text">
            <string>Manufacturer:</string>
           </property>
          </widget>
         </item>
-        <item row="6" column="1">
+        <item row="9" column="1">
          <widget class="QLineEdit" name="lineEdit_manuf">
           <property name="text">
            <string/>
           </property>
          </widget>
         </item>
-        <item row="7" column="0">
+        <item row="10" column="0">
          <widget class="QLabel" name="label_8">
           <property name="text">
            <string>Manufacturer ID:</string>
           </property>
          </widget>
         </item>
-        <item row="7" column="1">
+        <item row="10" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0">
           <property name="spacing">
            <number>4</number>
@@ -280,42 +342,42 @@
           </item>
          </layout>
         </item>
-        <item row="8" column="0">
+        <item row="11" column="0">
          <widget class="QLabel" name="label_9">
           <property name="text">
            <string>Model name:</string>
           </property>
          </widget>
         </item>
-        <item row="8" column="1">
+        <item row="11" column="1">
          <widget class="QLineEdit" name="lineEdit_model">
           <property name="text">
            <string/>
           </property>
          </widget>
         </item>
-        <item row="9" column="0">
+        <item row="12" column="0">
          <widget class="QLabel" name="label_10">
           <property name="text">
            <string>Vendor revision:</string>
           </property>
          </widget>
         </item>
-        <item row="9" column="1">
+        <item row="12" column="1">
          <widget class="QLineEdit" name="lineEdit_revision">
           <property name="text">
            <string/>
           </property>
          </widget>
         </item>
-        <item row="10" column="0">
+        <item row="13" column="0">
          <widget class="QLabel" name="label_12">
           <property name="text">
            <string>Laser wavelength:</string>
           </property>
          </widget>
         </item>
-        <item row="10" column="1">
+        <item row="13" column="1">
          <widget class="QComboBox" name="comboBox_wavelength">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -325,28 +387,28 @@
           </property>
          </widget>
         </item>
-        <item row="11" column="0">
+        <item row="14" column="0">
          <widget class="QLabel" name="label_13">
           <property name="text">
            <string>Serial number:</string>
           </property>
          </widget>
         </item>
-        <item row="11" column="1">
+        <item row="14" column="1">
          <widget class="QLineEdit" name="lineEdit_sernum">
           <property name="text">
            <string/>
           </property>
          </widget>
         </item>
-        <item row="12" column="0">
+        <item row="15" column="0">
          <widget class="QLabel" name="label_14">
           <property name="text">
            <string>Date code: </string>
           </property>
          </widget>
         </item>
-        <item row="12" column="1">
+        <item row="15" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
            <widget class="QLineEdit" name="lineEdit_day">
@@ -436,14 +498,14 @@
           </item>
          </layout>
         </item>
-        <item row="13" column="0">
+        <item row="16" column="0">
          <widget class="QLabel" name="label_15">
           <property name="text">
            <string>Check code for Base ID Fields: </string>
           </property>
          </widget>
         </item>
-        <item row="13" column="1">
+        <item row="16" column="1">
          <widget class="QLineEdit" name="lineEdit_crclow">
           <property name="text">
            <string/>
@@ -453,14 +515,14 @@
           </property>
          </widget>
         </item>
-        <item row="14" column="0">
+        <item row="17" column="0">
          <widget class="QLabel" name="label_16">
           <property name="text">
            <string>Check code for Extended ID Fields:</string>
           </property>
          </widget>
         </item>
-        <item row="14" column="1">
+        <item row="17" column="1">
          <widget class="QLineEdit" name="lineEdit_crchigh">
           <property name="text">
            <string/>
@@ -470,18 +532,101 @@
           </property>
          </widget>
         </item>
-        <item row="16" column="0">
+        <item row="18" column="0">
          <widget class="QLabel" name="label_17">
           <property name="text">
            <string>Vendor ID:</string>
           </property>
          </widget>
         </item>
-        <item row="16" column="1">
+        <item row="18" column="1">
          <widget class="QLineEdit" name="lineEdit_vendorid">
           <property name="text">
            <string/>
           </property>
+         </widget>
+        </item>
+        <item row="19" column="0">
+         <widget class="QLabel" name="label_compliance">
+          <property name="text">
+           <string>Transceiver compliance:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="19" column="1">
+         <layout class="QGridLayout" name="gridLayout_compliance">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="cb_10gSR">
+            <property name="text"><string>10GBASE-SR</string></property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="cb_1gSX">
+            <property name="text"><string>1000BASE-SX</string></property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="cb_10gLR">
+            <property name="text"><string>10GBASE-LR</string></property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="cb_1gLX">
+            <property name="text"><string>1000BASE-LX</string></property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="cb_10gLRM">
+            <property name="text"><string>10GBASE-LRM</string></property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QCheckBox" name="cb_1gCX">
+            <property name="text"><string>1000BASE-CX</string></property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="cb_10gER">
+            <property name="text"><string>10GBASE-ER</string></property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="cb_1gT">
+            <property name="text"><string>1000BASE-T</string></property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="cb_dacP">
+            <property name="text"><string>Passive DAC</string></property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QCheckBox" name="cb_dacA">
+            <property name="text"><string>Active DAC</string></property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="20" column="0">
+         <widget class="QLabel" name="label_vpn">
+          <property name="text"><string>Vendor PN/serial (A2h 0x80):</string></property>
+         </widget>
+        </item>
+        <item row="20" column="1">
+         <widget class="QLineEdit" name="lineEdit_vpn">
+          <property name="maxLength"><number>24</number></property>
+          <property name="toolTip"><string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string></property>
+         </widget>
+        </item>
+        <item row="21" column="0">
+         <widget class="QLabel" name="label_vprod">
+          <property name="text"><string>Vendor product name (A2h 0xC0):</string></property>
+         </widget>
+        </item>
+        <item row="21" column="1">
+         <widget class="QLineEdit" name="lineEdit_vprod">
+          <property name="maxLength"><number>20</number></property>
+          <property name="toolTip"><string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string></property>
          </widget>
         </item>
        </layout>
@@ -838,6 +983,7 @@
     <addaction name="actionRead_SFP"/>
     <addaction name="actionWrite_to_SFP"/>
     <addaction name="actionSet_module_password"/>
+    <addaction name="actionScan_module_password"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -882,6 +1028,7 @@
    <addaction name="actionRead_SFP"/>
    <addaction name="actionWrite_to_SFP"/>
    <addaction name="actionSet_module_password"/>
+   <addaction name="actionScan_module_password"/>
    <addaction name="separator"/>
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
@@ -957,6 +1104,21 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionScan_module_password">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/res/img/password64.png</normaloff>:/res/img/password64.png</iconset>
+   </property>
+   <property name="text">
+    <string>Scan module password</string>
+   </property>
+   <property name="toolTip">
+    <string>Try known passwords and report which one unlocks writing (does not change module data)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+P</string>
    </property>
   </action>
   <action name="actionAbout">
