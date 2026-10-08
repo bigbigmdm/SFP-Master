@@ -69,6 +69,10 @@ private slots:
     void on_lineEdit_925_editingFinished();
     void on_lineEdit_50125_editingFinished();
     void on_lineEdit_62125_editingFinished();
+    void on_lineEdit_om3_editingFinished();
+    void on_lineEdit_om4cu_editingFinished();
+    void on_lineEdit_vpn_editingFinished();
+    void on_lineEdit_vprod_editingFinished();
     void on_lineEdit_day_editingFinished();
     void on_lineEdit_mon_editingFinished();
     void on_lineEdit_year_editingFinished();
@@ -78,6 +82,7 @@ private slots:
     void on_actionRead_SFP_triggered();
     void on_actionWrite_to_SFP_triggered();
     void on_actionSet_module_password_triggered();
+    void on_actionScan_module_password_triggered();
     void on_actionAbout_triggered();
     void on_actionUndo_triggered();
     void on_actionRedo_triggered();
@@ -105,6 +110,10 @@ private:
     void crc32show();
     void checkSumsUpdate();
     void writePassword();
+    int writeAndVerify(uint8_t *buf, int size, uint32_t password, bool usePassword, QStringList *ranges);
+    int probeWriteUnlock(uint32_t password, bool usePassword, int probeOff);
+    void complianceToCheckboxes();   // EEPROM bytes 3-10 -> checkbox states
+    void checkboxesToCompliance();   // checkbox states -> EEPROM bytes 3-10
     uint_least32_t Crc32(QByteArray &buf, size_t len);
     int calcSize();
     QTimer *timer;
