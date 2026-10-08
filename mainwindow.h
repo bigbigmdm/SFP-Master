@@ -44,8 +44,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void receiveID(uint8_t);
-    void receiveUserPass(uint32_t addr, uint32_t passw);
+    void receiveSelection(int mode, uint32_t addr, uint32_t pass);
 
 private slots:
     void showEvent(QShowEvent* event);
@@ -110,7 +109,7 @@ private:
     void crc32show();
     void checkSumsUpdate();
     void writePassword();
-    int writeAndVerify(uint8_t *buf, int size, uint32_t password, bool usePassword, QStringList *ranges);
+    int writeAndVerify(uint8_t *buf, int size, uint32_t password, bool usePassword, uint32_t passAddr, QStringList *ranges);
     int probeWriteUnlock(uint32_t password, bool usePassword, int probeOff);
     void complianceToCheckboxes();   // EEPROM bytes 3-10 -> checkbox states
     void checkboxesToCompliance();   // checkbox states -> EEPROM bytes 3-10

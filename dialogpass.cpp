@@ -15,90 +15,25 @@
 #include "dialogpass.h"
 #include "ui_dialogpass.h"
 #include "mainwindow.h"
-#include <QValidator>
-//#include <QRegExp>
-#include <QRegularExpression>
 #include <QFont>
 #include <QListWidgetItem>
+#include <QTableWidgetItem>
+#include <QHeaderView>
+#include <QSettings>
+#include <QMessageBox>
 
 DialogPass::DialogPass(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogPass)
 {
     ui->setupUi(this);
-    QRegularExpression reHex3( "[0-2][A-Fa-f0-9]{2,2}" );
-    QRegularExpression reHex2( "[A-Fa-f0-9]{1,2}" );
-    QRegularExpressionValidator *validatorA = new QRegularExpressionValidator(reHex3, this);
-    QRegularExpressionValidator *validatorL = new QRegularExpressionValidator(reHex2, this);
-    ui->lineEdit->setValidator(validatorA);
-    ui->lineEdit_2->setValidator(validatorL);
-    ui->lineEdit_3->setValidator(validatorL);
-    ui->lineEdit_4->setValidator(validatorL);
-    ui->lineEdit_5->setValidator(validatorL);
     QFont mono("DejaVu Sans Mono");
     mono.setStyleHint(QFont::Monospace);
     ui->listWidget_builtin->setFont(mono);
+    ui->tableSaved->horizontalHeader()->setStretchLastSection(true);
     connect(ui->listWidget_builtin, &QListWidget::itemDoubleClicked,
             this, &DialogPass::onBuiltInDoubleClicked);
-}
-
-// Fill the read-only list showing the built-in passwords and the order the
-// write/scan cycles through them. Populated by MainWindow from kKnownPasswords.
-void DialogPass::setBuiltInList(const QStringList &items, const QList<quint32> &values)
-{
-    ui->listWidget_builtin->clear();
-    ui->listWidget_builtin->addItems(items);
-    builtInValues = values;
-}
-
-// Double-clicking a built-in password loads it into the User defined fields and
-// selects that option, so the next write tries it first instead of re-scanning
-// the whole list. The user still confirms with Ok.
-void DialogPass::onBuiltInDoubleClicked(QListWidgetItem *item)
-{
-    int row = ui->listWidget_builtin->row(item);
-    if (row < 0 || row >= builtInValues.size()) return;
-    quint32 pw = builtInValues[row];
-    ui->radioButton_4->setChecked(true);
-    ui->lineEdit->setText("17B");
-    ui->lineEdit_2->setText(bytePrt(static_cast<unsigned char>((pw >> 24) & 0xff)));
-    ui->lineEdit_3->setText(bytePrt(static_cast<unsigned char>((pw >> 16) & 0xff)));
-    ui->lineEdit_4->setText(bytePrt(static_cast<unsigned char>((pw >>  8) & 0xff)));
-    ui->lineEdit_5->setText(bytePrt(static_cast<unsigned char>(pw & 0xff)));
-}
-
-void DialogPass::setID(const uint id, uint32_t userAddr, uint32_t userPass)
-{
-   uint8_t firstDigit = 0;
-   switch (id)
-   {
-     case 0:
-       ui->radioButton_0->setChecked(true);
-     break;
-     case 1:
-       ui->radioButton_1->setChecked(true);
-     break;
-     case 2:
-       ui->radioButton_2->setChecked(true);
-     break;
-     case 3:
-       ui->radioButton_3->setChecked(true);
-     break;
-     case 4:
-       ui->radioButton_4->setChecked(true);
-     break;
-     default:
-       ui->radioButton_0->setChecked(true);
-     break;
-
-   }
-   firstDigit = static_cast<unsigned char>(userAddr >> 8) + 0x30;
-   if (firstDigit > 0x32) firstDigit = 0x30;
-   ui->lineEdit->setText(QString(static_cast<char>(firstDigit)) + bytePrt(static_cast<unsigned char>(userAddr & 0xff)));
-   ui->lineEdit_2->setText(bytePrt(static_cast<unsigned char>((userPass >> 24) & 0xff)));
-   ui->lineEdit_3->setText(bytePrt(static_cast<unsigned char>((userPass >> 16) & 0xff)));
-   ui->lineEdit_4->setText(bytePrt(static_cast<unsigned char>((userPass >>  8) & 0xff)));
-   ui->lineEdit_5->setText(bytePrt(static_cast<unsigned char>(userPass & 0xff)));
+    loadSaved();
 }
 
 DialogPass::~DialogPass()
@@ -106,46 +41,132 @@ DialogPass::~DialogPass()
     delete ui;
 }
 
-void DialogPass::on_pushButton_clicked()
+// Fill the read-only list of built-in passwords (reference + source for the
+// double-click "add to my list" shortcut). Populated by MainWindow.
+void DialogPass::setBuiltInList(const QStringList &items, const QStringList &names,
+                                const QList<quint32> &values)
 {
-    uint8_t id = 0;
-    if (ui->radioButton_0->isChecked()) id = 0;
-    if (ui->radioButton_1->isChecked()) id = 1;
-    if (ui->radioButton_2->isChecked()) id = 2;
-    if (ui->radioButton_3->isChecked()) id = 3;
-    if (ui->radioButton_4->isChecked())
-    {
-        id = 4;
-        setUserPassword();
-
-    }
-    //return id
-    emit sendID(id);
-    DialogPass::close();
+    ui->listWidget_builtin->clear();
+    ui->listWidget_builtin->addItems(items);
+    builtInNames = names;
+    builtInValues = values;
 }
 
-void DialogPass::setUserPassword()
+// Preselect the write mode and, for a saved password, highlight a matching row.
+void DialogPass::setSelection(int mode, uint32_t addr, uint32_t pass)
 {
-    uint32_t userAddr = 0, userPass = 0;
-    QString buf = "";
-    if ((ui->lineEdit->text().isEmpty()) || (ui->lineEdit_2->text().isEmpty()) || (ui->lineEdit_3->text().isEmpty()) || (ui->lineEdit_4->text().isEmpty()) || (ui->lineEdit_5->text().isEmpty()))
+    if (mode == ModeGuess)      ui->radio_guess->setChecked(true);
+    else if (mode == ModeSaved) ui->radio_saved->setChecked(true);
+    else                        ui->radio_none->setChecked(true);
+
+    if (mode == ModeSaved)
     {
-        QMessageBox::about(this, tr("Error"), tr("Invalid field value."));
-        return;
+        for (int r = 0; r < ui->tableSaved->rowCount(); r++)
+        {
+            uint32_t a = hexToInt(ui->tableSaved->item(r, 1)->text());
+            uint32_t p = hexToInt(ui->tableSaved->item(r, 2)->text());
+            if (a == addr && p == pass) { ui->tableSaved->selectRow(r); break; }
+        }
     }
-   if (ui->lineEdit_2->text().length() == 1) ui->lineEdit_2->setText("0" + ui->lineEdit_2->text());
-   if (ui->lineEdit_3->text().length() == 1) ui->lineEdit_3->setText("0" + ui->lineEdit_3->text());
-   if (ui->lineEdit_4->text().length() == 1) ui->lineEdit_4->setText("0" + ui->lineEdit_4->text());
-   if (ui->lineEdit_5->text().length() == 1) ui->lineEdit_5->setText("0" + ui->lineEdit_5->text());
-   userAddr = hexToInt(ui->lineEdit->text());
-   buf = ui->lineEdit_2->text() +  ui->lineEdit_3->text() +  ui->lineEdit_4->text() +  ui->lineEdit_5->text();
-   userPass = hexToInt(buf);
-   emit sendUserPass(userAddr, userPass);
+}
+
+void DialogPass::addSavedRow(const QString &name, uint32_t addr, uint32_t pass)
+{
+    int r = ui->tableSaved->rowCount();
+    ui->tableSaved->insertRow(r);
+    ui->tableSaved->setItem(r, 0, new QTableWidgetItem(name));
+    ui->tableSaved->setItem(r, 1, new QTableWidgetItem(QString("%1").arg(addr, 3, 16, QChar('0')).toUpper()));
+    ui->tableSaved->setItem(r, 2, new QTableWidgetItem(QString("%1").arg(pass, 8, 16, QChar('0'))));
+    ui->tableSaved->selectRow(r);
+}
+
+// Persisted set of user passwords (survives restarts).
+void DialogPass::loadSaved()
+{
+    QSettings s;
+    int n = s.beginReadArray("savedPasswords");
+    for (int i = 0; i < n; i++)
+    {
+        s.setArrayIndex(i);
+        addSavedRow(s.value("name").toString(),
+                    s.value("addr").toUInt(),
+                    s.value("pass").toUInt());
+    }
+    s.endArray();
+    if (ui->tableSaved->rowCount() == 0)   // first run: seed a common default
+        addSavedRow("Default", 0x17b, 0x00001011);
+    ui->tableSaved->clearSelection();
+}
+
+void DialogPass::saveSaved()
+{
+    QSettings s;
+    s.beginWriteArray("savedPasswords");
+    for (int r = 0; r < ui->tableSaved->rowCount(); r++)
+    {
+        s.setArrayIndex(r);
+        s.setValue("name", ui->tableSaved->item(r, 0) ? ui->tableSaved->item(r, 0)->text() : "");
+        s.setValue("addr", hexToInt(ui->tableSaved->item(r, 1) ? ui->tableSaved->item(r, 1)->text() : "17B"));
+        s.setValue("pass", hexToInt(ui->tableSaved->item(r, 2) ? ui->tableSaved->item(r, 2)->text() : "0"));
+    }
+    s.endArray();
+}
+
+void DialogPass::on_pushButton_add_clicked()
+{
+    addSavedRow(tr("New"), 0x17b, 0);
+    ui->tableSaved->editItem(ui->tableSaved->item(ui->tableSaved->rowCount() - 1, 0));
+}
+
+void DialogPass::on_pushButton_remove_clicked()
+{
+    int r = ui->tableSaved->currentRow();
+    if (r >= 0) ui->tableSaved->removeRow(r);
+}
+
+// Double-clicking a built-in password appends it to the user's saved list.
+void DialogPass::onBuiltInDoubleClicked(QListWidgetItem *item)
+{
+    int row = ui->listWidget_builtin->row(item);
+    if (row < 0 || row >= builtInValues.size()) return;
+    QString name = (row < builtInNames.size()) ? builtInNames[row] : tr("Built-in");
+    addSavedRow(name, 0x17b, builtInValues[row]);
+    ui->radio_saved->setChecked(true);
+}
+
+void DialogPass::on_pushButton_clicked()
+{
+    int mode = ModeNone;
+    if (ui->radio_guess->isChecked()) mode = ModeGuess;
+    if (ui->radio_saved->isChecked()) mode = ModeSaved;
+
+    uint32_t addr = 0x17b, pass = 0;
+    if (mode == ModeSaved)
+    {
+        int r = ui->tableSaved->currentRow();
+        if (r < 0)
+        {
+            QMessageBox::warning(this, tr("Password settings"),
+                                 tr("Select a saved password, or choose another option."));
+            return;
+        }
+        addr = hexToInt(ui->tableSaved->item(r, 1) ? ui->tableSaved->item(r, 1)->text() : "17B");
+        pass = hexToInt(ui->tableSaved->item(r, 2) ? ui->tableSaved->item(r, 2)->text() : "0");
+    }
+
+    saveSaved();                 // persist any edits/additions
+    QSettings s;                 // persist the chosen mode/selection too
+    s.setValue("mode", mode);
+    s.setValue("selAddr", addr);
+    s.setValue("selPass", pass);
+    emit sendSelection(mode, addr, pass);
+    DialogPass::close();
 }
 
 uint32_t DialogPass::hexToInt(QString str)
 {
     unsigned char c;
+    str = str.trimmed();
     uint32_t len = static_cast<uint32_t>(str.length());
     QByteArray bstr = str.toLocal8Bit();
     if ((len > 0) && (len < 9))
