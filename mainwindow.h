@@ -31,6 +31,9 @@ extern "C" {
 #include "ch34x_i2c.h"
 }
 
+class QLineEdit;
+class QLabel;
+
 namespace Ui {
 class MainWindow;
 }
@@ -113,6 +116,15 @@ private:
     int probeWriteUnlock(uint32_t password, bool usePassword, int probeOff);
     void complianceToCheckboxes();   // EEPROM bytes 3-10 -> checkbox states
     void checkboxesToCompliance();   // checkbox states -> EEPROM bytes 3-10
+    // A2h vendor strings: show as text when printable, else as editable hex,
+    // never rewrite unless the user edited them, and never clobber the tail.
+    void vendorStrToField(QLineEdit *field, QLabel *label, const QString &baseLabel,
+                          int off, int len, QByteArray &orig, bool &isHex);
+    void fieldToVendorStr(QLineEdit *field, int off, int len,
+                          const QByteArray &orig, bool isHex);
+    QByteArray vpnOrig, vprodOrig;   // original A2h bytes captured on parse
+    bool vpnHex = false, vprodHex = false;
+    bool vpnDirty = false, vprodDirty = false;
     uint_least32_t Crc32(QByteArray &buf, size_t len);
     int calcSize();
     QTimer *timer;

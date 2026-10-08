@@ -18,6 +18,7 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QCheckBox>
+#include <QLineEdit>
 #include <QSettings>
 #include <QVector>
 #include <QSet>
@@ -165,6 +166,8 @@ MainWindow::MainWindow(QWidget *parent) :
                           ui->cb_1gSX, ui->cb_1gLX, ui->cb_1gCX, ui->cb_1gT,
                           ui->cb_dacP, ui->cb_dacA})
         connect(cb, &QCheckBox::toggled, this, &MainWindow::checkboxesToCompliance);
+    connect(ui->lineEdit_vpn,   &QLineEdit::textEdited, this, [this]{ vpnDirty = true; });
+    connect(ui->lineEdit_vprod, &QLineEdit::textEdited, this, [this]{ vprodDirty = true; });
     lastDirectory = QDir::homePath(); //"/home/";
     cmdStarted = false;
     crc32show();
@@ -382,12 +385,11 @@ void MainWindow::on_pushButton_parsing_clicked()
     complianceToCheckboxes();
 
     // Ubiquiti-proprietary A2h vendor strings (fixed offsets, not SFF-8472).
-    tmpstr = "";
-    for (i = 0x180; i < 0x180 + 0x18; i++) tmpstr.append(static_cast<char>(SFPData[i]));
-    ui->lineEdit_vpn->setText(tmpstr);
-    tmpstr = "";
-    for (i = 0x1C0; i < 0x1C0 + 0x14; i++) tmpstr.append(static_cast<char>(SFPData[i]));
-    ui->lineEdit_vprod->setText(tmpstr);
+    vendorStrToField(ui->lineEdit_vpn, ui->label_vpn,
+                     tr("Vendor PN/serial (A2h 0x80):"), 0x180, 0x18, vpnOrig, vpnHex);
+    vendorStrToField(ui->lineEdit_vprod, ui->label_vprod,
+                     tr("Vendor product name (A2h 0xC0):"), 0x1C0, 0x14, vprodOrig, vprodHex);
+    vpnDirty = vprodDirty = false;
 
     ui->lineEdit_crclow->setText(checkSumLo());
     ui->lineEdit_crchigh->setText(checkSumHi());
@@ -716,25 +718,86 @@ void MainWindow::on_lineEdit_om4cu_editingFinished()
     checkSumsUpdate();
 }
 
-// Ubiquiti-proprietary ASCII strings in the A2h vendor area. Written space
-// padded to the fixed field width; no vendor checksum is recomputed (the
-// standard SFF-8472 checksums do not cover this region).
-void MainWindow::on_lineEdit_vpn_editingFinished()
+// Fill a field from an A2h vendor string. If every byte up to the trailing
+// 0x00/0x20 padding is printable ASCII, show it as text; otherwise (binary,
+// e.g. Cisco auth blobs) show it as editable hex. The original bytes are kept
+// so an untouched or partial edit never clobbers data we cannot represent.
+void MainWindow::vendorStrToField(QLineEdit *field, QLabel *label, const QString &baseLabel,
+                                  int off, int len, QByteArray &orig, bool &isHex)
 {
-    QByteArray t = ui->lineEdit_vpn->text().toLatin1();
-    for (int i = 0; i < 0x18; i++)
-        SFPData[0x180 + i] = (i < t.size()) ? t[i] : static_cast<char>(0x20);
+    orig.resize(len);
+    for (int i = 0; i < len; i++) orig[i] = static_cast<char>(SFPData[off + i]);
+
+    int end = len;                                   // strip trailing 00/20 pad
+    while (end > 0 && (orig[end - 1] == 0x00 || orig[end - 1] == 0x20)) end--;
+    isHex = false;
+    for (int i = 0; i < end; i++)
+    {
+        unsigned char c = static_cast<unsigned char>(orig[i]);
+        if (c < 0x20 || c > 0x7e) { isHex = true; break; }
+    }
+
+    QString text;
+    if (isHex)
+    {
+        for (int i = 0; i < len; i++)
+            text += QString("%1 ").arg(static_cast<unsigned char>(orig[i]), 2, 16, QChar('0')).toUpper();
+        text = text.trimmed();
+        QFont mono("DejaVu Sans Mono"); mono.setStyleHint(QFont::Monospace);
+        field->setFont(mono);
+        field->setToolTip(tr("Binary data shown as hex bytes; edits are parsed as hex. "
+                             "Bytes you omit keep their original value."));
+        label->setText(baseLabel + tr("  [hex]"));
+    }
+    else
+    {
+        text = QString::fromLatin1(orig.left(end));
+        field->setFont(this->font());
+        field->setToolTip(tr("Ubiquiti-proprietary A2h string. No vendor checksum is "
+                             "recomputed on write; a validating host may reject edits."));
+        label->setText(baseLabel);
+    }
+    field->setText(text);                            // programmatic: no textEdited
+}
+
+// Write a field back only when edited. Text mode: ASCII, space-padded to width.
+// Hex mode: parse hex bytes, keeping the original tail for any bytes omitted.
+void MainWindow::fieldToVendorStr(QLineEdit *field, int off, int len,
+                                  const QByteArray &orig, bool isHex)
+{
+    QByteArray out(len, static_cast<char>(0x20));
+    if (isHex)
+    {
+        out = orig;                                  // preserve tail by default
+        QString hex = field->text();
+        hex.remove(QRegularExpression("[^0-9A-Fa-f]"));
+        int n = 0;
+        for (int i = 0; i + 1 < hex.size() && n < len; i += 2, n++)
+            out[n] = static_cast<char>(hex.mid(i, 2).toUInt(nullptr, 16));
+    }
+    else
+    {
+        QByteArray t = field->text().toLatin1();
+        for (int i = 0; i < len; i++)
+            out[i] = (i < t.size()) ? t[i] : static_cast<char>(0x20);
+    }
+    for (int i = 0; i < len; i++) SFPData[off + i] = out[i];
     hexEdit->setData(SFPData);
     checkSumsUpdate();
 }
 
+void MainWindow::on_lineEdit_vpn_editingFinished()
+{
+    if (!vpnDirty) return;
+    fieldToVendorStr(ui->lineEdit_vpn, 0x180, 0x18, vpnOrig, vpnHex);
+    vpnDirty = false;
+}
+
 void MainWindow::on_lineEdit_vprod_editingFinished()
 {
-    QByteArray t = ui->lineEdit_vprod->text().toLatin1();
-    for (int i = 0; i < 0x14; i++)
-        SFPData[0x1C0 + i] = (i < t.size()) ? t[i] : static_cast<char>(0x20);
-    hexEdit->setData(SFPData);
-    checkSumsUpdate();
+    if (!vprodDirty) return;
+    fieldToVendorStr(ui->lineEdit_vprod, 0x1C0, 0x14, vprodOrig, vprodHex);
+    vprodDirty = false;
 }
 
 void MainWindow::on_lineEdit_day_editingFinished()
