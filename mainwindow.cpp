@@ -18,6 +18,9 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QCheckBox>
+#include <QSettings>
+#include <QVector>
+#include <QSet>
 #include <QErrorMessage>
 #include <QDragEnterEvent>
 #include <QtGui>
@@ -74,6 +77,25 @@ static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
 };
 static const unsigned kKnownPasswordCount =
     sizeof(kKnownPasswords) / sizeof(kKnownPasswords[0]);
+
+// One unlock candidate: address + password + a label for the result message.
+namespace { struct PwEntry { uint32_t addr; uint32_t pw; QString name; }; }
+
+// The user's saved passwords (QSettings), already stored as integers.
+static QVector<PwEntry> loadSavedPasswords()
+{
+    QVector<PwEntry> v;
+    QSettings s;
+    int n = s.beginReadArray("savedPasswords");
+    for (int i = 0; i < n; i++)
+    {
+        s.setArrayIndex(i);
+        v.append({ s.value("addr").toUInt(), s.value("pass").toUInt(),
+                   s.value("name").toString() });
+    }
+    s.endArray();
+    return v;
+}
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -158,6 +180,13 @@ MainWindow::MainWindow(QWidget *parent) :
     pass[3] = {3, "SNR-2"  , 0x17b, 0x44554455};
     pass[4] = {4, "User"   , 0x17b,      0    };
     currentPass  = pass[0];
+    // Restore the password mode/selection chosen in a previous session.
+    {
+        QSettings s;
+        receiveSelection(s.value("mode", DialogPass::ModeNone).toInt(),
+                         s.value("selAddr", 0x17b).toUInt(),
+                         s.value("selPass", 0).toUInt());
+    }
     // connect and status check
     statusCh341a = ch341aConnect();
     ch341StatusFlashing();
@@ -824,7 +853,7 @@ void MainWindow::on_actionRead_SFP_triggered()
 // programmer is already connected. Returns the mismatch count, or -1 on a USB
 // error. The password/diagnostics window A2h 0x60-0x7F is never verified
 // because it does not read back what was written.
-int MainWindow::writeAndVerify(uint8_t *buf, int size, uint32_t password, bool usePassword, QStringList *ranges)
+int MainWindow::writeAndVerify(uint8_t *buf, int size, uint32_t password, bool usePassword, uint32_t passAddr, QStringList *ranges)
 {
     int res;
     if (usePassword)
@@ -834,7 +863,7 @@ int MainWindow::writeAndVerify(uint8_t *buf, int size, uint32_t password, bool u
         pw[1] = static_cast<uint8_t>((password >> 16) & 0xff);
         pw[2] = static_cast<uint8_t>((password >>  8) & 0xff);
         pw[3] = static_cast<uint8_t>(password & 0xff);
-        res = ch34xi2cBlockWrite(pw, 0x17b, 0x04, 0x08, 0x11);
+        res = ch34xi2cBlockWrite(pw, passAddr, 0x04, 0x08, 0x11);
         if (res < 0) return -1;
     }
 
@@ -933,26 +962,37 @@ void MainWindow::on_actionWrite_to_SFP_triggered()
     QString usedWith;
     if (currentPass.id == DialogPass::ModeSaved)
     {
-        mismatches = writeAndVerify(buf.get(), size, currentPass.password, true, &ranges);
+        mismatches = writeAndVerify(buf.get(), size, currentPass.password, true, currentPass.address, &ranges);
         usedWith = tr("the saved password");
     }
     else
     {
-        mismatches = writeAndVerify(buf.get(), size, 0, false, &ranges);
+        mismatches = writeAndVerify(buf.get(), size, 0, false, 0x17b, &ranges);
         usedWith = tr("no password");
     }
 
-    // Guess mode only: cycle through the known module passwords.
+    // Guess mode: try the user's saved passwords first, then the built-in
+    // list, skipping any (address, password) already attempted.
     if (mismatches > 0 && currentPass.id == DialogPass::ModeGuess)
     {
-        for (unsigned c = 0; c < kKnownPasswordCount && mismatches > 0; c++)
+        QVector<PwEntry> list = loadSavedPasswords();
+        for (unsigned c = 0; c < kKnownPasswordCount; c++)
+            list.append({ 0x17b, kKnownPasswords[c].pw,
+                          QString::fromLatin1(kKnownPasswords[c].name) });
+
+        QSet<quint64> seen;
+        for (const PwEntry &e : list)
         {
+            if (mismatches <= 0) break;
+            quint64 key = (static_cast<quint64>(e.addr) << 32) | e.pw;
+            if (seen.contains(key)) continue;
+            seen.insert(key);
             ranges.clear();
-            int m = writeAndVerify(buf.get(), size, kKnownPasswords[c].pw, true, &ranges);
+            int m = writeAndVerify(buf.get(), size, e.pw, true, e.addr, &ranges);
             if (m < 0) { mismatches = -1; break; }
             mismatches = m;
             if (mismatches == 0)
-                usedWith = tr("password \"%1\"").arg(kKnownPasswords[c].name);
+                usedWith = tr("password \"%1\"").arg(e.name);
         }
     }
 

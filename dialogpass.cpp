@@ -155,6 +155,10 @@ void DialogPass::on_pushButton_clicked()
     }
 
     saveSaved();                 // persist any edits/additions
+    QSettings s;                 // persist the chosen mode/selection too
+    s.setValue("mode", mode);
+    s.setValue("selAddr", addr);
+    s.setValue("selPass", pass);
     emit sendSelection(mode, addr, pass);
     DialogPass::close();
 }

@@ -34,7 +34,7 @@
    <item>
     <widget class="QRadioButton" name="radio_guess">
      <property name="text">
-      <string>Try known passwords (guess)</string>
+      <string>Try saved, then known passwords (guess)</string>
      </property>
     </widget>
    </item>
