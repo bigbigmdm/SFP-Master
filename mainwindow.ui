@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1065</width>
-    <height>738</height>
+    <width>1099</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -50,6 +50,18 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item row="1" column="0">
@@ -67,6 +79,18 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item row="2" column="0">
@@ -80,6 +104,18 @@
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLineEdit" name="lineEdit_ifspeed">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>21</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -105,6 +141,18 @@
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <widget class="QLineEdit" name="lineEdit_925">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>21</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -130,6 +178,18 @@
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <widget class="QLineEdit" name="lineEdit_50125">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>21</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -155,6 +215,18 @@
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
            <widget class="QLineEdit" name="lineEdit_62125">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>21</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -180,12 +252,32 @@
          <layout class="QHBoxLayout" name="horizontalLayout_smf100">
           <item>
            <widget class="QLineEdit" name="lineEdit_smf100">
-            <property name="readOnly"><bool>true</bool></property>
-            <property name="text"><string/></property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_smf100u"><property name="text"><string>m</string></property></widget>
+           <widget class="QLabel" name="label_smf100u">
+            <property name="text">
+             <string>m</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -200,22 +292,40 @@
          <layout class="QHBoxLayout" name="horizontalLayout_om3">
           <item>
            <widget class="QLineEdit" name="lineEdit_om3">
-                        <property name="text"><string/></property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_om3u"><property name="text"><string>m</string></property></widget>
+           <widget class="QLabel" name="label_om3u">
+            <property name="text">
+             <string>m</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item row="8" column="0">
          <widget class="QLabel" name="label_om4cu">
-          <property name="text">
-           <string>Link length, OM4 / copper (DAC):</string>
-          </property>
           <property name="toolTip">
            <string>A0h byte 0x12. Shown and edited as OM4 optical reach in 10 m steps (e.g. 150 = 150 m).
 For a copper DAC cable the same byte holds the length in metres (1 m steps), so the real DAC length is the shown value divided by 10 (e.g. 30 shown = 3 m DAC).</string>
+          </property>
+          <property name="text">
+           <string>Link length, OM4 / copper (DAC):</string>
           </property>
          </widget>
         </item>
@@ -223,11 +333,29 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
          <layout class="QHBoxLayout" name="horizontalLayout_om4cu">
           <item>
            <widget class="QLineEdit" name="lineEdit_om4cu">
-                        <property name="text"><string/></property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>21</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_om4cuu"><property name="text"><string>m (OM4)</string></property></widget>
+           <widget class="QLabel" name="label_om4cuu">
+            <property name="text">
+             <string>m (OM4)</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -240,6 +368,18 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         </item>
         <item row="9" column="1">
          <widget class="QLineEdit" name="lineEdit_manuf">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -268,13 +408,13 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
             <property name="minimumSize">
              <size>
               <width>36</width>
-              <height>0</height>
+              <height>21</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>36</width>
-              <height>16777215</height>
+              <height>21</height>
              </size>
             </property>
             <property name="alignment">
@@ -297,13 +437,13 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
             <property name="minimumSize">
              <size>
               <width>36</width>
-              <height>0</height>
+              <height>21</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>36</width>
-              <height>16777215</height>
+              <height>21</height>
              </size>
             </property>
             <property name="alignment">
@@ -326,13 +466,13 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
             <property name="minimumSize">
              <size>
               <width>36</width>
-              <height>0</height>
+              <height>21</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>36</width>
-              <height>16777215</height>
+              <height>21</height>
              </size>
             </property>
             <property name="alignment">
@@ -351,6 +491,18 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         </item>
         <item row="11" column="1">
          <widget class="QLineEdit" name="lineEdit_model">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -365,6 +517,18 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         </item>
         <item row="12" column="1">
          <widget class="QLineEdit" name="lineEdit_revision">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -385,6 +549,18 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item row="14" column="0">
@@ -396,6 +572,18 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         </item>
         <item row="14" column="1">
          <widget class="QLineEdit" name="lineEdit_sernum">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -414,14 +602,14 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
            <widget class="QLineEdit" name="lineEdit_day">
             <property name="minimumSize">
              <size>
-              <width>36</width>
-              <height>0</height>
+              <width>56</width>
+              <height>21</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>36</width>
-              <height>16777215</height>
+              <width>56</width>
+              <height>21</height>
              </size>
             </property>
             <property name="text">
@@ -446,14 +634,14 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
            <widget class="QLineEdit" name="lineEdit_mon">
             <property name="minimumSize">
              <size>
-              <width>36</width>
-              <height>0</height>
+              <width>56</width>
+              <height>21</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>36</width>
-              <height>16777215</height>
+              <width>56</width>
+              <height>21</height>
              </size>
             </property>
             <property name="text">
@@ -478,14 +666,14 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
            <widget class="QLineEdit" name="lineEdit_year">
             <property name="minimumSize">
              <size>
-              <width>36</width>
-              <height>0</height>
+              <width>56</width>
+              <height>21</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>36</width>
-              <height>16777215</height>
+              <width>56</width>
+              <height>21</height>
              </size>
             </property>
             <property name="text">
@@ -507,6 +695,18 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         </item>
         <item row="16" column="1">
          <widget class="QLineEdit" name="lineEdit_crclow">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -524,6 +724,18 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         </item>
         <item row="17" column="1">
          <widget class="QLineEdit" name="lineEdit_crchigh">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -541,95 +753,269 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         </item>
         <item row="18" column="1">
          <widget class="QLineEdit" name="lineEdit_vendorid">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
           <property name="text">
            <string/>
           </property>
          </widget>
         </item>
-        <item row="19" column="0">
+        <item row="19" column="1">
+         <layout class="QGridLayout" name="gridLayout_compliance"/>
+        </item>
+        <item row="20" column="0">
+         <widget class="QLabel" name="label_vpn">
+          <property name="text">
+           <string>Vendor PN/serial (A2h 0x80):</string>
+          </property>
+         </widget>
+        </item>
+        <item row="20" column="1">
+         <widget class="QLineEdit" name="lineEdit_vpn">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string>
+          </property>
+          <property name="maxLength">
+           <number>24</number>
+          </property>
+         </widget>
+        </item>
+        <item row="21" column="0">
+         <widget class="QLabel" name="label_vprod">
+          <property name="text">
+           <string>Vendor product name (A2h 0xC0):</string>
+          </property>
+         </widget>
+        </item>
+        <item row="21" column="1">
+         <widget class="QLineEdit" name="lineEdit_vprod">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>21</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string>
+          </property>
+          <property name="maxLength">
+           <number>20</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
          <widget class="QLabel" name="label_compliance">
           <property name="text">
            <string>Transceiver compliance:</string>
           </property>
          </widget>
         </item>
-        <item row="19" column="1">
-         <layout class="QGridLayout" name="gridLayout_compliance">
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="cb_10gSR">
-            <property name="text"><string>10GBASE-SR</string></property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QCheckBox" name="cb_1gSX">
-            <property name="text"><string>1000BASE-SX</string></property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="cb_10gLR">
-            <property name="text"><string>10GBASE-LR</string></property>
-           </widget>
-          </item>
-          <item row="1" column="1">
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_13">
+        <property name="topMargin">
+         <number>6</number>
+        </property>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
            <widget class="QCheckBox" name="cb_1gLX">
-            <property name="text"><string>1000BASE-LX</string></property>
+            <property name="text">
+             <string>1000BASE-LX</string>
+            </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="cb_10gLRM">
-            <property name="text"><string>10GBASE-LRM</string></property>
+          <item>
+           <widget class="QCheckBox" name="cb_10gLR">
+            <property name="text">
+             <string>10GBASE-LR</string>
+            </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QCheckBox" name="cb_1gCX">
-            <property name="text"><string>1000BASE-CX</string></property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="cb_10gER">
-            <property name="text"><string>10GBASE-ER</string></property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QCheckBox" name="cb_1gT">
-            <property name="text"><string>1000BASE-T</string></property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="cb_dacP">
-            <property name="text"><string>Passive DAC</string></property>
-           </widget>
-          </item>
-          <item row="4" column="1">
+          <item>
            <widget class="QCheckBox" name="cb_dacA">
-            <property name="text"><string>Active DAC</string></property>
+            <property name="text">
+             <string>Active DAC</string>
+            </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
-        <item row="20" column="0">
-         <widget class="QLabel" name="label_vpn">
-          <property name="text"><string>Vendor PN/serial (A2h 0x80):</string></property>
-         </widget>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QCheckBox" name="cb_10gSR">
+            <property name="text">
+             <string>10GBASE-SR</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cb_1gSX">
+            <property name="text">
+             <string>1000BASE-SX</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cb_dacP">
+            <property name="text">
+             <string>Passive DAC</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
-        <item row="20" column="1">
-         <widget class="QLineEdit" name="lineEdit_vpn">
-          <property name="maxLength"><number>24</number></property>
-          <property name="toolTip"><string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string></property>
-         </widget>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QCheckBox" name="cb_1gCX">
+            <property name="text">
+             <string>1000BASE-CX</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cb_10gER">
+            <property name="text">
+             <string>10GBASE-ER</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
-        <item row="21" column="0">
-         <widget class="QLabel" name="label_vprod">
-          <property name="text"><string>Vendor product name (A2h 0xC0):</string></property>
-         </widget>
-        </item>
-        <item row="21" column="1">
-         <widget class="QLineEdit" name="lineEdit_vprod">
-          <property name="maxLength"><number>20</number></property>
-          <property name="toolTip"><string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string></property>
-         </widget>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QCheckBox" name="cb_10gLRM">
+            <property name="text">
+             <string>10GBASE-LRM</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="cb_1gT">
+            <property name="text">
+             <string>1000BASE-T</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
        </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -963,8 +1349,8 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1065</width>
-     <height>25</height>
+     <width>1099</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
