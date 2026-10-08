@@ -794,9 +794,6 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
           <property name="toolTip">
            <string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string>
           </property>
-          <property name="maxLength">
-           <number>24</number>
-          </property>
          </widget>
         </item>
         <item row="20" column="0">
@@ -822,9 +819,6 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
           </property>
           <property name="toolTip">
            <string>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</string>
-          </property>
-          <property name="maxLength">
-           <number>20</number>
           </property>
          </widget>
         </item>
