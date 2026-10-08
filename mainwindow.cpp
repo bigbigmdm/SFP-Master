@@ -871,6 +871,37 @@ int MainWindow::writeAndVerify(uint8_t *buf, int size, uint32_t password, bool u
     return mismatches;
 }
 
+// Non-destructively test whether write access is unlocked (optionally after
+// sending a password). Flips a single reserved byte, checks the change took,
+// then restores it. Returns 1 = unlocked, 0 = locked, -1 = USB/restore error.
+// Writing identical data back cannot detect a lock (a rejected write leaves
+// the already-matching bytes intact), so the scan must actually change a byte.
+int MainWindow::probeWriteUnlock(uint32_t password, bool usePassword, int probeOff)
+{
+    uint8_t pw[4];
+    pw[0] = static_cast<uint8_t>((password >> 24) & 0xff);
+    pw[1] = static_cast<uint8_t>((password >> 16) & 0xff);
+    pw[2] = static_cast<uint8_t>((password >>  8) & 0xff);
+    pw[3] = static_cast<uint8_t>(password & 0xff);
+
+    uint8_t orig = 0, test = 0, rb = 0;
+    if (ch34xi2cBlockRead(&orig, static_cast<uint32_t>(probeOff), 0x01, 0x11) < 0) return -1;
+    test = static_cast<uint8_t>(orig ^ 0xff);   // guaranteed different from orig
+
+    if (usePassword && ch34xi2cBlockWrite(pw, 0x17b, 0x04, 0x08, 0x11) < 0) return -1;
+    if (ch34xi2cBlockWrite(&test, static_cast<uint32_t>(probeOff), 0x01, 0x08, 0x11) < 0) return -1;
+    if (ch34xi2cBlockRead(&rb, static_cast<uint32_t>(probeOff), 0x01, 0x11) < 0) return -1;
+    int unlocked = (rb == test) ? 1 : 0;
+
+    // Restore the original value (re-send the password for a fresh write session).
+    if (usePassword && ch34xi2cBlockWrite(pw, 0x17b, 0x04, 0x08, 0x11) < 0) return -1;
+    if (ch34xi2cBlockWrite(&orig, static_cast<uint32_t>(probeOff), 0x01, 0x08, 0x11) < 0) return -1;
+    if (ch34xi2cBlockRead(&rb, static_cast<uint32_t>(probeOff), 0x01, 0x11) < 0) return -1;
+    if (unlocked && rb != orig) return -1;       // changed it but could not restore - flag it
+
+    return unlocked;
+}
+
 void MainWindow::on_actionWrite_to_SFP_triggered()
 {
     doNotDisturb();
@@ -1017,31 +1048,25 @@ void MainWindow::on_actionScan_module_password_triggered()
         return;
     }
 
-    std::shared_ptr<uint8_t[]> buf(new uint8_t[0x200]);
-    for (int i = 0; i < 0x200; i++) buf[i] = 0xff;
-    if (ch34xi2cBlockRead(buf.get(), 0, static_cast<uint32_t>(size), 0x11) < 0)
-    {
-        ch341aShutdown();
-        doNotDisturbCancel();
-        QMessageBox::about(this, tr("Error"), tr("Error reading SFP module data."));
-        return;
-    }
+    // Probe a single reserved A0h byte (0x3E) by flipping and restoring it,
+    // which actually detects the write lock. A read error in the probe is
+    // reported as an access error below.
+    (void)size;
+    const int probeOff = 0x3E;
 
-    QStringList ranges;
     QString found;
     bool error = false;
 
     // Many copper modules ship write-unlocked, so try with no password first.
-    int m = writeAndVerify(buf.get(), size, 0, false, &ranges);
+    int m = probeWriteUnlock(0, false, probeOff);
     if (m < 0) error = true;
-    else if (m == 0) found = tr("no password (module is already write-unlocked)");
+    else if (m == 1) found = tr("no password (module is already write-unlocked)");
 
     for (unsigned c = 0; found.isEmpty() && !error && c < kKnownPasswordCount; c++)
     {
-        ranges.clear();
-        m = writeAndVerify(buf.get(), size, kKnownPasswords[c].pw, true, &ranges);
+        m = probeWriteUnlock(kKnownPasswords[c].pw, true, probeOff);
         if (m < 0) { error = true; break; }
-        if (m == 0)
+        if (m == 1)
             found = tr("\"%1\" (0x%2)").arg(kKnownPasswords[c].name)
                         .arg(kKnownPasswords[c].pw, 8, 16, QChar('0'));
     }
