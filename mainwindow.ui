@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1099</width>
+    <width>1140</width>
     <height>900</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1065</width>
+    <width>1140</width>
     <height>0</height>
    </size>
   </property>
@@ -1240,7 +1240,7 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
        <widget class="QFrame" name="frame">
         <property name="minimumSize">
          <size>
-          <width>588</width>
+          <width>594</width>
           <height>575</height>
          </size>
         </property>
@@ -1340,7 +1340,7 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1099</width>
+     <width>1140</width>
      <height>21</height>
     </rect>
    </property>

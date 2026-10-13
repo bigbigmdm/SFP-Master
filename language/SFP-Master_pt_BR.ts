@@ -63,33 +63,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="60"/>
+        <location filename="../dialogpass.ui" line="61"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="63"/>
+        <location filename="../dialogpass.ui" line="66"/>
         <source>Addr (hex)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="66"/>
+        <location filename="../dialogpass.ui" line="71"/>
         <source>Password (hex)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="74"/>
+        <location filename="../dialogpass.ui" line="81"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="79"/>
+        <location filename="../dialogpass.ui" line="88"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="93"/>
-        <source>Built-in passwords (double-click to add to your list):</source>
+        <location filename="../dialogpass.ui" line="110"/>
+        <source>Built-in passwords
+(double-click to add to your list):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -125,7 +126,7 @@
         <translation type="vanished">Senha (HEX):</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="128"/>
+        <location filename="../dialogpass.ui" line="149"/>
         <source>Ok</source>
         <translation>Ok</translation>
     </message>

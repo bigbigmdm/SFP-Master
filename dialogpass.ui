@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>470</height>
+    <width>426</width>
+    <height>551</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -57,13 +57,19 @@
       <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <column>
-      <property name="text"><string>Name</string></property>
+      <property name="text">
+       <string>Name</string>
+      </property>
      </column>
      <column>
-      <property name="text"><string>Addr (hex)</string></property>
+      <property name="text">
+       <string>Addr (hex)</string>
+      </property>
      </column>
      <column>
-      <property name="text"><string>Password (hex)</string></property>
+      <property name="text">
+       <string>Password (hex)</string>
+      </property>
      </column>
     </widget>
    </item>
@@ -71,18 +77,29 @@
     <layout class="QHBoxLayout" name="horizontalLayout_btns">
      <item>
       <widget class="QPushButton" name="pushButton_add">
-       <property name="text"><string>Add</string></property>
+       <property name="text">
+        <string>Add</string>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_remove">
-       <property name="text"><string>Remove</string></property>
+       <property name="text">
+        <string>Remove</string>
+       </property>
       </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_btns">
-       <property name="orientation"><enum>Qt::Horizontal</enum></property>
-       <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
       </spacer>
      </item>
     </layout>
@@ -90,7 +107,11 @@
    <item>
     <widget class="QLabel" name="label_builtin">
      <property name="text">
-      <string>Built-in passwords (double-click to add to your list):</string>
+      <string>Built-in passwords
+(double-click to add to your list):</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::PlainText</enum>
      </property>
     </widget>
    </item>

@@ -63,34 +63,40 @@
         <translation>Использовать сохраненный пароль (выбран ниже):</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="60"/>
+        <location filename="../dialogpass.ui" line="61"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="63"/>
+        <location filename="../dialogpass.ui" line="66"/>
         <source>Addr (hex)</source>
         <translation>Адрес (hex)</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="66"/>
+        <location filename="../dialogpass.ui" line="71"/>
         <source>Password (hex)</source>
         <translation>Пароль (hex)</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="74"/>
+        <location filename="../dialogpass.ui" line="81"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="79"/>
+        <location filename="../dialogpass.ui" line="88"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="93"/>
+        <location filename="../dialogpass.ui" line="110"/>
+        <source>Built-in passwords
+(double-click to add to your list):</source>
+        <translation>Встроенные пароли
+(дважды щелкните, чтобы добавить в свой список):</translation>
+    </message>
+    <message>
         <source>Built-in passwords (double-click to add to your list):</source>
-        <translation>Встроенные пароли (дважды щелкните, чтобы добавить в свой список):</translation>
+        <translation type="vanished">Встроенные пароли (дважды щелкните, чтобы добавить в свой список):</translation>
     </message>
     <message>
         <source>None</source>
@@ -125,7 +131,7 @@
         <translation type="vanished">Пароль (HEX):</translation>
     </message>
     <message>
-        <location filename="../dialogpass.ui" line="128"/>
+        <location filename="../dialogpass.ui" line="149"/>
         <source>Ok</source>
         <translation>Ok</translation>
     </message>
