@@ -222,16 +222,16 @@ jobs:
           }
 
           # Search for compiled binaries inside build folder and wrap them into .app bundles
-          SFP-MASTER_BIN=$(find build \( -name "SFP-Master" -o -name "sfp-master" \) -type f -not -path "*/.*" | head -n 1)
+          SFP_MASTER_BIN=$(find build \( -name "SFP-Master" -o -name "sfp-master" \) -type f -not -path "*/.*" | head -n 1)
 
-          if [ -z "$SFP-MASTER_BIN" ]; then
+          if [ -z "$SFP_MASTER_BIN" ]; then
             echo "Error: SFP-Master binary not found in build directory!"
             find build -maxdepth 3 -type f
             exit 1
           fi
-          echo "Found binary at: $SFP-MASTER_BIN"
+          echo "Found binary at: $SFP_MASTER_BIN"
 
-          package_binary_to_app "SFP-Master" "$SFP-MASTER_BIN" "img/SFP-Master.png" "SFP-Master"
+          package_binary_to_app "SFP-Master" "$SFP_MASTER_BIN" "img/SFP-Master.png" "SFP-Master"
 
           # Deploy Qt dependencies using macdeployqt
           export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
