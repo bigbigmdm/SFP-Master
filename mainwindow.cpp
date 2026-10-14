@@ -1145,8 +1145,8 @@ void MainWindow::writePassword()
 // anything on the module. Reports the first password that works.
 void MainWindow::on_actionScan_module_password_triggered()
 {
-    QMessageBox::StandardButton answer = QMessageBox::warning(
-        this, tr("Scan password"),
+    QMessageBox msgBox(QMessageBox::Warning,
+        tr("Scan password"),
         tr("This will try to find the module's write-unlock password.\n\n"
            "It repeatedly writes to the module: for no password and then each "
            "known password it flips one reserved byte (A0h 0x3E), checks whether "
@@ -1157,8 +1157,12 @@ void MainWindow::on_actionScan_module_password_triggered()
            "power loss or disconnect mid-scan could leave that byte altered. "
            "Make sure the correct module is connected to the CH341a programmer.\n\n"
            "Continue?"),
-        QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-    if (answer != QMessageBox::Yes)
+           QMessageBox::Yes | QMessageBox::No,
+                   this);
+    msgBox.setDefaultButton(QMessageBox::No);
+    msgBox.button(QMessageBox::Yes)->setText(tr("Yes"));
+    msgBox.button(QMessageBox::No)->setText(tr("No"));
+    if (msgBox.exec() != QMessageBox::Yes)
         return;
 
     doNotDisturb();

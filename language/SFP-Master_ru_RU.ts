@@ -591,8 +591,8 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         <location filename="../mainwindow.cpp" line="1083"/>
         <location filename="../mainwindow.cpp" line="1111"/>
         <location filename="../mainwindow.cpp" line="1122"/>
-        <location filename="../mainwindow.cpp" line="1171"/>
-        <location filename="../mainwindow.cpp" line="1204"/>
+        <location filename="../mainwindow.cpp" line="1175"/>
+        <location filename="../mainwindow.cpp" line="1208"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -636,7 +636,7 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         <location filename="../mainwindow.cpp" line="887"/>
         <location filename="../mainwindow.cpp" line="1009"/>
         <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1171"/>
+        <location filename="../mainwindow.cpp" line="1175"/>
         <source>Programmer CH341a is not connected!</source>
         <translation>Программатор CH341A не подключен!</translation>
     </message>
@@ -652,7 +652,7 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1034"/>
-        <location filename="../mainwindow.cpp" line="1251"/>
+        <location filename="../mainwindow.cpp" line="1255"/>
         <source>no password</source>
         <translation>без пароля</translation>
     </message>
@@ -711,8 +711,8 @@ Differing ranges:
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="1149"/>
-        <location filename="../mainwindow.cpp" line="1206"/>
         <location filename="../mainwindow.cpp" line="1210"/>
+        <location filename="../mainwindow.cpp" line="1214"/>
         <source>Scan password</source>
         <translation>Поиск пароля</translation>
     </message>
@@ -734,23 +734,33 @@ Continue?</source>
 Продолжить?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1189"/>
+        <location filename="../mainwindow.cpp" line="1163"/>
+        <source>Yes</source>
+        <translation>Да</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1164"/>
+        <source>No</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="1193"/>
         <source>no password (module is already write-unlocked)</source>
         <translation>пароль не требуется (модуль уже разблокирован для записи)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1196"/>
+        <location filename="../mainwindow.cpp" line="1200"/>
         <source>&quot;%1&quot; (0x%2)</source>
         <translation>&quot;%1&quot; (0x%2)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1204"/>
+        <location filename="../mainwindow.cpp" line="1208"/>
         <source>Error accessing the SFP module.</source>
         <translation>31
 Ошибка доступа к SFP-модулю.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1207"/>
+        <location filename="../mainwindow.cpp" line="1211"/>
         <source>Write access unlocked with %1.
 
 The module&apos;s stored data was not changed.</source>
@@ -759,7 +769,7 @@ The module&apos;s stored data was not changed.</source>
 Сохраненные данные модуля не были изменены.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1211"/>
+        <location filename="../mainwindow.cpp" line="1215"/>
         <source>None of the %1 known passwords unlocked write access.
 
 The module uses an unlock scheme this tool does not support.</source>
@@ -768,22 +778,22 @@ The module uses an unlock scheme this tool does not support.</source>
 Модуль использует схему разблокировки, не поддерживаемую программой.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1249"/>
+        <location filename="../mainwindow.cpp" line="1253"/>
         <source>known passwords</source>
         <translation>известные пароли</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1250"/>
+        <location filename="../mainwindow.cpp" line="1254"/>
         <source>saved password</source>
         <translation>сохраненный пароль</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1274"/>
+        <location filename="../mainwindow.cpp" line="1278"/>
         <source>Connected</source>
         <translation>Подключен</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1279"/>
+        <location filename="../mainwindow.cpp" line="1283"/>
         <source>Not connected</source>
         <translation>Не подключен</translation>
     </message>
