@@ -83,7 +83,7 @@ jobs:
             -D CPACK_CMAKE_GENERATOR="Unix Makefiles"
           
           mkdir -p ../dist-deb
-          mv imsprog*.deb ../dist-deb/imsprog-${{ matrix.name }}-amd64.deb
+          mv sfp-master*.deb ../dist-deb/sfp-master-${{ matrix.name }}-amd64.deb
 
       - name: Upload DEB Artifacts
         uses: actions/upload-artifact@main
@@ -184,7 +184,7 @@ jobs:
               <key>CFBundleIconFile</key>
               <string>${icon_name}.icns</string>
               <key>CFBundleIdentifier</key>
-              <string>com.imsprog.${app_name}</string>
+              <string>com.sfp-master.${app_name}</string>
               <key>CFBundleName</key>
               <string>${app_name}</string>
               <key>CFBundlePackageType</key>
@@ -214,18 +214,15 @@ jobs:
               cp "${icon_name}.icns" "${bundle_dir}/Contents/Resources/"
               rm -rf icon.iconset "${icon_name}.icns"
             fi
-            # 5. Create directory /share/imsprog
-            mkdir -p "${bundle_dir}/Contents/share/imsprog"
-            # 6. Copy database file
-            [ -f "IMSProg_programmer/database/IMSProg.Dat" ] && cp "IMSProg_programmer/database/IMSProg.Dat" "${bundle_dir}/Contents/share/imsprog/"
-            # 7. Create and copy translation files
-            find build/ -name "*.qm" -exec cp {} "${bundle_dir}/Contents/share/imsprog/" \;
+            # 5. Create directory /share/sfp-master
+            mkdir -p "${bundle_dir}/Contents/share/sfp-master"
+
+            # 6. Create and copy translation files
+            find build/ -name "*.qm" -exec cp {} "${bundle_dir}/Contents/share/sfp-master/" \;
           }
 
           # Search for compiled binaries inside build folder and wrap them into .app bundles
-          IMSPROG_BIN=$(find build -name "IMSProg" -type f -not -path "*/.*" | head -n 1)
-          EDITOR_BIN=$(find build -name "IMSProg_editor" -type f -not -path "*/.*" | head -n 1)
-          DB_BIN=$(find build -name "IMSProg_database_update" -type f -not -path "*/.*" | head -n 1)
+          SFP-MASTER_BIN=$(find build -name "SFP-Master" -type f -not -path "*/.*" | head -n 1)
 
           package_binary_to_app "SFP-Master" "$SFP-MASTER_BIN" "img/SFP-Master.png" "SFP-Master"
 
