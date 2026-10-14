@@ -70,16 +70,16 @@ jobs:
           
           cd build
           cpack -G DEB \
-            -D CPACK_PACKAGE_NAME="imsprog" \
+            -D CPACK_PACKAGE_NAME="sfp-master" \
             -D CPACK_PACKAGE_VENDOR="BigBigMDM" \
             -D CPACK_PACKAGE_VERSION="1.8.6" \
-            -D CPACK_PACKAGE_DESCRIPTION_SUMMARY="IMSProg - I2C/SPI/MicroWire Flash Programmer Suite" \
-            -D CPACK_PACKAGE_DESCRIPTION="IMSProg is a Linux/macOS programmer suite for I2C, SPI, and MicroWire EEPROM/Flash chips, featuring fully integrated database management, hardware controllers, and visual editor tools." \
+            -D CPACK_PACKAGE_DESCRIPTION_SUMMARY="SFP-Master - SFP-Module Flash Programmer Suite" \
+            -D CPACK_PACKAGE_DESCRIPTION="SFP-Master is a Linux/macOS programmer suite for SFP-Modules data modify" \
             -D CPACK_PACKAGE_CONTACT="BigBigMDM <https://github.com>" \
             -D CPACK_DEBIAN_PACKAGE_SHLIBDEPS=ON \
             -D CPACK_DEBIAN_PACKAGE_ARCHITECTURE="amd64" \
-            -D CPACK_INSTALL_CMAKE_PROJECTS=".;IMSProg;ALL;/" \
-            -D CPACK_PACKAGE_FILE_NAME="imsprog" \
+            -D CPACK_INSTALL_CMAKE_PROJECTS=".;SFP-Master;ALL;/" \
+            -D CPACK_PACKAGE_FILE_NAME="sfp-master" \
             -D CPACK_CMAKE_GENERATOR="Unix Makefiles"
           
           mkdir -p ../dist-deb
@@ -102,7 +102,7 @@ jobs:
         run: |
           dnf install -y dnf-plugins-core rpm-build rpmlint rpmdevtools wget \
                          hunspell-es hunspell-it hunspell-pt 
-          dnf builddep -y rpm/*.spec
+          dnf builddep -y other/*.spec
       - name: Prepare build environment
         run: |
           mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
