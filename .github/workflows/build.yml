@@ -106,7 +106,7 @@ jobs:
       - name: Prepare build environment
         run: |
           mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-          cp rpm/*.spec ~/rpmbuild/SPECS/
+          cp other/*.spec ~/rpmbuild/SPECS/
           spectool -g -R ~/rpmbuild/SPECS/*.spec
       - name: Build RPM package
         run: |
