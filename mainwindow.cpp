@@ -43,10 +43,13 @@ static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
     {"Default",       0x00001011},
     {"SNR-1",         0x22445588},
     {"SNR-2",         0x44554455},
-    {"Finisar",       0x9bb03dfa}, // FTL414QB2N, HP J4858A, Juniper 740-021308
+    {"Finisar-1",     0x9bb03dfa}, // FTL414QB2N, HP J4858A, Juniper 740-021308
+    {"Finisar-2",     0x46494e53},
     {"OCP",           0x4f435000}, // "OCP\0" Infinera / Oplink
     {"All zero",      0x00000000},
     {"All ones",      0xffffffff},
+    {"B1234",         0x11223344},
+    {"B4321",         0x44332211},
     // Ubiquiti UFiber / UACC modules.
     {"Ubiquiti-1",    0x78563412}, // DAC-SFP28-3M, OM-SFP10 series
     {"Ubiquiti-csww", 0x63737777}, // "csww" OM-*-10G-D, OM-SFP28-SR/LR
@@ -60,7 +63,17 @@ static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
     {"XGRD",          0x58475244},
     {"HXPR",          0x48585052},
     {"FESU",          0x46455355},
+    {"ASFP",          0x41534650},
     {"Ak47",          0x416b3437},
+    {"1234",          0x31323334},
+    {"Maxim-1",       0x5a6880a4},
+    {"Maxim-2",       0xa48068a5},
+    {"Maxim-3",       0x7f7f7f7f},
+    {"Foxconn-1",     0x00000002},
+    {"Foxconn-2",     0x20150302},
+    {"OEM-1",         0x55aa55aa},
+    {"OEM-2",         0xaa55aa55},
+    {"Avago-1",       0x41564147},
     {"FSBox-1",       0x22242827},
     {"FSBox-2",       0x02020202},
     {"FSBox-3",       0x80000003},
@@ -75,7 +88,9 @@ static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
     {"FSBox-12",      0xf0517ab7},
     {"FSBox-13",      0xaabcaaad},
     {"FSBox-14",      0xc8d9eafb},
+    {"FSBox-15",      0xf0020aab},
 };
+
 static const unsigned kKnownPasswordCount =
     sizeof(kKnownPasswords) / sizeof(kKnownPasswords[0]);
 
