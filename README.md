@@ -98,8 +98,12 @@ It contains the following controls: `Hex-Editor / Undo` or ![Undo](img/undo64.pn
  to write data from the 
 computer buffer into the SFP-module.
 - Press `SFP Module / Set Module Password` or ![Password](img/password64.png) or
- `<Ctrl+P>` to bring up
-the password setting menu for modules that are password protected.
+ `<Ctrl+P>` to bring up the password setting menu for modules that are password 
+ protected.
+- Press `SFP Module / Scan Module Password` or ![Password](img/unlock64.png) or
+ `<Ctrl+Shift+P>` for scan known factory/vendor SFP write-unlock passwords. 
+ These are published defaults for modules, not credentials for anyone 
+ else's hardware.
 - The checkboxes are used to select the address area for read, write or save
  procedures:
  
