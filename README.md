@@ -24,7 +24,8 @@ the CH341a programmer.
 
 ![Adapter schematic](img/my_sfp_adapter_3d.png)
 
-- See more details [here](https://github.com/bigbigmdm/Tools_for_CH341A_programmer?tab=readme-ov-file#Homemade-Chip-adapters).
+- See more details in [SFP-Master-Hardware](https://github.com/bigbigmdm/SFP-Master-Hardware)
+repository.
 
 The OSHWLAB project of this adapter is [here](https://oshwlab.com/einkreader/ch341a_sfp_adapter).
 
