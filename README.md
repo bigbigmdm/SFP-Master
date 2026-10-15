@@ -10,7 +10,7 @@
 
 SFP-module data programmer for CH341a devices
 
-![SFP-Master](img/screenshot.png) 
+![SFP-Master](img/sfp-master-1-1-2_cover.png) 
 
 **SFP-Master** is a free software programmer of optical `SFP modules` for CH341a
 devices. It can be used to read, write and save SFP module data to the computer. 
