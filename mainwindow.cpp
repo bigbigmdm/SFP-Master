@@ -41,6 +41,7 @@
 static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
     // Common factory / host defaults.
     {"Default",       0x00001011},
+    {"Inverted",      0x10110000},
     {"SNR-1",         0x22445588},
     {"SNR-2",         0x44554455},
     {"Finisar-1",     0x9bb03dfa}, // FTL414QB2N, HP J4858A, Juniper 740-021308
@@ -48,6 +49,8 @@ static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
     {"OCP",           0x4f435000}, // "OCP\0" Infinera / Oplink
     {"All zero",      0x00000000},
     {"All ones",      0xffffffff},
+    {"All 01",        0x01010101},
+    {"All 02",        0x02020202},
     {"B1234",         0x11223344},
     {"B4321",         0x44332211},
     // Ubiquiti UFiber / UACC modules.
@@ -66,6 +69,7 @@ static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
     {"ASFP",          0x41534650},
     {"Ak47",          0x416b3437},
     {"1234",          0x31323334},
+    {"BCRM",          0x4252434d},
     {"Maxim-1",       0x5a6880a4},
     {"Maxim-2",       0xa48068a5},
     {"Maxim-3",       0x7f7f7f7f},
@@ -74,6 +78,7 @@ static const struct { const char *name; uint32_t pw; } kKnownPasswords[] = {
     {"OEM-1",         0x55aa55aa},
     {"OEM-2",         0xaa55aa55},
     {"Avago-1",       0x41564147},
+    {"Avago-2",       0x00004156},
     {"FSBox-1",       0x22242827},
     {"FSBox-2",       0x02020202},
     {"FSBox-3",       0x80000003},
