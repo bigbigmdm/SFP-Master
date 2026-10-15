@@ -115,6 +115,7 @@ commands.h
 dialogpass.h
 dialogabout.h
 mainwindow.ui
+dialogpass.ui
 resource.qrc
 ${QM_FILES}
 )

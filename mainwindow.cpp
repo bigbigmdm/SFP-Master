@@ -196,13 +196,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->checkBox_3->setChecked(true);
     ui->checkBox_4->setChecked(true);
     devHandle = NULL;
-    //        id,  name,    address, password
-    pass[0] = {0, "None",    0x17b,      0    };
-    pass[1] = {1, "Default", 0x17b, 0x00001011};
-    pass[2] = {2, "SNR-1"  , 0x17b, 0x22445588};
-    pass[3] = {3, "SNR-2"  , 0x17b, 0x44554455};
-    pass[4] = {4, "User"   , 0x17b,      0    };
-    currentPass  = pass[0];
     // Restore the password mode/selection chosen in a previous session.
     {
         QSettings s;
