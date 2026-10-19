@@ -50,48 +50,49 @@
     <message>
         <location filename="../dialogpass.ui" line="30"/>
         <source>No password</source>
-        <translation type="unfinished"></translation>
+        <translation>Nincs jelszó</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="37"/>
         <source>Try saved, then known passwords (guess)</source>
-        <translation type="unfinished"></translation>
+        <translation>Próbálja meg a mentett, majd az ismert jelszavakat (tippelés)</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="44"/>
         <source>Use saved password (selected below):</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentett jelszó használata (alább kiválasztva):</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="61"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Név</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="66"/>
         <source>Addr (hex)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cím (hex)</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="71"/>
         <source>Password (hex)</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszó (hex)</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="81"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="88"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Eltávolítás</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="110"/>
         <source>Built-in passwords
 (double-click to add to your list):</source>
-        <translation type="unfinished"></translation>
+        <translation>Beépített jelszavak
+(Kattintson duplán a listához való hozzáadáshoz):</translation>
     </message>
     <message>
         <source>None</source>
@@ -141,17 +142,17 @@
     <message>
         <location filename="../dialogpass.cpp" line="117"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Új</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="132"/>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>Beépített</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="150"/>
         <source>Select a saved password, or choose another option.</source>
-        <translation type="unfinished"></translation>
+        <translation>Válasszon ki egy mentett jelszót, vagy válasszon másik lehetőséget.</translation>
     </message>
 </context>
 <context>
@@ -212,28 +213,29 @@
     <message>
         <location filename="../mainwindow.ui" line="247"/>
         <source>Link length supported for SMF (100 m):</source>
-        <translation type="unfinished"></translation>
+        <translation>SMF esetén támogatott linkhossz (100 m):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="287"/>
         <source>Link length supported for 50/125 OM3:</source>
-        <translation type="unfinished"></translation>
+        <translation>Támogatott linkhossz 50/125 OM3 esetén:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="324"/>
         <source>A0h byte 0x12. Shown and edited as OM4 optical reach in 10 m steps (e.g. 150 = 150 m).
 For a copper DAC cable the same byte holds the length in metres (1 m steps), so the real DAC length is the shown value divided by 10 (e.g. 30 shown = 3 m DAC).</source>
-        <translation type="unfinished"></translation>
+        <translation>A0h bájt, 0x12. OM4 optikai hatótávolságként jelenik meg és szerkeszthető, 10 méteres lépésközökkel (pl. 150 = 150 m).
+Réz alapú DAC-kábel esetén ugyanez a bájt a hosszt tartalmazza méterben (1 méteres lépésközökkel); így a DAC tényleges hossza a kijelzett érték 10-zel való osztásával kapható meg (pl. 30-as érték esetén a DAC hossza 3 m).</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
         <source>Link length, OM4 / copper (DAC):</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapcsolathossz, OM4 / réz (DAC):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="356"/>
         <source>m (OM4)</source>
-        <translation type="unfinished"></translation>
+        <translation>m (OM4)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="365"/>
@@ -299,77 +301,77 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     </message>
     <message>
         <location filename="../mainwindow.ui" line="776"/>
-        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="402"/>
         <source>Vendor PN/serial (A2h 0x80):</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyártói cikkszám/sorozatszám (A2h 0x80):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="795"/>
         <location filename="../mainwindow.ui" line="821"/>
-        <location filename="../mainwindow.cpp" line="756"/>
+        <location filename="../mainwindow.cpp" line="769"/>
         <source>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubiquiti-specifikus A2h karakterlánc. Íráskor a gyártói ellenőrző összeg nem kerül újraszámításra; az ellenőrzést végző gazdagép elutasíthatja a módosításokat.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="802"/>
-        <location filename="../mainwindow.cpp" line="391"/>
+        <location filename="../mainwindow.cpp" line="404"/>
         <source>Vendor product name (A2h 0xC0):</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyártói terméknév (A2h 0xC0):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="844"/>
         <source>Transceiver compliance:</source>
-        <translation type="unfinished"></translation>
+        <translation>Adó-vevő megfelelőség:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="863"/>
         <source>1000BASE-LX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-LX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="870"/>
         <source>10GBASE-LR</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-LR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
         <source>Active DAC</source>
-        <translation type="unfinished"></translation>
+        <translation>Active DAC</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="901"/>
         <source>10GBASE-SR</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-SR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="908"/>
         <source>1000BASE-SX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-SX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="915"/>
         <source>Passive DAC</source>
-        <translation type="unfinished"></translation>
+        <translation>Passive DAC</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="939"/>
         <source>1000BASE-CX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-CX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="946"/>
         <source>10GBASE-ER</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-ER</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="970"/>
         <source>10GBASE-LRM</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-LRM</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="977"/>
         <source>1000BASE-T</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-T</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1025"/>
@@ -495,17 +497,17 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     <message>
         <location filename="../mainwindow.ui" line="1492"/>
         <source>Scan module password</source>
-        <translation type="unfinished"></translation>
+        <translation>Beolvasási modul jelszava</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1495"/>
         <source>Try known passwords and report which one unlocks writing (does not change module data)</source>
-        <translation type="unfinished"></translation>
+        <translation>Próbálja ki az ismert jelszavakat, és jelezze, melyik teszi lehetővé az írást (a modul adatainak módosítása nélkül)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1498"/>
         <source>Ctrl+Shift+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+P</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1506"/>
@@ -553,153 +555,162 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="240"/>
         <source>Opening file</source>
         <translation>Fájl megnyitása</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="231"/>
+        <location filename="../mainwindow.cpp" line="244"/>
         <source>Open file</source>
         <translation>Fájlmegnyitás</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="239"/>
+        <location filename="../mainwindow.cpp" line="252"/>
         <source>Current file: </source>
         <translation>Jelenlegi fájl: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="538"/>
-        <location filename="../mainwindow.cpp" line="550"/>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="898"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1071"/>
-        <location filename="../mainwindow.cpp" line="1077"/>
-        <location filename="../mainwindow.cpp" line="1083"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="551"/>
+        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="911"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1090"/>
+        <location filename="../mainwindow.cpp" line="1096"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
+        <location filename="../mainwindow.cpp" line="258"/>
         <source>The file size is incorrect!</source>
         <translation>A fájl mérete helytelen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="563"/>
         <source>Vendor ID is incorrect!</source>
         <translation>Gyártóazonosító helytelen!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="525"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>Saving file</source>
         <translation>A fájl mentése</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="527"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Save file</source>
         <translation>Fájl mentése</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>Error saving file!</source>
         <translation>Fájl mentési hiba!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="748"/>
+        <location filename="../mainwindow.cpp" line="761"/>
         <source>Binary data shown as hex bytes; edits are parsed as hex. Bytes you omit keep their original value.</source>
-        <translation type="unfinished"></translation>
+        <translation>A bináris adatok hexadecimális bájtokként jelennek meg; a módosítások értelmezése is hexadecimális formátumban történik. A kihagyott bájtok megőrzik eredeti értéküket.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="750"/>
+        <location filename="../mainwindow.cpp" line="763"/>
         <source>  [hex]</source>
-        <translation type="unfinished"></translation>
+        <translation>  [hex]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
         <source>Programmer CH341a is not connected!</source>
         <translation>A CH341 programozó nincs csatlakoztatva!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="898"/>
+        <location filename="../mainwindow.cpp" line="911"/>
         <source>Error reading SFP module data.</source>
         <translation>Hiba az SFP modul adatainak olvasásakor.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1042"/>
         <source>the saved password</source>
-        <translation type="unfinished"></translation>
+        <translation>a mentett jelszó</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
-        <location filename="../mainwindow.cpp" line="1255"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
+        <location filename="../mainwindow.cpp" line="1268"/>
         <source>no password</source>
-        <translation type="unfinished"></translation>
+        <translation>nincs jelszó</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1058"/>
+        <location filename="../mainwindow.cpp" line="1071"/>
         <source>password &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; jelszó</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
         <source>Error writing SFP module data.</source>
         <translation>Hiba történt az SFP modul adatainak írása közben.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1068"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Write</source>
-        <translation type="unfinished"></translation>
+        <translation>Írj</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1069"/>
+        <location filename="../mainwindow.cpp" line="1082"/>
         <source>Write verified: %1 bytes written successfully (%2).</source>
-        <translation type="unfinished"></translation>
+        <translation>Írás ellenőrizve: %1 bájt sikeresen kiírva (%2).</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1072"/>
+        <location filename="../mainwindow.cpp" line="1085"/>
         <source>Verify failed: %1 bytes differ using the saved password. The module did not unlock with it.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Az ellenőrzés sikertelen: %1 bájt eltér a mentett jelszótól. A modul nem oldódott fel ezzel.
+
+Eltérő tartományok:
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1078"/>
+        <location filename="../mainwindow.cpp" line="1091"/>
         <source>Verify failed: %1 bytes differ after trying every known password. The module uses an unlock scheme this tool does not support.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Sikertelen ellenőrzés: %1 bájt különbözik az összes ismert jelszó kipróbálása után. A modul egy olyan feloldási sémát használ, amelyet ez az eszköz nem támogat.
+
+Eltérő tartományok:
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1097"/>
         <source>Verify failed: %1 bytes differ writing with no password. Try selecting a saved password or &quot;Try known passwords&quot;.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Sikertelen ellenőrzés: %1 bájt eltérően írható jelszó nélkül. Próbáljon meg egy mentett jelszót választani, vagy próbálja ki az „Ismert jelszavak kipróbálása” funkciót.
+
+Különböző tartományok:
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1149"/>
-        <location filename="../mainwindow.cpp" line="1210"/>
-        <location filename="../mainwindow.cpp" line="1214"/>
+        <location filename="../mainwindow.cpp" line="1162"/>
+        <location filename="../mainwindow.cpp" line="1223"/>
+        <location filename="../mainwindow.cpp" line="1227"/>
         <source>Scan password</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelszó beolvasása</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1150"/>
+        <location filename="../mainwindow.cpp" line="1163"/>
         <source>This will try to find the module&apos;s write-unlock password.
 
 It repeatedly writes to the module: for no password and then each known password it flips one reserved byte (A0h 0x3E), checks whether the change took, and restores the original value. It stops at the first password that unlocks write access.
@@ -707,64 +718,74 @@ It repeatedly writes to the module: for no password and then each known password
 If a write succeeds the byte is restored, so the module&apos;s data should be unchanged. However, this does write to the module, so a power loss or disconnect mid-scan could leave that byte altered. Make sure the correct module is connected to the CH341a programmer.
 
 Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez a folyamat megkísérli megkeresni a modul írási zárolását feloldó jelszót.
+
+A program ismételten ír a modulba: jelszó nélkül, majd minden ismert jelszó esetében módosít egy fenntartott bájtot (A0h 0x3E), ellenőrzi, hogy a módosítás érvényesült-e, majd visszaállítja az eredeti értéket. A folyamat annál a jelszónál áll meg, amelyik feloldja az írási hozzáférést.
+
+Sikeres írás esetén a bájt visszaállítódik, így a modul adatai változatlanok maradnak. Mivel azonban a művelet írással jár, egy esetleges áramkimaradás vagy a kapcsolat megszakadása a vizsgálat közben azt eredményezheti, hogy az adott bájt módosítva marad. Győződjön meg arról, hogy a megfelelő modul van csatlakoztatva a CH341a programozóhoz.
+
+Folytatja?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1163"/>
+        <location filename="../mainwindow.cpp" line="1176"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1164"/>
+        <location filename="../mainwindow.cpp" line="1177"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1193"/>
+        <location filename="../mainwindow.cpp" line="1206"/>
         <source>no password (module is already write-unlocked)</source>
-        <translation type="unfinished"></translation>
+        <translation>nincs jelszó (a modul írásvédelme már fel van oldva)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1200"/>
+        <location filename="../mainwindow.cpp" line="1213"/>
         <source>&quot;%1&quot; (0x%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; (0x%2)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error accessing the SFP module.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiba az SFP-modul elérésekor.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1211"/>
+        <location filename="../mainwindow.cpp" line="1224"/>
         <source>Write access unlocked with %1.
 
 The module&apos;s stored data was not changed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Írási hozzáférés feloldva a következővel: %1.
+
+A modul tárolt adatai nem változtak.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1215"/>
+        <location filename="../mainwindow.cpp" line="1228"/>
         <source>None of the %1 known passwords unlocked write access.
 
 The module uses an unlock scheme this tool does not support.</source>
-        <translation type="unfinished"></translation>
+        <translation>Az ismert %1 jelszó egyike sem tette lehetővé az írási hozzáférést.
+
+A modul olyan feloldási eljárást alkalmaz, amelyet ez az eszköz nem támogat.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1253"/>
+        <location filename="../mainwindow.cpp" line="1266"/>
         <source>known passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>ismert jelszavak</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1254"/>
+        <location filename="../mainwindow.cpp" line="1267"/>
         <source>saved password</source>
-        <translation type="unfinished"></translation>
+        <translation>mentett jelszó</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1278"/>
+        <location filename="../mainwindow.cpp" line="1291"/>
         <source>Connected</source>
         <translation>Kapcsolódva</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1283"/>
+        <location filename="../mainwindow.cpp" line="1296"/>
         <source>Not connected</source>
         <translation>Nincs kapcsolat</translation>
     </message>

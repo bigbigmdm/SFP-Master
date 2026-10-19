@@ -50,48 +50,49 @@
     <message>
         <location filename="../dialogpass.ui" line="30"/>
         <source>No password</source>
-        <translation type="unfinished"></translation>
+        <translation>Nessuna password</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="37"/>
         <source>Try saved, then known passwords (guess)</source>
-        <translation type="unfinished"></translation>
+        <translation>Prova le password salvate, poi quelle note (tentativo)</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="44"/>
         <source>Use saved password (selected below):</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa la password salvata (selezionata qui sotto):</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="61"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="66"/>
         <source>Addr (hex)</source>
-        <translation type="unfinished"></translation>
+        <translation>Indirizzo (hex)</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="71"/>
         <source>Password (hex)</source>
-        <translation type="unfinished"></translation>
+        <translation>Password (hex)</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="81"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungere</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="88"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovere</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="110"/>
         <source>Built-in passwords
 (double-click to add to your list):</source>
-        <translation type="unfinished"></translation>
+        <translation>Password predefinite
+(doppio clic per aggiungerle all&apos;elenco):</translation>
     </message>
     <message>
         <source>None</source>
@@ -141,17 +142,17 @@
     <message>
         <location filename="../dialogpass.cpp" line="117"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuova</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="132"/>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>Integrato</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="150"/>
         <source>Select a saved password, or choose another option.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona una password salvata oppure scegli un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
@@ -212,28 +213,29 @@
     <message>
         <location filename="../mainwindow.ui" line="247"/>
         <source>Link length supported for SMF (100 m):</source>
-        <translation type="unfinished"></translation>
+        <translation>Lunghezza del collegamento per SMF (100 m):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="287"/>
         <source>Link length supported for 50/125 OM3:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lunghezza del collegamento per OM3 50/125:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="324"/>
         <source>A0h byte 0x12. Shown and edited as OM4 optical reach in 10 m steps (e.g. 150 = 150 m).
 For a copper DAC cable the same byte holds the length in metres (1 m steps), so the real DAC length is the shown value divided by 10 (e.g. 30 shown = 3 m DAC).</source>
-        <translation type="unfinished"></translation>
+        <translation>Byte 0x12 all&apos;indirizzo A0h. Indica la portata ottica (OM4), espressa in incrementi di 10 m (ad es. 150 = 150 m).
+Nel caso di un cavo in rame (DAC), lo stesso byte indica la lunghezza in metri (con incrementi di 1 m); pertanto, la lunghezza effettiva del cavo DAC si ottiene dividendo per 10 il valore visualizzato (ad es. se viene indicato 30, la lunghezza del cavo DAC è pari a 3 m).</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
         <source>Link length, OM4 / copper (DAC):</source>
-        <translation type="unfinished"></translation>
+        <translation>Lunghezza del collegamento, OM4 / rame (DAC):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="356"/>
         <source>m (OM4)</source>
-        <translation type="unfinished"></translation>
+        <translation>m (OM4)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="365"/>
@@ -299,77 +301,77 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     </message>
     <message>
         <location filename="../mainwindow.ui" line="776"/>
-        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="402"/>
         <source>Vendor PN/serial (A2h 0x80):</source>
-        <translation type="unfinished"></translation>
+        <translation>Codice numero di serie del fornitore (A2h 0x80):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="795"/>
         <location filename="../mainwindow.ui" line="821"/>
-        <location filename="../mainwindow.cpp" line="756"/>
+        <location filename="../mainwindow.cpp" line="769"/>
         <source>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stringa A2h proprietaria di Ubiquiti. In fase di scrittura non viene ricalcolato alcun checksum del fornitore; un host che esegue la convalida potrebbe rifiutare le modifiche.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="802"/>
-        <location filename="../mainwindow.cpp" line="391"/>
+        <location filename="../mainwindow.cpp" line="404"/>
         <source>Vendor product name (A2h 0xC0):</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome prodotto del fornitore (A2h 0xC0):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="844"/>
         <source>Transceiver compliance:</source>
-        <translation type="unfinished"></translation>
+        <translation>Conformità del ricetrasmettitore:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="863"/>
         <source>1000BASE-LX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-LX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="870"/>
         <source>10GBASE-LR</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-LR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
         <source>Active DAC</source>
-        <translation type="unfinished"></translation>
+        <translation>Active DAC</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="901"/>
         <source>10GBASE-SR</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-SR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="908"/>
         <source>1000BASE-SX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-SX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="915"/>
         <source>Passive DAC</source>
-        <translation type="unfinished"></translation>
+        <translation>Passive DAC</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="939"/>
         <source>1000BASE-CX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-CX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="946"/>
         <source>10GBASE-ER</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-ER</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="970"/>
         <source>10GBASE-LRM</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-LRM</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="977"/>
         <source>1000BASE-T</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-T</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1025"/>
@@ -499,17 +501,17 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     <message>
         <location filename="../mainwindow.ui" line="1492"/>
         <source>Scan module password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password del modulo di scansione</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1495"/>
         <source>Try known passwords and report which one unlocks writing (does not change module data)</source>
-        <translation type="unfinished"></translation>
+        <translation>Prova le password note e segnala quale di esse sblocca la scrittura (senza modificare i dati del modulo)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1498"/>
         <source>Ctrl+Shift+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+P</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1506"/>
@@ -557,153 +559,162 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="240"/>
         <source>Opening file</source>
         <translation>Apertura del file</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="231"/>
+        <location filename="../mainwindow.cpp" line="244"/>
         <source>Open file</source>
         <translation>Apri file</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="239"/>
+        <location filename="../mainwindow.cpp" line="252"/>
         <source>Current file: </source>
         <translation>File attuale: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="538"/>
-        <location filename="../mainwindow.cpp" line="550"/>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="898"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1071"/>
-        <location filename="../mainwindow.cpp" line="1077"/>
-        <location filename="../mainwindow.cpp" line="1083"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="551"/>
+        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="911"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1090"/>
+        <location filename="../mainwindow.cpp" line="1096"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
+        <location filename="../mainwindow.cpp" line="258"/>
         <source>The file size is incorrect!</source>
         <translation>La dimensione del file non è corretta!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="563"/>
         <source>Vendor ID is incorrect!</source>
         <translation>L&apos;ID del fornitore non è corretto!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="525"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>Saving file</source>
         <translation>Salvataggio del file</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="527"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Save file</source>
         <translation>Salva il file</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>Error saving file!</source>
         <translation>Si è verificato un errore durante il salvataggio del file!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="748"/>
+        <location filename="../mainwindow.cpp" line="761"/>
         <source>Binary data shown as hex bytes; edits are parsed as hex. Bytes you omit keep their original value.</source>
-        <translation type="unfinished"></translation>
+        <translation>I dati binari sono visualizzati come byte esadecimali; le modifiche vengono interpretate come valori esadecimali. I byte omessi mantengono il loro valore originale.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="750"/>
+        <location filename="../mainwindow.cpp" line="763"/>
         <source>  [hex]</source>
-        <translation type="unfinished"></translation>
+        <translation>  [hex]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
         <source>Programmer CH341a is not connected!</source>
         <translation>Il programmatore CH341a non è connesso!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="898"/>
+        <location filename="../mainwindow.cpp" line="911"/>
         <source>Error reading SFP module data.</source>
         <translation>Si è verificato un errore durante la lettura dei dati dal modulo SFP.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1042"/>
         <source>the saved password</source>
-        <translation type="unfinished"></translation>
+        <translation>la password salvata</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
-        <location filename="../mainwindow.cpp" line="1255"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
+        <location filename="../mainwindow.cpp" line="1268"/>
         <source>no password</source>
-        <translation type="unfinished"></translation>
+        <translation>nessuna password</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1058"/>
+        <location filename="../mainwindow.cpp" line="1071"/>
         <source>password &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>password &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
         <source>Error writing SFP module data.</source>
         <translation>Si è verificato un errore durante la scrittura dei dati sul modulo SFP.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1068"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Write</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrivere</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1069"/>
+        <location filename="../mainwindow.cpp" line="1082"/>
         <source>Write verified: %1 bytes written successfully (%2).</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrittura verificata: %1 byte scritti correttamente (%2).</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1072"/>
+        <location filename="../mainwindow.cpp" line="1085"/>
         <source>Verify failed: %1 bytes differ using the saved password. The module did not unlock with it.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifica non riuscita: %1 byte differiscono rispetto alla password salvata. Il modulo non si è sbloccato con tale password.
+
+Intervalli di differenza:
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1078"/>
+        <location filename="../mainwindow.cpp" line="1091"/>
         <source>Verify failed: %1 bytes differ after trying every known password. The module uses an unlock scheme this tool does not support.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifica non riuscita: %1 byte differiscono dopo aver provato tutte le password conosciute. Il modulo utilizza uno schema di sblocco non supportato da questo strumento.
+
+Intervalli differenti:
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1097"/>
         <source>Verify failed: %1 bytes differ writing with no password. Try selecting a saved password or &quot;Try known passwords&quot;.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Verifica non riuscita: %1 byte differiscono durante la scrittura senza password. Prova a selezionare una password salvata o &quot;Prova password conosciute&quot;.
+
+Intervalli diversi:
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1149"/>
-        <location filename="../mainwindow.cpp" line="1210"/>
-        <location filename="../mainwindow.cpp" line="1214"/>
+        <location filename="../mainwindow.cpp" line="1162"/>
+        <location filename="../mainwindow.cpp" line="1223"/>
+        <location filename="../mainwindow.cpp" line="1227"/>
         <source>Scan password</source>
-        <translation type="unfinished"></translation>
+        <translation>Scansiona password</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1150"/>
+        <location filename="../mainwindow.cpp" line="1163"/>
         <source>This will try to find the module&apos;s write-unlock password.
 
 It repeatedly writes to the module: for no password and then each known password it flips one reserved byte (A0h 0x3E), checks whether the change took, and restores the original value. It stops at the first password that unlocks write access.
@@ -711,64 +722,74 @@ It repeatedly writes to the module: for no password and then each known password
 If a write succeeds the byte is restored, so the module&apos;s data should be unchanged. However, this does write to the module, so a power loss or disconnect mid-scan could leave that byte altered. Make sure the correct module is connected to the CH341a programmer.
 
 Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Questa procedura tenterà di individuare la password per sbloccare la scrittura sul modulo.
+
+Il software esegue ripetutamente delle operazioni di scrittura sul modulo: per ogni tentativo (prima senza password, poi provando ciascuna password nota), viene modificato un byte riservato (A0h 0x3E); il sistema verifica quindi se la modifica è stata applicata e ripristina il valore originale. La procedura si interrompe non appena viene individuata la password che abilita l&apos;accesso in scrittura.
+
+Se l&apos;operazione di scrittura ha esito positivo, il byte viene ripristinato, pertanto i dati presenti sul modulo non dovrebbero subire alterazioni. Tuttavia, poiché viene effettuata una scrittura sul dispositivo, un&apos;eventuale interruzione dell&apos;alimentazione o una disconnessione durante la scansione potrebbe lasciare tale byte modificato. Assicurarsi che al programmatore CH341a sia collegato il modulo corretto.
+
+Continuare?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1163"/>
+        <location filename="../mainwindow.cpp" line="1176"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>SÌ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1164"/>
+        <location filename="../mainwindow.cpp" line="1177"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>NO</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1193"/>
+        <location filename="../mainwindow.cpp" line="1206"/>
         <source>no password (module is already write-unlocked)</source>
-        <translation type="unfinished"></translation>
+        <translation>nessuna password (il modulo è già sbloccato in scrittura)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1200"/>
+        <location filename="../mainwindow.cpp" line="1213"/>
         <source>&quot;%1&quot; (0x%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; (0x%2)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error accessing the SFP module.</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore durante l&apos;accesso al modulo SFP.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1211"/>
+        <location filename="../mainwindow.cpp" line="1224"/>
         <source>Write access unlocked with %1.
 
 The module&apos;s stored data was not changed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Write access unlocked with %1.
+
+The module&apos;s stored data was not changed.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1215"/>
+        <location filename="../mainwindow.cpp" line="1228"/>
         <source>None of the %1 known passwords unlocked write access.
 
 The module uses an unlock scheme this tool does not support.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nessuna delle %1 password note ha sbloccato l&apos;accesso in scrittura.
+
+Il modulo utilizza un meccanismo di sblocco non supportato da questo strumento.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1253"/>
+        <location filename="../mainwindow.cpp" line="1266"/>
         <source>known passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>password conosciute</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1254"/>
+        <location filename="../mainwindow.cpp" line="1267"/>
         <source>saved password</source>
-        <translation type="unfinished"></translation>
+        <translation>password salvata</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1278"/>
+        <location filename="../mainwindow.cpp" line="1291"/>
         <source>Connected</source>
         <translation>Connesso</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1283"/>
+        <location filename="../mainwindow.cpp" line="1296"/>
         <source>Not connected</source>
         <translation>Non connesso</translation>
     </message>

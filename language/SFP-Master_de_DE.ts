@@ -301,20 +301,20 @@ Bei einem Kupfer-DAC-Kabel enthält dasselbe Byte die Länge in Metern (in 1-m-S
     </message>
     <message>
         <location filename="../mainwindow.ui" line="776"/>
-        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="402"/>
         <source>Vendor PN/serial (A2h 0x80):</source>
         <translation>Hersteller-Teilenummer (A2h 0x80):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="795"/>
         <location filename="../mainwindow.ui" line="821"/>
-        <location filename="../mainwindow.cpp" line="756"/>
+        <location filename="../mainwindow.cpp" line="769"/>
         <source>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</source>
         <translation>Ubiquiti-spezifische A2h-Zeichenfolge. Beim Schreibvorgang wird keine herstellerspezifische Prüfsumme neu berechnet; ein validierender Host könnte Änderungen daher ablehnen.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="802"/>
-        <location filename="../mainwindow.cpp" line="391"/>
+        <location filename="../mainwindow.cpp" line="404"/>
         <source>Vendor product name (A2h 0xC0):</source>
         <translation>Produktname des Herstellers (A2h 0xC0):</translation>
     </message>
@@ -560,123 +560,123 @@ Teste bekannte Passwörter und gib an, welches davon den Schreibzugriff freischa
         <translation>Strg+X</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="240"/>
         <source>Opening file</source>
         <translation>Öffne Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="231"/>
+        <location filename="../mainwindow.cpp" line="244"/>
         <source>Open file</source>
         <translation>Öffne Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="239"/>
+        <location filename="../mainwindow.cpp" line="252"/>
         <source>Current file: </source>
         <translation>Aktuelle Datei: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="538"/>
-        <location filename="../mainwindow.cpp" line="550"/>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="898"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1071"/>
-        <location filename="../mainwindow.cpp" line="1077"/>
-        <location filename="../mainwindow.cpp" line="1083"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="551"/>
+        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="911"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1090"/>
+        <location filename="../mainwindow.cpp" line="1096"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
+        <location filename="../mainwindow.cpp" line="258"/>
         <source>The file size is incorrect!</source>
         <translation>Die Dateigröße ist inkorrekt!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="563"/>
         <source>Vendor ID is incorrect!</source>
         <translation>Anbieter ID ist inkorrekt!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="525"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>Saving file</source>
         <translation>Speichere Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="527"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Save file</source>
         <translation>Speichere Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>Error saving file!</source>
         <translation>Fehler beim Speichern der Datei!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="748"/>
+        <location filename="../mainwindow.cpp" line="761"/>
         <source>Binary data shown as hex bytes; edits are parsed as hex. Bytes you omit keep their original value.</source>
         <translation>Binärdaten werden als Hex-Bytes dargestellt; Änderungen werden als Hex-Werte interpretiert. Bytes, die Sie auslassen, behalten ihren ursprünglichen Wert bei.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="750"/>
+        <location filename="../mainwindow.cpp" line="763"/>
         <source>  [hex]</source>
         <translation>  [hex]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
         <source>Programmer CH341a is not connected!</source>
         <translation>Programmierer CH341a ist nicht verbunden!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="898"/>
+        <location filename="../mainwindow.cpp" line="911"/>
         <source>Error reading SFP module data.</source>
         <translation>Fehler beim Lesen der SFP-Modul Daten.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1042"/>
         <source>the saved password</source>
         <translation>das gespeicherte Passwort</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
-        <location filename="../mainwindow.cpp" line="1255"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
+        <location filename="../mainwindow.cpp" line="1268"/>
         <source>no password</source>
         <translation>kein Passwort</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1058"/>
+        <location filename="../mainwindow.cpp" line="1071"/>
         <source>password &quot;%1&quot;</source>
         <translation>Passwort &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
         <source>Error writing SFP module data.</source>
         <translation>Fehler beim Schreiben der SFP-Modul Daten.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1068"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Write</source>
         <translation>Schreiben</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1069"/>
+        <location filename="../mainwindow.cpp" line="1082"/>
         <source>Write verified: %1 bytes written successfully (%2).</source>
         <translation>51
 Schreiben und Überprüfen: %1 Bytes erfolgreich geschrieben (%2).</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1072"/>
+        <location filename="../mainwindow.cpp" line="1085"/>
         <source>Verify failed: %1 bytes differ using the saved password. The module did not unlock with it.
 
 Differing ranges:
@@ -687,7 +687,7 @@ Abweichende Bereiche:
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1078"/>
+        <location filename="../mainwindow.cpp" line="1091"/>
         <source>Verify failed: %1 bytes differ after trying every known password. The module uses an unlock scheme this tool does not support.
 
 Differing ranges:
@@ -698,7 +698,7 @@ Abweichende Bereiche:
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1097"/>
         <source>Verify failed: %1 bytes differ writing with no password. Try selecting a saved password or &quot;Try known passwords&quot;.
 
 Differing ranges:
@@ -709,14 +709,14 @@ Abweichende Bereiche:
 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1149"/>
-        <location filename="../mainwindow.cpp" line="1210"/>
-        <location filename="../mainwindow.cpp" line="1214"/>
+        <location filename="../mainwindow.cpp" line="1162"/>
+        <location filename="../mainwindow.cpp" line="1223"/>
+        <location filename="../mainwindow.cpp" line="1227"/>
         <source>Scan password</source>
         <translation>Passwort scannen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1150"/>
+        <location filename="../mainwindow.cpp" line="1163"/>
         <source>This will try to find the module&apos;s write-unlock password.
 
 It repeatedly writes to the module: for no password and then each known password it flips one reserved byte (A0h 0x3E), checks whether the change took, and restores the original value. It stops at the first password that unlocks write access.
@@ -733,32 +733,32 @@ Wenn ein Schreibvorgang erfolgreich ist, wird das Byte wieder auf seinen ursprü
 Fortfahren?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1163"/>
+        <location filename="../mainwindow.cpp" line="1176"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1164"/>
+        <location filename="../mainwindow.cpp" line="1177"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1193"/>
+        <location filename="../mainwindow.cpp" line="1206"/>
         <source>no password (module is already write-unlocked)</source>
         <translation>kein Passwort (Modul ist bereits für Schreibzugriffe freigeschaltet)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1200"/>
+        <location filename="../mainwindow.cpp" line="1213"/>
         <source>&quot;%1&quot; (0x%2)</source>
         <translation>&quot;%1&quot; (0x%2)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error accessing the SFP module.</source>
         <translation>Fehler beim Zugriff auf das SFP-Modul.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1211"/>
+        <location filename="../mainwindow.cpp" line="1224"/>
         <source>Write access unlocked with %1.
 
 The module&apos;s stored data was not changed.</source>
@@ -767,7 +767,7 @@ The module&apos;s stored data was not changed.</source>
 Die im Modul gespeicherten Daten wurden nicht verändert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1215"/>
+        <location filename="../mainwindow.cpp" line="1228"/>
         <source>None of the %1 known passwords unlocked write access.
 
 The module uses an unlock scheme this tool does not support.</source>
@@ -776,22 +776,22 @@ The module uses an unlock scheme this tool does not support.</source>
 Das Modul verwendet ein Entsperrverfahren, das von diesem Tool nicht unterstützt wird.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1253"/>
+        <location filename="../mainwindow.cpp" line="1266"/>
         <source>known passwords</source>
         <translation>bekannte Passwörter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1254"/>
+        <location filename="../mainwindow.cpp" line="1267"/>
         <source>saved password</source>
         <translation>Gespeichertes Passwort</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1278"/>
+        <location filename="../mainwindow.cpp" line="1291"/>
         <source>Connected</source>
         <translation>Verbunden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1283"/>
+        <location filename="../mainwindow.cpp" line="1296"/>
         <source>Not connected</source>
         <translation>Nicht verbunden</translation>
     </message>

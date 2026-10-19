@@ -50,48 +50,49 @@
     <message>
         <location filename="../dialogpass.ui" line="30"/>
         <source>No password</source>
-        <translation type="unfinished"></translation>
+        <translation>无密码</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="37"/>
         <source>Try saved, then known passwords (guess)</source>
-        <translation type="unfinished"></translation>
+        <translation>先尝试已保存的密码，再尝试已知的密码（进行猜测）</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="44"/>
         <source>Use saved password (selected below):</source>
-        <translation type="unfinished"></translation>
+        <translation>使用已保存的密码（在下方选中）：</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="61"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>姓名</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="66"/>
         <source>Addr (hex)</source>
-        <translation type="unfinished"></translation>
+        <translation>地址（十六进制）</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="71"/>
         <source>Password (hex)</source>
-        <translation type="unfinished"></translation>
+        <translation>密码（十六进制）</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="81"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="88"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>消除</translation>
     </message>
     <message>
         <location filename="../dialogpass.ui" line="110"/>
         <source>Built-in passwords
 (double-click to add to your list):</source>
-        <translation type="unfinished"></translation>
+        <translation>内置密码
+（双击添加到列表）：</translation>
     </message>
     <message>
         <source>None</source>
@@ -137,17 +138,17 @@
     <message>
         <location filename="../dialogpass.cpp" line="117"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>新的</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="132"/>
         <source>Built-in</source>
-        <translation type="unfinished"></translation>
+        <translation>内置</translation>
     </message>
     <message>
         <location filename="../dialogpass.cpp" line="150"/>
         <source>Select a saved password, or choose another option.</source>
-        <translation type="unfinished"></translation>
+        <translation>选择一个已保存的密码，或选择其他选项。</translation>
     </message>
 </context>
 <context>
@@ -208,28 +209,29 @@
     <message>
         <location filename="../mainwindow.ui" line="247"/>
         <source>Link length supported for SMF (100 m):</source>
-        <translation type="unfinished"></translation>
+        <translation>支持的单模光纤（SMF）链路长度（100 m）：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="287"/>
         <source>Link length supported for 50/125 OM3:</source>
-        <translation type="unfinished"></translation>
+        <translation>50/125 OM3支持的链路长度：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="324"/>
         <source>A0h byte 0x12. Shown and edited as OM4 optical reach in 10 m steps (e.g. 150 = 150 m).
 For a copper DAC cable the same byte holds the length in metres (1 m steps), so the real DAC length is the shown value divided by 10 (e.g. 30 shown = 3 m DAC).</source>
-        <translation type="unfinished"></translation>
+        <translation>A0h 字节 0x12。该字节用于表示并可编辑 OM4 光纤传输距离，单位为 10 米（例如：150 表示 150 米）。
+对于铜缆 DAC（直连电缆），同一字节表示的长度单位为 1 米；因此，DAC 的实际长度应为显示值除以 10（例如：显示 30，即表示 DAC 长度为 3 米）。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
         <source>Link length, OM4 / copper (DAC):</source>
-        <translation type="unfinished"></translation>
+        <translation>链路长度，OM4 / 铜缆 (DAC)：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="356"/>
         <source>m (OM4)</source>
-        <translation type="unfinished"></translation>
+        <translation>m (OM4)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="365"/>
@@ -295,77 +297,77 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     </message>
     <message>
         <location filename="../mainwindow.ui" line="776"/>
-        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="402"/>
         <source>Vendor PN/serial (A2h 0x80):</source>
-        <translation type="unfinished"></translation>
+        <translation>厂商部件号/序列号 (A2h 0x80)：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="795"/>
         <location filename="../mainwindow.ui" line="821"/>
-        <location filename="../mainwindow.cpp" line="756"/>
+        <location filename="../mainwindow.cpp" line="769"/>
         <source>Ubiquiti-proprietary A2h string. No vendor checksum is recomputed on write; a validating host may reject edits.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubiquiti 专有的 A2h 字符串。写入时不会重新计算厂商校验和；执行验证的主机可能会拒绝此类修改。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="802"/>
-        <location filename="../mainwindow.cpp" line="391"/>
+        <location filename="../mainwindow.cpp" line="404"/>
         <source>Vendor product name (A2h 0xC0):</source>
-        <translation type="unfinished"></translation>
+        <translation>厂商产品名称 (A2h 0xC0)：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="844"/>
         <source>Transceiver compliance:</source>
-        <translation type="unfinished"></translation>
+        <translation>收发器合规性：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="863"/>
         <source>1000BASE-LX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-LX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="870"/>
         <source>10GBASE-LR</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-LR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
         <source>Active DAC</source>
-        <translation type="unfinished"></translation>
+        <translation>Active DAC</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="901"/>
         <source>10GBASE-SR</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-SR</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="908"/>
         <source>1000BASE-SX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-SX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="915"/>
         <source>Passive DAC</source>
-        <translation type="unfinished"></translation>
+        <translation>Passive DAC</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="939"/>
         <source>1000BASE-CX</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-CX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="946"/>
         <source>10GBASE-ER</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-ER</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="970"/>
         <source>10GBASE-LRM</source>
-        <translation type="unfinished"></translation>
+        <translation>10GBASE-LRM</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="977"/>
         <source>1000BASE-T</source>
-        <translation type="unfinished"></translation>
+        <translation>1000BASE-T</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1025"/>
@@ -491,17 +493,17 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
     <message>
         <location filename="../mainwindow.ui" line="1492"/>
         <source>Scan module password</source>
-        <translation type="unfinished"></translation>
+        <translation>扫描模块密码</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1495"/>
         <source>Try known passwords and report which one unlocks writing (does not change module data)</source>
-        <translation type="unfinished"></translation>
+        <translation>尝试使用已知密码，并报告哪一个密码能解锁写入功能（此操作不会更改模块数据）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1498"/>
         <source>Ctrl+Shift+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Shift+P</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1506"/>
@@ -549,153 +551,163 @@ For a copper DAC cable the same byte holds the length in metres (1 m steps), so 
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="227"/>
+        <location filename="../mainwindow.cpp" line="240"/>
         <source>Opening file</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="231"/>
+        <location filename="../mainwindow.cpp" line="244"/>
         <source>Open file</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="239"/>
+        <location filename="../mainwindow.cpp" line="252"/>
         <source>Current file: </source>
         <translation>当前文件: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="538"/>
-        <location filename="../mainwindow.cpp" line="550"/>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="898"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1071"/>
-        <location filename="../mainwindow.cpp" line="1077"/>
-        <location filename="../mainwindow.cpp" line="1083"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="551"/>
+        <location filename="../mainwindow.cpp" line="563"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="911"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1090"/>
+        <location filename="../mainwindow.cpp" line="1096"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="245"/>
+        <location filename="../mainwindow.cpp" line="258"/>
         <source>The file size is incorrect!</source>
         <translation>文件大小不正确！</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="490"/>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="563"/>
         <source>Vendor ID is incorrect!</source>
         <translation>供应商 ID 不正确！</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="525"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>Saving file</source>
         <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="527"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Save file</source>
         <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>Error saving file!</source>
         <translation>保存文件时出错！</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="748"/>
+        <location filename="../mainwindow.cpp" line="761"/>
         <source>Binary data shown as hex bytes; edits are parsed as hex. Bytes you omit keep their original value.</source>
-        <translation type="unfinished"></translation>
+        <translation>二进制数据以十六进制字节形式显示；所作编辑将按十六进制进行解析。未作改动的字节将保持其原有数值。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="750"/>
+        <location filename="../mainwindow.cpp" line="763"/>
         <source>  [hex]</source>
-        <translation type="unfinished"></translation>
+        <translation>  [hex]</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="1009"/>
-        <location filename="../mainwindow.cpp" line="1111"/>
-        <location filename="../mainwindow.cpp" line="1175"/>
+        <location filename="../mainwindow.cpp" line="900"/>
+        <location filename="../mainwindow.cpp" line="1022"/>
+        <location filename="../mainwindow.cpp" line="1124"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
         <source>Programmer CH341a is not connected!</source>
         <translation>编程器 CH341a 未连接！</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="898"/>
+        <location filename="../mainwindow.cpp" line="911"/>
         <source>Error reading SFP module data.</source>
         <translation>读取 SFP 模块数据出错。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1029"/>
+        <location filename="../mainwindow.cpp" line="1042"/>
         <source>the saved password</source>
-        <translation type="unfinished"></translation>
+        <translation>已保存的密码</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1034"/>
-        <location filename="../mainwindow.cpp" line="1255"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
+        <location filename="../mainwindow.cpp" line="1268"/>
         <source>no password</source>
-        <translation type="unfinished"></translation>
+        <translation>无密码</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1058"/>
+        <location filename="../mainwindow.cpp" line="1071"/>
         <source>password &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>密码&quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1066"/>
-        <location filename="../mainwindow.cpp" line="1122"/>
+        <location filename="../mainwindow.cpp" line="1079"/>
+        <location filename="../mainwindow.cpp" line="1135"/>
         <source>Error writing SFP module data.</source>
         <translation>写入 SFP 模块数据时出错。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1068"/>
+        <location filename="../mainwindow.cpp" line="1081"/>
         <source>Write</source>
-        <translation type="unfinished"></translation>
+        <translation>Посмотреть в словаре
+写</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1069"/>
+        <location filename="../mainwindow.cpp" line="1082"/>
         <source>Write verified: %1 bytes written successfully (%2).</source>
-        <translation type="unfinished"></translation>
+        <translation>写入已验证：成功写入 %1 字节 (%2)。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1072"/>
+        <location filename="../mainwindow.cpp" line="1085"/>
         <source>Verify failed: %1 bytes differ using the saved password. The module did not unlock with it.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>验证失败：使用已保存的密码时，有 %1 个字节的差异。该模块无法使用此密码解锁。
+
+差异范围：
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1078"/>
+        <location filename="../mainwindow.cpp" line="1091"/>
         <source>Verify failed: %1 bytes differ after trying every known password. The module uses an unlock scheme this tool does not support.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>验证失败：尝试所有已知密码后，仍有 %1 个字节的差异。该模块使用的解锁方案不受此工具支持。
+
+差异范围：
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1084"/>
+        <location filename="../mainwindow.cpp" line="1097"/>
         <source>Verify failed: %1 bytes differ writing with no password. Try selecting a saved password or &quot;Try known passwords&quot;.
 
 Differing ranges:
 %2</source>
-        <translation type="unfinished"></translation>
+        <translation>验证失败：未输入密码时写入的数据有 %1 字节的差异。请尝试选择已保存的密码或“尝试已知密码”。
+
+不同范围：
+%2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1149"/>
-        <location filename="../mainwindow.cpp" line="1210"/>
-        <location filename="../mainwindow.cpp" line="1214"/>
+        <location filename="../mainwindow.cpp" line="1162"/>
+        <location filename="../mainwindow.cpp" line="1223"/>
+        <location filename="../mainwindow.cpp" line="1227"/>
         <source>Scan password</source>
-        <translation type="unfinished"></translation>
+        <translation>扫描密码</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1150"/>
+        <location filename="../mainwindow.cpp" line="1163"/>
         <source>This will try to find the module&apos;s write-unlock password.
 
 It repeatedly writes to the module: for no password and then each known password it flips one reserved byte (A0h 0x3E), checks whether the change took, and restores the original value. It stops at the first password that unlocks write access.
@@ -703,64 +715,74 @@ It repeatedly writes to the module: for no password and then each known password
 If a write succeeds the byte is restored, so the module&apos;s data should be unchanged. However, this does write to the module, so a power loss or disconnect mid-scan could leave that byte altered. Make sure the correct module is connected to the CH341a programmer.
 
 Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>此操作将尝试寻找该模块的“写入解锁”密码。
+
+程序会反复向模块执行写入操作：在不使用密码以及尝试每个已知密码的情况下，修改一个保留字节（地址 A0h，偏移量 0x3E），检查修改是否生效，随后将该字节恢复为原始值。当找到能解锁写入权限的密码时，程序即会停止。
+
+若写入成功，该字节会被还原，因此模块内的数据应保持不变。但由于此过程确实涉及对模块的写入操作，若在扫描过程中发生断电或连接中断，可能会导致该字节被篡改。请确保已将正确的模块连接至 CH341a 编程器。
+
+是否继续？</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1163"/>
+        <location filename="../mainwindow.cpp" line="1176"/>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>是的</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1164"/>
+        <location filename="../mainwindow.cpp" line="1177"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>不</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1193"/>
+        <location filename="../mainwindow.cpp" line="1206"/>
         <source>no password (module is already write-unlocked)</source>
-        <translation type="unfinished"></translation>
+        <translation>无需密码（模块已解除写入锁定）</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1200"/>
+        <location filename="../mainwindow.cpp" line="1213"/>
         <source>&quot;%1&quot; (0x%2)</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; (0x%2)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1208"/>
+        <location filename="../mainwindow.cpp" line="1221"/>
         <source>Error accessing the SFP module.</source>
-        <translation type="unfinished"></translation>
+        <translation>访问 SFP 模块时出错。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1211"/>
+        <location filename="../mainwindow.cpp" line="1224"/>
         <source>Write access unlocked with %1.
 
 The module&apos;s stored data was not changed.</source>
-        <translation type="unfinished"></translation>
+        <translation>已通过 %1 解锁写入权限。
+
+该模块所存储的数据未发生变更。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1215"/>
+        <location filename="../mainwindow.cpp" line="1228"/>
         <source>None of the %1 known passwords unlocked write access.
 
 The module uses an unlock scheme this tool does not support.</source>
-        <translation type="unfinished"></translation>
+        <translation>已知的 %1 个密码均未能解锁写入权限。
+
+该模块所采用的解锁机制不受本工具支持。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1253"/>
+        <location filename="../mainwindow.cpp" line="1266"/>
         <source>known passwords</source>
-        <translation type="unfinished"></translation>
+        <translation>已知密码</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1254"/>
+        <location filename="../mainwindow.cpp" line="1267"/>
         <source>saved password</source>
-        <translation type="unfinished"></translation>
+        <translation>已保存的密码</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1278"/>
+        <location filename="../mainwindow.cpp" line="1291"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1283"/>
+        <location filename="../mainwindow.cpp" line="1296"/>
         <source>Not connected</source>
         <translation>未连接</translation>
     </message>
