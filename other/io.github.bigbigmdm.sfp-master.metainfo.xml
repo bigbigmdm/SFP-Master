@@ -62,7 +62,7 @@
   <url type="homepage">https://github.com/bigbigmdm/SFP-Master/tree/main</url>
   <url type="contact">https://github.com/bigbigmdm</url>
   <url type="bugtracker">https://github.com/bigbigmdm/SFP-Master/issues</url> 
-  <launchable type="desktop-id">SFP-Master.desktop</launchable>
+  <launchable type="desktop-id">io.github.bigbigmdm.sfp-master.desktop</launchable>
   <provides>
      <mediatype>application/octet-stream</mediatype>
      <modalias>usb:v1A86p5512d*</modalias>
@@ -72,7 +72,7 @@
   </developer>  
   <screenshots>
     <screenshot type="default">
-	  <caption>Main screen.</caption>
+      <caption>Main screen.</caption>
       <caption xml:lang="de">Hauptbildschirm.</caption>
       <caption xml:lang="es">Pantalla principal.</caption>
       <caption xml:lang="hu">Főképernyő.</caption>
@@ -80,52 +80,62 @@
       <caption xml:lang="pt_BR">Tela principal.</caption>
       <caption xml:lang="ru">Главный экран.</caption>
       <caption xml:lang="uk">Головний екран.</caption>
-      <caption xml:lang="zn_CH">主屏幕。</caption>	
-      <image type="source" width="1024" height="715">https://github.com/bigbigmdm/SFP-Master/raw/main/img/screenshot.png</image>
+      <caption xml:lang="zn_CH">主屏幕。</caption>    
+      <image type="source" width="1024" height="715">https://raw.githubusercontent.com/bigbigmdm/SFP-Master/raw/main/img/screenshot.png</image>
     </screenshot>
   </screenshots>
   <releases>
+  <release version="1.1.2" date="2026-11-17" urgency="medium">
+    <description>
+         <p>Added: Factory passwords scanner.</p>
+         <p>Added: parsing of manufacturer name and serial number.</p>
+         <p>Added: parsing of transceiver standards.</p>
+         <p>Added: Icons in various sizes.</p>
+         <p>Changed names of meta and desktop files with freedesktop specifications.</p>
+         <p>Removed old icon folder /pixmaps</p>
+    </description>
+  </release>
   <release version="1.1.1" date="2026-04-14" urgency="medium">
     <description>
-	     <p>I2C driver changed.</p>
-	     <p>Fix: UDEV and LIBUSB pathes, used PKGCONFIG.</p>
-	     <p>Mutltiplatform translation path added.</p>
-	     <p>The option to switch Qt versions has been added</p>
+         <p>I2C driver changed.</p>
+         <p>Fix: UDEV and LIBUSB pathes, used PKGCONFIG.</p>
+         <p>Mutltiplatform translation path added.</p>
+         <p>The option to switch Qt versions has been added</p>
     </description>
   </release>
   <release version="1.0.7" date="2025-09-11" urgency="medium">
     <description>
-	     <p>Migrated from QT5 to QT6.</p>
+         <p>Migrated from QT5 to QT6.</p>
     </description>
   </release>
   <release version="1.0.6" date="2025-03-04" urgency="medium">
     <description>
-	     <p>Fixed memory leaks.</p>
+         <p>Fixed memory leaks.</p>
     </description>
   </release>
-  <release version="1.0.5" date="2025-01-08" urgency="medium">	  
+  <release version="1.0.5" date="2025-01-08" urgency="medium">      
     <description>
-	     <p>Added German translation by wucke13. Fixed minor bugs in the main interface.</p>
+         <p>Added German translation by wucke13. Fixed minor bugs in the main interface.</p>
     </description>
   </release>
-  <release version="1.0.4" date="2024-12-18" urgency="medium">	  
+  <release version="1.0.4" date="2024-12-18" urgency="medium">      
     <description>
-	     <p>Optimization for Ubuntu and Debian.</p>
+         <p>Optimization for Ubuntu and Debian.</p>
     </description>
   </release>
-  <release version="1.0.3" date="2024-12-17" urgency="medium">	  
+  <release version="1.0.3" date="2024-12-17" urgency="medium">      
     <description>
-	     <p>Added Hungarian translation by blackPantherOS. Fixed minor bugs in the main interface.</p>
+         <p>Added Hungarian translation by blackPantherOS. Fixed minor bugs in the main interface.</p>
     </description>
   </release>
-  <release version="1.0.2" date="2024-12-12" urgency="medium">	  
+  <release version="1.0.2" date="2024-12-12" urgency="medium">      
     <description>
-	     <p>Added Italian translation by Giovanni Scafora. Fixed errors in RPM spec file. Added changelog file.</p>
+         <p>Added Italian translation by Giovanni Scafora. Fixed errors in RPM spec file. Added changelog file.</p>
     </description>
-  </release>	  
-  <release version="1.0.1" date="2024-12-09" urgency="medium">	  
+  </release>      
+  <release version="1.0.1" date="2024-12-09" urgency="medium">      
     <description>
-	     <p>This stable release fixes bugs, updated translations.</p>
+         <p>This stable release fixes bugs, updated translations.</p>
     </description>
   </release>
   </releases>  

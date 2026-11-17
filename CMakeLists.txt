@@ -130,8 +130,14 @@ else()
 endif()
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/SFP-Master.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps")
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
+#install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/img/SFP-Master.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/pixmaps")
+    # Installing different sizes icons in Linux
+    foreach(SIZE 16x16 22x22 24x24 32x32 48x48 64x64 128x128 256x256 512x512 scalable)
+        install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/img/icons/${SIZE}/"
+                DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${SIZE}/apps"
+                FILES_MATCHING PATTERN "*.png" PATTERN "*.svg")
+    endforeach()
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/io.github.bigbigmdm.sfp-master.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/SFP-Master.1.gz" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/man/man1")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/io.github.bigbigmdm.sfp-master.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo")
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/other/index.html" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/doc/sfp-master/html")
