@@ -1,0 +1,41 @@
+<svg width="512" height="512" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+<style>
+.dim{stroke:#333;fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round;}
+</style>
+<defs>
+<radialGradient id="RadialGradient1">
+<stop offset="0%" stop-color="#E9F3F7" />
+<stop offset="100%" stop-color="#B3D6E4" />
+</radialGradient>
+</defs>
+<rect x="7" y="7" width="286" height="286" stroke="#649FBC" fill="none" stroke-width="4" rx="50" ry="50"/>
+<rect x="8" y="8" width="284" height="284" stroke="#ccc" fill="url(#RadialGradient1)" stroke-width="4" rx="50" ry="50"/>
+<rect x="10" y="10" width="280" height="280" stroke="#4181A5" fill="none" stroke-width="2" rx="50" ry="50"/>
+<path d="M38 240v-20l24 -24l44 22l-20 20v30z"  stroke="#222" stroke-width="2" fill="#222" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116 219v31l114-80v-2l29-20v-11l6-4v-18z"  stroke="#c4c4c4" stroke-width="2" fill="#c4c4c4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116 219l-28 -14l37-24l33 2l102-71l5 3z"  stroke="#808080" stroke-width="2" fill="#808080" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M88 205l-21 -12l152-102l5 3l-98 67l-1 21z"  stroke="#808080" stroke-width="2" fill="#808080" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M224 94v2l-98 68l2 -2z"  stroke="#c4c4c4" stroke-width="2" fill="#c4c4c4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M224 96l32 17l-99 68l-31-1l0.5-16z"  stroke="#fff" stroke-width="1" fill="#fff" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M174 196l6 -4v-6l-6 4z"  stroke="#000" stroke-width="2" fill="#000" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M223 167l5 -3"  stroke="#000" stroke-width="2" fill="#ccc" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M223 170l5 -3"  stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116 224l8 -6"  stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116 232l8 -6"  stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116 240l8 -6"  stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116 248l8 -6"  stroke="#000" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M110 256v6l6 -4v-40l-54-27l-17 11l8 4l9-6l13 7l-9 6l11 6l9-6l13 7l-9 6l8 4z"  stroke="#666" stroke-width="2" fill="#666" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M110 256v6l6 -4v-40l-19 12a15 15 0 0 1 -10 14v28l23-16z"  stroke="#ccc" stroke-width="2" fill="#ccc" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M90 226l7 5a15 15 0 0 1 -10 14l-7-5a15 15 0 0 0 10 -14"  stroke="#aaa" stroke-width="2" fill="#aaa" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M80 240l7 5v27l-52-30v-25l7 5v16l38 22z"  stroke="#999" stroke-width="2" fill="#999" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M35 216a15 15 0 0 0 10 -14l7 4a15 15 0 0 1 -10 16z"  stroke="#aaa" stroke-width="2" fill="#aaa" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M58 244v-12l-3-2v-3l10 6v3l-3-2v12z"  stroke="#aaa" stroke-width="2" fill="#aaa" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M56 227l10 6a15 15 0 0 0 10 -14l-10-6a15 15 0 0 1 -10 14z"  stroke="#aaa" stroke-width="2" fill="#aaa" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M66 233a15 15 0 0 0 10 -14l10 -6v11l-20 12z"  stroke="#ccc" stroke-width="2" fill="#ccc" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M66 237l-4 -3v12l18 -11v-7z"  stroke="#555" stroke-width="2" fill="#555" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M106 176l-17 11l8 4l17 -11"  stroke="#555" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M125 188l-17 11l8 4l17 -11"  stroke="#555" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="m 135 190 q 15 22 30 0 l 45 -60 q 5 -15 -10 -20 l -20 0 c -10 -62 32 -88 85 -49 c 20 14 30 9 5 -11 c -65 -50 -165 -45 -150 60 l -20 0 q -15 5 -10 20 l 45 60" stroke="#f22" stroke-width="4" fill="#f33" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="m 140 190 l -47 -62 q -5 -15 14 -15 l 17 0 c -17 -95 68 -114 143 -62 c 20 14 23 24 -7 4 c -80 -50 -92 30 -83 58 l 21 0 q 14 3 8 17 l -46 60 q -10 14 -20 0" stroke="#f4bcba" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
+
