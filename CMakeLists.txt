@@ -7,7 +7,83 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-project(SFP-Master LANGUAGES C CXX)
+set(VERSION_MAJOR 1 CACHE STRING "Major version")
+set(VERSION_MINOR 1 CACHE STRING "Minor version")
+set(VERSION_PATCH 1 CACHE STRING "Patch version")
+
+project(SFP-Master
+    VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+    LANGUAGES C CXX
+)
+
+if(DEFINED ENV{MACPORTS_PORTFILE_DIR} OR DEFINED ENV{PORTNAME})
+    set(BUILD_ON_MACPORTS TRUE)
+else()
+    if(CMAKE_INSTALL_PREFIX MATCHES "^/opt/local" OR CMAKE_PREFIX_PATH MATCHES "/opt/local")
+        set(BUILD_ON_MACPORTS TRUE)
+    else()
+        set(BUILD_ON_MACPORTS FALSE)
+    endif()
+endif()
+
+if(BUILD_ON_MACPORTS)
+    add_compile_definitions(BUILD_ON_MACPORTS=1)
+endif()
+
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    # find PlistBuddy even if it is not in the standard dir
+    find_program(PLISTBUDDY_EXECUTABLE
+        NAMES PlistBuddy
+        HINTS
+            ENV PATH
+            /usr/libexec
+        REQUIRED
+    )
+    message(STATUS "Found PlistBuddy: ${PLISTBUDDY_EXECUTABLE}")
+endif()
+
+function(configure_macos_bundle target_name target_icon target_locals)
+    message(STATUS "Configuring macOS Application Bundle ${target_name}.app v${SFP-Master_VERSION} on Darwin")
+
+    # Define paths for the source image and icns file
+    message(STATUS "CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}/${target_icon}")
+    set(TARGET_ICNS "${CMAKE_CURRENT_SOURCE_DIR}/${target_icon}")
+
+    # Set target properties for the macOS application bundle
+    set_target_properties(${target_name} PROPERTIES
+        MACOSX_BUNDLE TRUE
+        MACOSX_BUNDLE_BUNDLE_NAME "${target_name}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "com.bigbigmdm.${PROJECT_NAME}"
+        MACOSX_BUNDLE_ICON_FILE "${target_name}.icns"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_COPYRIGHT "Copyright © 2023-2026 Mikhail Medvedev"
+    )
+
+    # App icons
+    # Ensure the .icns file is placed into the bundle's Resources directory
+    set_source_files_properties("${TARGET_ICNS}" PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+
+    # Link the icon file to the target so CMake tracks and triggers the custom command
+    target_sources(${target_name} PRIVATE "${TARGET_ICNS}")
+
+    # adding locals via PlistBuddy
+    set(pb_args
+        -c "Add :CFBundleLocalizations array"
+    )
+    foreach(local IN LISTS target_locals)
+        list(APPEND pb_args -c "Add :CFBundleLocalizations: string ${local}")
+    endforeach()
+
+    add_custom_command(TARGET ${target_name} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E echo "Info.plist = $<TARGET_BUNDLE_CONTENT_DIR:${target_name}>/Info.plist"
+        COMMAND ${CMAKE_COMMAND} -E echo "Running PlistBuddy …"
+        COMMAND "${PLISTBUDDY_EXECUTABLE}" ${pb_args}
+                "$<TARGET_BUNDLE_CONTENT_DIR:${target_name}>/Info.plist"
+        COMMENT "CFBundleLocalizations → ${target_locals}"
+        VERBATIM
+    )
+endfunction()
 
 # --- Force /usr prefix on Linux by default ---
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
@@ -44,6 +120,8 @@ pkg_check_modules(LIBUSB REQUIRED IMPORTED_TARGET libusb-1.0)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(CMAKE_INSTALL_DO_STRIP FALSE)
 endif()
+
+get_filename_component(PROJECT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
 
 # Set the CMAKE_INSTALL_BINDIR to /bin if not specified
 if(NOT DEFINED CMAKE_INSTALL_BINDIR)
@@ -124,7 +202,7 @@ endif()
 add_custom_target(translations DEPENDS ${QM_FILES})
 
 # --- Executable target ---
-add_executable(${PROJECT_NAME}
+add_executable(${PROJECT_NAME} MACOSX_BUNDLE
     main.cpp
     mainwindow.cpp
     ch34x_i2c.c
@@ -150,16 +228,16 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     configure_macos_bundle(${PROJECT_NAME}
         "img/icons/apple/${PROJECT_NAME}.icns"
         "${BUNDLE_LOCALIZATIONS}"
-    )    
+    )
     if(BUILD_ON_MACPORTS)
         set(BUNDLE_DEST "/Applications/MacPorts")
     else()
         set(BUNDLE_DEST "/Applications")
-    endif()    
+    endif()
 endif()
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories(${PROJECT_NAME} PRIVATE ${LIBUSB_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
+#target_include_directories(${PROJECT_NAME} PRIVATE "${LIBUSB_INCLUDE_DIRS}")
 
 if (QT_VERSION_MAJOR EQUAL 5)
     target_link_libraries(${PROJECT_NAME}
@@ -183,12 +261,11 @@ install(TARGETS ${PROJECT_NAME}
 )
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    # Automatically bundle database and .qm files inside .app/Contents/share/imsprog for local installation
-    set_source_files_properties(${QM_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "share/imsprog")
-    set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/database/IMSProg.Dat" PROPERTIES MACOSX_PACKAGE_LOCATION "share/imsprog")    
+    # Automatically bundle database and .qm files inside .app/Contents/share/${PROJECT_NAME} for local installation
+    set_source_files_properties(${QM_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION "share/${PROJECT_NAME}")
 else()
     # --- Specific rules for Linux / Flatpak ---
-    
+
     # Installing different sizes icons in Linux
     foreach(SIZE 16x16 22x22 24x24 32x32 48x48 64x64 128x128 256x256 512x512 scalable)
         install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/img/icons/${SIZE}/"
