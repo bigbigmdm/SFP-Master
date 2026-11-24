@@ -55,3 +55,6 @@ compile_commands.json
 
 # Prevent build versioning
 build/
+
+# Mac specific metadata files
+.DS_Store
