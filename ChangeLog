@@ -11,3 +11,7 @@
 - Ver. 1.1.1 - I2C driver changed. Fix: UDEV and LIBUSB pathes, used PKGCONFIG. 
 Mutltiplatform translation path added. The option to switch Qt versions has been
  added.
+- Ver. 1.1.2 - Added: factory passwords scanner, parsing of manufacturer name 
+and serial number, transceiver standards. Added icons in various sizes. Changed 
+names of meta and desktop files with freedesktop specifications. Removed old 
+icon folder /pixmaps.

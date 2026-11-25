@@ -125,37 +125,60 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.xml
 %doc README.md 
 %_docdir/sfp-master/
 %_bindir/SFP-Master
-%_datadir/applications/SFP-Master.desktop
+%_datadir/applications/io.github.bigbigmdm.sfp-master.desktop
 %_datadir/metainfo/*.xml
 /usr/lib/udev/rules.d/*.rules
-%_datadir/pixmaps/SFP-Master.png
 %_datadir/man/man1/*.1.*
+%{_datadir}/icons/hicolor/*/apps/io.github.bigbigmdm.sfp-master.png
+%{_datadir}/icons/hicolor/*/apps/io.github.bigbigmdm.sfp-master.svg
 %_datadir/sfp-master/*.qm
 %license LICENSE
 
 %changelog
-* Wed Apr 16 2026 Mikhail Medvedev 1.1.1-1
+* Wed Nov 25 2026 Mikhail Medvedev 1.1.1-2
+- Added factory passwords scanner
+- Added parsing of manufacturer name and serial number
+- Added parsing of transceiver standards
+- Added icons in various sizes
+- Changed names of meta and desktop files with freedesktop specifications
+- Removed old icon folder /pixmaps
+
+* Fri Jul 17 2026 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_45_Mass_Rebuild
+
+* Fri Jul 03 2026 Mikhail Medvedev 1.1.1-2
+- Release bump
+
+* Thu Apr 16 2026 Mikhail Medvedev 1.1.1-1
 - Added mutltiplatform translation path
 - I2C driver has been changed
 - Added the option to switch Qt versions
 - Fixed UDEV and LIBUSB pathes, used PKGCONFIG
+
 * Thu Sep 11 2025 Mikhail Medvedev 1.0.7-1
 - Ported from QT5 to QT6
+
 * Fri Jul 25 2025 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_43_Mass_Rebuild
+
 * Tue Mar 04 2025 Mikhail Medvedev 1.0.6-1
 - Fixed memory leaks
+
 * Wed Jan 08 2025 Mikhail Medvedev 1.0.5-1
 - Added German translation by Wucke13
 - Fixed minor bugs in the main interface
+
 * Wed Dec 18 2024 Mikhail Medvedev 1.0.4-1
 - Optimization for Ubuntu and Debian
+
 * Tue Dec 17 2024 Mikhail Medvedev 1.0.3-1
 - Added Hungarian translation by Charles K Barcza
 - Fixed minor bugs in the main interface
+
 * Thu Dec 12 2024 Mikhail Medvedev 1.0.2-1
 - Added Italian translation by Giovanni Scafora
 - Fix errors in RPM spec file
 - Added changelog file
+
 * Tue Dec 10 2024 Mikhail Medvedev 1.0.1-1
 - initial release

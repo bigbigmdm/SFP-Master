@@ -9,7 +9,7 @@ set(CMAKE_AUTOUIC ON)
 
 set(VERSION_MAJOR 1 CACHE STRING "Major version")
 set(VERSION_MINOR 1 CACHE STRING "Minor version")
-set(VERSION_PATCH 1 CACHE STRING "Patch version")
+set(VERSION_PATCH 2 CACHE STRING "Patch version")
 
 project(SFP-Master
     VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
